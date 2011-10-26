@@ -51,6 +51,12 @@
             <include>**/*.properties</include>
           </includes>
         </fileSet>
+        <fileSet filtered="false" encoding="UTF-8">
+          <directory>src/test/resources</directory>
+          <includes>
+            <include>**/*.xml</include>
+          </includes>
+        </fileSet>		
       </fileSets>
     </module>
     <module id="${rootArtifactId}-web" dir="__rootArtifactId__-web" name="${rootArtifactId}-web">
