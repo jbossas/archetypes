@@ -13,6 +13,12 @@
     limitations under the License.
 -->
 <archetype-descriptor name="multi-javaee6-archetype">
+
+   <requiredProperties>
+      <requiredProperty key="enterprise">
+        <defaultValue>false</defaultValue>
+      </requiredProperty> 
+   </requiredProperties>
    <fileSets>
     <fileSet filtered="true" packaged="false">
       <directory></directory>
