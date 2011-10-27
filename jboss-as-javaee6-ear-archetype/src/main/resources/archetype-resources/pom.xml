@@ -50,7 +50,25 @@ $symbol_escape = '\' )
          <!-- JBoss distributes a complete set of Java EE 6 APIs including 
             a Bill of Materials (BOM). A BOM specifies the versions of a "stack" (or 
             a collection) of artifacts. We use this here so that we always get the correct 
-            versions of artifacts. Here we use the jboss-javaee-web-6.0 stack (you can 
+            versions of artifacts. -->#if ($useJBossEnterprise == "true" || $useJBossEnterprise == "y" || $useJBossEnterprise == "yes" )
+         <!-- Here we use the EAP6 BOM POM -->
+         <dependency>
+            <groupId>org.jboss.component.management</groupId>
+            <artifactId>jboss-component-version-master</artifactId>
+            <version>6.0.0-redhat-0</version>
+            <type>pom</type>
+            <scope>import</scope>
+         </dependency>
+         <!-- defining hamcrest here as a workaround for https://issues.jboss.org/browse/JBPAPP-7442 -->
+         <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>1.1</version>
+            <scope>test</scope>
+         </dependency>
+         #else 
+         
+         <!-- Here we use the jboss-javaee-web-6.0 stack (you can 
             read this as the JBoss stack of the Java EE Web Profile 6 APIs), and we use 
             version 2.0.0.Beta1 which is the latest release of the stack. You can actually 
             use this stack with any version of JBoss AS that implements Java EE 6, not 
@@ -62,6 +80,7 @@ $symbol_escape = '\' )
             <type>pom</type>
             <scope>import</scope>
          </dependency>
+         #end
 
          <!-- JSR-303 (Bean Validation) Implementation -->
          <!-- Provides portable constraints such as @Email -->
