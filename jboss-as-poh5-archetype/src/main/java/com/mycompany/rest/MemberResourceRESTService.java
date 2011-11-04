@@ -10,11 +10,14 @@ import javax.enterprise.event.Event;
 import javax.enterprise.inject.New;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
+import javax.validation.ValidationException;
 import javax.validation.Validator;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.mycompany.model.Member;
 
@@ -59,7 +62,9 @@ public class MemberResourceRESTService {
 
    @POST
    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-   public void createMember(@FormParam("name") String name, @FormParam("email") String email, @FormParam("phone") String phone) {
+   public Response createMember(@FormParam("name") String name, @FormParam("email") String email, @FormParam("phone") String phone) {
+      Response.ResponseBuilder builder = null;
+
       Member member = new Member();
       member.setName(name);
       member.setEmail(email);
@@ -72,13 +77,40 @@ public class MemberResourceRESTService {
 
          //TODO handle validation errors
 
+
+         //Check the uniqueness of the email address
+         //TODO centralize this because the JSF impl needs this too
+
+         //if (!results.isEmpty()) {
+         if (emailAlreadyExists(member.getEmail())){
+            //throw exception and handle the bad request
+            throw new ValidationException("Someones already used this email.");
+         }
+
          log.info("Registering " + member.getName());
          em.persist(member);
          memberEventSrc.fire(member);
-      }catch (Exception e){
+
+         builder = Response.ok();
+      } catch (ValidationException e) {
          //TODO Catch existing email exception
          System.out.println("%%%%%%%%%%" + e);
+
+         builder = Response.status(Response.Status.CONFLICT);
+         builder.header("error.msg", e.getMessage());
       }
 
+      return builder.build();
+   }
+
+   public boolean emailAlreadyExists(String value) {
+      Query checkEmailExists = em.createQuery(" SELECT COUNT(b.email) FROM Member b WHERE b.email=:emailparam");
+      checkEmailExists.setParameter("emailparam", value);
+      long matchCounter = 0;
+      matchCounter = (Long) checkEmailExists.getSingleResult();
+      if (matchCounter > 0) {
+         return true;
+      }
+      return false;
    }
 }

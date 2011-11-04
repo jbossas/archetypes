@@ -32,8 +32,9 @@
                   $('#members').empty()
                         .append(buildMemberRows($members));
 
-               }).error(function() {
-                  console.log("error");
+               }).error(function(error) {
+                  var errStatus = error.status;
+                  console.log("error updating table -" + errStatus);
                });
       }
 
@@ -43,13 +44,27 @@
 
          $('#reg').submit(function(event) {
             event.preventDefault();
+
+            //clear existing error msgs
+            $('span.invalid').text('');
+
             var formValues = $(this).serialize();
             $.post('rest/members', formValues,
                   function(data) {
                      console.log("Request posted");
                      updateMemberTable();
-                  }).error(function(data) {
-                     console.log("Error posting");
+                  }).error(function(error) {
+                     var errStatus = error.status;
+
+                     if (error.status == 409) {
+                        console.log("error - duplicate email - " + error.getResponseHeader('error.msg'));
+                        $('<span class="invalid">' + error.getResponseHeader('error.msg') + '</span>').insertAfter($('#email'));
+
+                     } else if (error.status == 400) {
+                        console.log("error - validation error");
+                     } else {
+                        console.log("error - unknown server issue");
+                     }
                   });
          });
 
@@ -70,12 +85,13 @@
 
       <form name="reg" id="reg">
          <fieldset>
+            <legend>Register a user:</legend>
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>
+            <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/><br/>
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" placeholder="Your Email" required/>
+            <input type="email" name="email" id="email" placeholder="Your Email" required/><br/>
             <label for="phone">Phone #:</label>
-            <input type="tel" name="phone" id="phone" pattern="[0-9]{10,12}" placeholder="Your Phone #" required/>
+            <input type="tel" name="phone" id="phone" pattern="[0-9]{10,12}" placeholder="Your Phone #" required/><br/>
             <input type="submit" name="register" id="register" value="Register"/>
          </fieldset>
       </form>
