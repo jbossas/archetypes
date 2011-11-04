@@ -9,9 +9,9 @@
    <script type="text/javascript">
       function buildMemberRows(members) {
          var html = '';
-         $(members).find('member').each(function() {
+         $(members).each(function() {
             var $member = $(this);
-            html = '<tr class="member">';
+            html += '<tr class="member">';
             var memId = $member.find('id').text();
             html += '<td>' + memId + '</td>';
             html += '<td>' + $member.find('name').text() + '</td>';
@@ -23,13 +23,14 @@
       }
 
       function updateMemberTable() {
-         var jqxhr = $.get('rest/members',
+         $.get('rest/members',
                function(data) {
-                  //Member list retrieved - update the table
-                  //TODO Clear table
-                  console.log("Member count: " + $(data).length);
+                  var $members = $(data).find('member');
 
-                  $('#members').append(buildMemberRows($(data)));
+                  console.log("Member count: " + $members.length);
+
+                  $('#members').empty()
+                        .append(buildMemberRows($members));
 
                }).error(function() {
                   console.log("error");
@@ -70,11 +71,11 @@
       <form name="reg" id="reg">
          <fieldset>
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name"/>
+            <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email"/>
+            <input type="email" name="email" id="email" placeholder="Your Email" required/>
             <label for="phone">Phone #:</label>
-            <input type="tel" name="phone" id="phone"/>
+            <input type="tel" name="phone" id="phone" pattern="[0-9]{10,12}" placeholder="Your Phone #" required/>
             <input type="submit" name="register" id="register" value="Register"/>
          </fieldset>
       </form>
