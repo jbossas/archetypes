@@ -29,3 +29,25 @@ function updateMemberTable() {
          });
 }
 
+function registerMember(formValues) {
+   //clear existing error msgs
+   $('span.invalid').text('');
+
+   $.post('rest/members', formValues,
+         function(data) {
+            console.log("Member registered");
+            updateMemberTable();
+         }).error(function(error) {
+            var errStatus = error.status;
+
+            if (error.status == 409) {
+               console.log("error - duplicate email - " + error.getResponseHeader('error.msg'));
+               $('<span class="invalid">' + error.getResponseHeader('error.msg') + '</span>').insertAfter($('#email'));
+
+            } else if (error.status == 400) {
+               console.log("error - validation error");
+            } else {
+               console.log("error - unknown server issue");
+            }
+         });
+}

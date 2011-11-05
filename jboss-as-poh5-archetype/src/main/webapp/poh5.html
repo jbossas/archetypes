@@ -3,34 +3,13 @@
 <head>
    <title>Java EE 6 POH5 Starter Application</title>
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
    <link type="text/css" rel="stylesheet" href="resources/css/screen.css"/>
+
    <script type="text/javascript" src="resources/js/jquery-1.6.4.min.js"></script>
    <script type="text/javascript" src="resources/js/app.js"></script>
 
    <script type="text/javascript">
-      function registerMember(formValues) {
-         //clear existing error msgs
-         $('span.invalid').text('');
-
-         $.post('rest/members', formValues,
-               function(data) {
-                  console.log("Member registered");
-                  updateMemberTable();
-               }).error(function(error) {
-                  var errStatus = error.status;
-
-                  if (error.status == 409) {
-                     console.log("error - duplicate email - " + error.getResponseHeader('error.msg'));
-                     $('<span class="invalid">' + error.getResponseHeader('error.msg') + '</span>').insertAfter($('#email'));
-
-                  } else if (error.status == 400) {
-                     console.log("error - validation error");
-                  } else {
-                     console.log("error - unknown server issue");
-                  }
-               });
-      }
-
       $(document).ready(function() {
          updateMemberTable();
 
@@ -49,13 +28,29 @@
    <section>
       <h1>Welcome to JBoss AS 7!</h1>
 
-      <p>You have successfully deployed a Java EE 6 POH5 web application
+      <p>You have successfully deployed a Java EE 6 web application
          on JBoss AS 7.</p>
 
-      <article id="register_art">
-         <h2>Register (Bean Validation example)</h2>
+      <p>This is built using a technique called
+         <strong>P</strong>lain <strong>O</strong>ld <strong>H</strong>TML<strong>5</strong> (<strong>POH5</strong>).
+      </p>
 
-         <p>Enforces annotation-based constraints defined on the model class.</p>
+      <ul id="features">
+         <li class="feature">Pure HTML client</li>
+         <li class="feature">JAX-RS GET & POST endpoints for all server interactions</li>
+         <li class="feature">HTML5 elements used for page structure</li>
+         <li class="feature">HTML5 input type, form validation, and features</li>
+         <li class="feature">CSS3 selectors used for styling</li>
+         <li class="feature">Validation & error handling of JAX-RS calls</li>
+         <li class="feature">jQuery used to assist</li>
+      </ul>
+
+      <article id="register_art">
+         <h2>Member Registration (HTML5 Form Updates</h2>
+
+         <p>Enforces client site validation with HTML5 based constraints that match the annotation-based constraints
+            defined on the model class.
+         </p>
 
          <form name="reg" id="reg">
             <fieldset>
@@ -74,6 +69,11 @@
 
       <article id="member_art">
          <h2>Current Members</h2>
+
+         <p>This table is populated and constructed using restful GET calls to the server, and uses CSS3 based
+            selectors for styling.
+         </p>
+
          <table id="mem_tbl">
             <thead>
             <tr>
@@ -108,6 +108,16 @@
          <li><a href="jboss.org/jbossas">JBoss AS 7 project
             site</a></li>
       </ul>
+      <p>Discover more about JBoss and the POH5 architecture.  See why JBoss is best server for your advanced client
+         applications!</p>
+      <ul>
+         <li><a href="http://jboss.org">Project Site</a></li>
+         <li><a href="http://jboss.org">POH5</a></li>
+         <li><a href="http://jboss.org">Mobile Web</a></li>
+         <li><a href="http://jboss.org">Mobile Apps</a></li>
+         <li><a href="http://jboss.org">User Forums</a></li>
+         <li><a href="http://jboss.org">issue tracker</a></li>
+      </ul>
       <p>Learn about the Java EE 6 platform and the component
          model it provides.</p>
       <ul>
@@ -118,31 +128,9 @@
          <li><a href="https://sites.google.com/site/cdipojo/get-started">CDI
             Source</a></li>
       </ul>
-      <p>Dive into Weld, the CDI reference implementation, and
-         discover portable extensions Seam 3 offers.</p>
-      <ul>
-         <li><a href="http://docs.jboss.org/weld/reference/latest/en-US/html">Weld
-            reference guide</a></li>
-         <li><a href="http://seamframework.org/Weld">Weld
-            project</a></li>
-         <li><a href="http://seamframework.org/Seam3">Seam
-            3 project</a></li>
-         <li><a href="http://seamframework.org/Community/Forums">User
-            forums</a></li>
-         <li><a href="http://seamframework.org/Community/MailingLists">Mailing
-            lists</a></li>
-         <li><a href="https://issues.jboss.org/browse/WELDRAD">Archetype
-            issue tracker</a></li>
-      </ul>
-      <p>Explore JavaServer Faces, the component-oriented UI
-         framework in Java EE 6.</p>
-      <ul>
-         <li><a href="http://www.javaserverfaces.org">JSF
-            community site</a></li>
-      </ul>
       <p>
-         If you have an add-on, please <a href="http://seamframework.org/Community/Forums">let
-         us know</a> and consider <a href="http://seamframework.org/Seam3/GetInvolved">contributing</a>
+         If you have an add-on, please <a href="http://jboss.org">let
+         us know</a> and consider <a href="http://jboss.org">contributing</a>
          it back to the community!
       </p>
    </aside>

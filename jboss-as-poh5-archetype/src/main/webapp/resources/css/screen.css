@@ -84,6 +84,11 @@ legend {
    text-align: right;
 }
 
+#register {
+   float: right;
+   margin-right: 90px;
+}
+
 /* Member table styles */
 #mem_tbl {
    background-color: #E6E7E8;
