@@ -5,123 +5,100 @@
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
    <link type="text/css" rel="stylesheet" href="resources/css/screen.css"/>
    <script type="text/javascript" src="resources/js/jquery-1.6.4.min.js"></script>
+   <script type="text/javascript" src="resources/js/app.js"></script>
 
    <script type="text/javascript">
-      function buildMemberRows(members) {
-         var html = '';
-         $(members).each(function() {
-            var $member = $(this);
-            html += '<tr class="member">';
-            var memId = $member.find('id').text();
-            html += '<td>' + memId + '</td>';
-            html += '<td>' + $member.find('name').text() + '</td>';
-            html += '<td>' + $member.find('email').text() + '</td>';
-            html += '<td>' + $member.find('phoneNumber').text() + '</td>';
-            html += '<td><a href="rest/members/' + memId + '" target="_blank" class="resturl">XML</a> / JSON</td>';
-         });
-         return html;
-      }
+      function registerMember(formValues) {
+         //clear existing error msgs
+         $('span.invalid').text('');
 
-      function updateMemberTable() {
-         $.get('rest/members',
+         $.post('rest/members', formValues,
                function(data) {
-                  var $members = $(data).find('member');
-
-                  console.log("Member count: " + $members.length);
-
-                  $('#members').empty()
-                        .append(buildMemberRows($members));
-
+                  console.log("Member registered");
+                  updateMemberTable();
                }).error(function(error) {
                   var errStatus = error.status;
-                  console.log("error updating table -" + errStatus);
+
+                  if (error.status == 409) {
+                     console.log("error - duplicate email - " + error.getResponseHeader('error.msg'));
+                     $('<span class="invalid">' + error.getResponseHeader('error.msg') + '</span>').insertAfter($('#email'));
+
+                  } else if (error.status == 400) {
+                     console.log("error - validation error");
+                  } else {
+                     console.log("error - unknown server issue");
+                  }
                });
       }
 
       $(document).ready(function() {
-
          updateMemberTable();
 
          $('#reg').submit(function(event) {
             event.preventDefault();
 
-            //clear existing error msgs
-            $('span.invalid').text('');
-
             var formValues = $(this).serialize();
-            $.post('rest/members', formValues,
-                  function(data) {
-                     console.log("Request posted");
-                     updateMemberTable();
-                  }).error(function(error) {
-                     var errStatus = error.status;
 
-                     if (error.status == 409) {
-                        console.log("error - duplicate email - " + error.getResponseHeader('error.msg'));
-                        $('<span class="invalid">' + error.getResponseHeader('error.msg') + '</span>').insertAfter($('#email'));
-
-                     } else if (error.status == 400) {
-                        console.log("error - validation error");
-                     } else {
-                        console.log("error - unknown server issue");
-                     }
-                  });
+            registerMember(formValues);
          });
-
       });
    </script>
 </head>
 <body>
 <div id="container">
-   <div id="content">
+   <section>
       <h1>Welcome to JBoss AS 7!</h1>
 
       <p>You have successfully deployed a Java EE 6 POH5 web application
          on JBoss AS 7.</p>
 
-      <h2>Register (Bean Validation example)</h2>
+      <article id="register_art">
+         <h2>Register (Bean Validation example)</h2>
 
-      <p>Enforces annotation-based constraints defined on the model class.</p>
+         <p>Enforces annotation-based constraints defined on the model class.</p>
 
-      <form name="reg" id="reg">
-         <fieldset>
-            <legend>Register a user:</legend>
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/><br/>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" placeholder="Your Email" required/><br/>
-            <label for="phone">Phone #:</label>
-            <input type="tel" name="phone" id="phone" pattern="[0-9]{10,12}" placeholder="Your Phone #" required/><br/>
-            <input type="submit" name="register" id="register" value="Register"/>
-         </fieldset>
-      </form>
+         <form name="reg" id="reg">
+            <fieldset>
+               <legend>Register a user:</legend>
+               <label for="name">Name:</label>
+               <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/><br/>
+               <label for="email">Email:</label>
+               <input type="email" name="email" id="email" placeholder="Your Email" required/><br/>
+               <label for="phone">Phone #:</label>
+               <input type="tel" name="phone" id="phone" pattern="[0-9]{10,12}" placeholder="Your Phone #"
+                      required/><br/>
+               <input type="submit" name="register" id="register" value="Register"/>
+            </fieldset>
+         </form>
+      </article>
 
-      <h2>Current Members</h2>
-      <table>
-         <thead>
-         <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone #</th>
-            <th scope="col">REST URLs</th>
-         </tr>
-         </thead>
-         <tfoot>
-         <tr>
-            <td colspan="5">
-               REST URL for all members: <a href="/jboss-javaee6-poh5-webapp-src/rest/members">/rest/members</a>
-            </td>
-         </tr>
-         </tfoot>
-         <tbody id="members">
-         </tbody>
-      </table>
-
-   </div>
+      <article id="member_art">
+         <h2>Current Members</h2>
+         <table id="mem_tbl">
+            <thead>
+            <tr>
+               <th scope="col">Id</th>
+               <th scope="col">Name</th>
+               <th scope="col">Email</th>
+               <th scope="col">Phone #</th>
+               <th scope="col">REST URLs</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+               <td colspan="5">
+                  REST URL for all members: <a href="/jboss-javaee6-poh5-webapp-src/rest/members">/rest/members</a>
+               </td>
+            </tr>
+            </tfoot>
+            <tbody id="members">
+            </tbody>
+         </table>
+      </article>
+   </section>
 
    <!-- Sidebar -->
-   <div id="sidebar">
+   <aside>
       <h3>Find out more</h3>
 
       <p>Learn about JBoss AS 7.</p>
@@ -168,16 +145,17 @@
          us know</a> and consider <a href="http://seamframework.org/Seam3/GetInvolved">contributing</a>
          it back to the community!
       </p>
-   </div>
+   </aside>
 
    <!-- Footer -->
-   <div id="footer"><img src="resources/gfx/logo.png" alt="Weld logo"/>
+   <footer>
+      <img src="resources/gfx/logo.png" alt="Weld logo"/>
 
       <p>
          This project was generated from a Maven archetype from
          JBoss.<br/>
       </p>
-   </div>
+   </footer>
 </div>
 </body>
 </html>

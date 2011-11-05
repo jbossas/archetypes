@@ -1,3 +1,4 @@
+/* Core styles for the page */
 body {
    margin: 0;
    padding: 0;
@@ -15,31 +16,48 @@ body {
    padding-top: 110px;
 }
 
-#sidebar {
-   font-size: 0.9em;
-   width: 225px;
-   float: right;
-   border: 1px solid #666666;
-   background: #EAECEE;
-   padding: 0 15px 5px 15px;
+section {
+   float: left;
+   width: 555px;
+   margin: 20px;
 }
 
-#sidebar ul {
+aside {
+   font-size: 0.9em;
+   width: 220px;
+   float: left;
+   margin: 20px 0px;
+   border: 1px solid #666666;
+   background: #EAECEE;
+   padding: 20px;
+}
+
+aside ul {
    padding-left: 30px;
 }
 
-#footer {
+footer {
    clear: both;
    text-align: center;
    color: #666666;
    font-size: 0.85em;
-   padding: 3em 0 0 0;
 }
 
 code {
    font-size: 1.1em;
 }
 
+a {
+   color: #369;
+   text-decoration: none;
+}
+
+a:hover {
+   color: #369;
+   text-decoration: underline;
+}
+
+/* Member registration styles */
 span.invalid {
    padding-left: 3px;
    color: red;
@@ -65,3 +83,52 @@ legend {
    border: 1px solid;
    text-align: right;
 }
+
+/* Member table styles */
+#mem_tbl {
+   background-color: #E6E7E8;
+   clear: both;
+   width: 550px;
+}
+
+#mem_tbl td {
+   height: 2em;
+   padding-left: 6px;
+   font-size: 11px;
+}
+
+#mem_tbl th {
+   font-size: 12px;
+   font-weight: normal;
+   padding: 0 10px 0 5px;
+   border-bottom: #999999 dotted 1px;
+}
+
+#mem_tbl thead {
+   height: 31px;
+   font-size: 10px;
+   font-weight: bold;
+   color: #FFFFFF;
+   background-color: black;
+   text-align: left;
+}
+
+#mem_tbl tfoot {
+   height: 20px;
+   font-size: 10px;
+   font-weight: bold;
+   background-color: #EAECEE;
+   text-align: center;
+}
+
+/* Using new CSS3 selectors for styling*/
+#members tr:nth-child(odd) {
+   background: #f4f3f3;
+}
+
+#members tr:nth-child(even) {
+   background: #ffffff;
+}
+
+
+

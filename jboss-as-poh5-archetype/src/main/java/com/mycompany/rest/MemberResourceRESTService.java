@@ -71,20 +71,13 @@ public class MemberResourceRESTService {
       member.setPhoneNumber(phone);
 
       try {
-         // Validates the Book manually
-         Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
-         Set<ConstraintViolation<Member>> violations = validator.validate(member);
-
          //TODO handle validation errors
-
+         //Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+         //Set<ConstraintViolation<Member>> violations = validator.validate(member);
 
          //Check the uniqueness of the email address
-         //TODO centralize this because the JSF impl needs this too
-
-         //if (!results.isEmpty()) {
          if (emailAlreadyExists(member.getEmail())){
-            //throw exception and handle the bad request
-            throw new ValidationException("Someones already used this email.");
+            throw new ValidationException("Taken!");
          }
 
          log.info("Registering " + member.getName());
@@ -93,9 +86,6 @@ public class MemberResourceRESTService {
 
          builder = Response.ok();
       } catch (ValidationException e) {
-         //TODO Catch existing email exception
-         System.out.println("%%%%%%%%%%" + e);
-
          builder = Response.status(Response.Status.CONFLICT);
          builder.header("error.msg", e.getMessage());
       }
