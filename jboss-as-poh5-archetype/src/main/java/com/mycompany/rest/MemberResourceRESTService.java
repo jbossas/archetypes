@@ -54,9 +54,26 @@ public class MemberResourceRESTService {
    }
 
    @GET
+   @Path("/json")
+   @Produces(MediaType.APPLICATION_JSON)
+   public List<Member> listAllMembersJSON() {
+      @SuppressWarnings("unchecked")
+
+      final List<Member> results = em.createQuery("select m from Member m order by m.name").getResultList();
+      return results;
+   }
+
+   @GET
    @Path("/{id:[0-9][0-9]*}")
    @Produces("text/xml")
    public Member lookupMemberById(@PathParam("id") long id) {
+      return em.find(Member.class, id);
+   }
+
+   @GET
+   @Path("/{id:[0-9][0-9]*}/json")
+   @Produces(MediaType.APPLICATION_JSON)
+   public Member lookupMemberByIdJSON(@PathParam("id") long id) {
       return em.find(Member.class, id);
    }
 

@@ -8,7 +8,7 @@ function buildMemberRows(members) {
       html += '<td>' + $member.find('name').text() + '</td>';
       html += '<td>' + $member.find('email').text() + '</td>';
       html += '<td>' + $member.find('phoneNumber').text() + '</td>';
-      html += '<td><a href="rest/members/' + memId + '" target="_blank" class="resturl">XML</a> / JSON</td>';
+      html += '<td><a href="rest/members/' + memId + '" target="_blank" class="resturl">XML</a> / <a href="rest/members/' + memId + '/json" target="_blank" class="resturl">JSON</a></td>';
    });
    return html;
 }
