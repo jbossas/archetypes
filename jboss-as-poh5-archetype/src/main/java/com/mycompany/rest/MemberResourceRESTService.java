@@ -1,21 +1,17 @@
 package com.mycompany.rest;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.logging.Logger;
 
 import javax.ejb.Stateful;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Event;
-import javax.enterprise.inject.New;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.ValidationException;
-import javax.validation.Validator;
+import javax.validation.*;
 import javax.ws.rs.*;
+import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -39,12 +35,16 @@ public class MemberResourceRESTService {
    @Inject
    private Event<Member> memberEventSrc;
 
+   @Inject
+   private Validator validator;
+
    @GET
    @Produces("text/xml")
    public List<Member> listAllMembers() {
       // Use @SupressWarnings to force IDE to ignore warnings about "genericizing" the results of
       // this query
       @SuppressWarnings("unchecked")
+
       // We recommend centralizing inline queries such as this one into @NamedQuery annotations on
       // the @Entity class
       // as described in the named query blueprint:
@@ -62,40 +62,96 @@ public class MemberResourceRESTService {
 
    @POST
    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-   public Response createMember(@FormParam("name") String name, @FormParam("email") String email, @FormParam("phone") String phone) {
+   @Produces(MediaType.APPLICATION_JSON)
+   public Response createMember(@FormParam("name") String name, @FormParam("email") String email, @FormParam("phoneNumber") String phone) {
       Response.ResponseBuilder builder = null;
 
+      //Create a new member class from fields
       Member member = new Member();
       member.setName(name);
       member.setEmail(email);
       member.setPhoneNumber(phone);
 
       try {
-         //TODO handle validation errors
-         //Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
-         //Set<ConstraintViolation<Member>> violations = validator.validate(member);
+         //Validates member using bean validation
+         validateMember(member);
 
-         //Check the uniqueness of the email address
-         if (emailAlreadyExists(member.getEmail())){
-            throw new ValidationException("Taken!");
-         }
-
+         //Register the member
          log.info("Registering " + member.getName());
          em.persist(member);
+
+         //Trigger the creation event
          memberEventSrc.fire(member);
 
+         //Create an "ok" response
          builder = Response.ok();
+      } catch (ConstraintViolationException ce) {
+         //Handle bean validation issues
+         builder = createViolationResponse(ce.getConstraintViolations());
       } catch (ValidationException e) {
-         builder = Response.status(Response.Status.CONFLICT);
-         builder.header("error.msg", e.getMessage());
+         //Handle the unique constrain violation
+         Map<String, String> responseObj = new HashMap<String, String>();
+         responseObj.put("email","Email taken");
+         builder = Response.status(Response.Status.CONFLICT).entity(responseObj);
       }
 
       return builder.build();
    }
 
-   public boolean emailAlreadyExists(String value) {
+   /**
+    * <p>Validates the given Member variable and throws validation exceptions based on the type of error.
+    * If the error is standard bean validation errors then it will throw a ConstraintValidationException
+    * with the set of the constraints violated.</p>
+    * <p>If the error is caused because an existing member with same email is registered it throws a regular
+    * validation exception so that it can be interpreted separately.</p>
+    * @param member Member to be validated
+    * @throws ConstraintViolationException If Bean Validation errors exist
+    * @throws ValidationException If member with the same email already exists
+    */
+   private void validateMember(Member member) throws ConstraintViolationException, ValidationException{
+      //Create a bean validator and check for issues.
+      Set<ConstraintViolation<Member>> violations = validator.validate(member);
+
+      if (!violations.isEmpty()) {
+         throw new ConstraintViolationException(new HashSet<ConstraintViolation<?>>(violations));
+      }
+
+      //Check the uniqueness of the email address
+      if (emailAlreadyExists(member.getEmail())) {
+         throw new ValidationException("Unique Email Violation");
+      }
+   }
+
+   /**
+    * Creates a JAX-RS "Rad Request" response including a map of all violation fields, and their message.
+    * This can then be used by clients to show violations.
+    *
+    * @param violations A set of violations that needs to be reported
+    * @return JAX-RS response containing all violations
+    */
+   private Response.ResponseBuilder createViolationResponse(Set<ConstraintViolation<?>> violations) {
+      log.fine("Validation completed. violations found: " + violations.size());
+
+      Response.ResponseBuilder builder = null;
+      Map<String, String> responseObj = new HashMap<String, String>();
+
+      for (ConstraintViolation<?> violation : violations) {
+         responseObj.put(violation.getPropertyPath().toString(), violation.getMessage());
+      }
+
+      return Response.status(Response.Status.BAD_REQUEST).entity(responseObj);
+   }
+
+   /**
+    * Checks if a member with the same email address is already registered.  This is the only way to
+    * easily capture the "@UniqueConstraint(columnNames = "email")" constraint from the Member class.
+    *
+    * @param email The email to check
+    * @return True if the email already exists, and false otherwise
+    */
+   public boolean emailAlreadyExists(String email) {
       Query checkEmailExists = em.createQuery(" SELECT COUNT(b.email) FROM Member b WHERE b.email=:emailparam");
-      checkEmailExists.setParameter("emailparam", value);
+      checkEmailExists.setParameter("emailparam", email);
       long matchCounter = 0;
       matchCounter = (Long) checkEmailExists.getSingleResult();
       if (matchCounter > 0) {

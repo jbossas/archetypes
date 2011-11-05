@@ -18,10 +18,7 @@ function updateMemberTable() {
          function(data) {
             var $members = $(data).find('member');
 
-            console.log("Member count: " + $members.length);
-
-            $('#members').empty()
-                  .append(buildMemberRows($members));
+            $('#members').empty().append(buildMemberRows($members));
 
          }).error(function(error) {
             var errStatus = error.status;
@@ -40,14 +37,19 @@ function registerMember(formValues) {
          }).error(function(error) {
             var errStatus = error.status;
 
-            if (error.status == 409) {
-               console.log("error - duplicate email - " + error.getResponseHeader('error.msg'));
-               $('<span class="invalid">' + error.getResponseHeader('error.msg') + '</span>').insertAfter($('#email'));
+            if ((error.status == 409) || (error.status == 400)) {
+               console.log("Validation error registering user!");
 
-            } else if (error.status == 400) {
-               console.log("error - validation error");
+               var errorMsg = JSON.parse(error.responseText);
+
+               $.each(errorMsg, function(index, val){
+                  $('<span class="invalid">' + val + '</span>')
+                        .insertAfter($('#' + index));
+               });
             } else {
                console.log("error - unknown server issue");
+               $('<span class="invalid">Unknown server error</span>')
+                        .insertAfter($('#register'));
             }
          });
 }

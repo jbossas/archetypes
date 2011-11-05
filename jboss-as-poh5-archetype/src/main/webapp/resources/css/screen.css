@@ -66,12 +66,13 @@ span.invalid {
 fieldset {
    padding: 1em;
    font: 80%/1 sans-serif;
-   width: 300px;
+   width: 400px;
 }
 
 label {
    float: left;
-   width: 25%;
+   width: 15%;
+   margin-left: 20px;
    margin-right: 0.5em;
    padding-top: 0.2em;
    text-align: right;
@@ -85,8 +86,8 @@ legend {
 }
 
 #register {
-   float: right;
-   margin-right: 90px;
+   float: left;
+   margin-left: 85px;
 }
 
 /* Member table styles */

@@ -29,18 +29,18 @@ public class Member implements Serializable {
    private Long id;
 
    @NotNull
-   @Size(min = 1, max = 25)
-   @Pattern(regexp = "[A-Za-z ]*", message = "must contain only letters and spaces")
+   @Size(min = 1, max = 25, message = "1-25 letters and spaces")
+   @Pattern(regexp = "[A-Za-z ]*", message = "Only letters and spaces")
    private String name;
 
    @NotNull
    @NotEmpty
-   @Email
+   @Email(message = "Invalid format")
    private String email;
 
    @NotNull
-   @Size(min = 10, max = 12)
-   @Digits(fraction = 0, integer = 12)
+   @Size(min = 10, max = 12, message = "10-12 Numbers")
+   @Digits(fraction = 0, integer = 12, message = "Not valid")
    @Column(name = "phone_number")
    private String phoneNumber;
 

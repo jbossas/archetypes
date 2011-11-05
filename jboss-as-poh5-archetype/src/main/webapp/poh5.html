@@ -46,7 +46,7 @@
       </ul>
 
       <article id="register_art">
-         <h2>Member Registration (HTML5 Form Updates</h2>
+         <h2>Member Registration</h2>
 
          <p>Enforces client site validation with HTML5 based constraints that match the annotation-based constraints
             defined on the model class.
@@ -55,13 +55,20 @@
          <form name="reg" id="reg">
             <fieldset>
                <legend>Register a user:</legend>
-               <label for="name">Name:</label>
-               <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/><br/>
-               <label for="email">Email:</label>
-               <input type="email" name="email" id="email" placeholder="Your Email" required/><br/>
-               <label for="phone">Phone #:</label>
-               <input type="tel" name="phone" id="phone" pattern="[0-9]{10,12}" placeholder="Your Phone #"
-                      required/><br/>
+               <div>
+                  <label for="name">Name:</label>
+                  <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>
+               </div>
+               <div>
+                  <label for="email">Email:</label>
+                  <input type="email" name="email" id="email" placeholder="Your Email" required/>
+               </div>
+               <div>
+                  <label for="phoneNumber">Phone #:</label>
+                  <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{10,12}"
+                         placeholder="Your Phone #"
+                         required/>
+               </div>
                <input type="submit" name="register" id="register" value="Register"/>
             </fieldset>
          </form>
@@ -105,10 +112,10 @@
       <ul>
          <li><a href="https://docs.jboss.org/author/display/AS7/Getting+Started+Developing+Applications+Guide">JBoss
             AS 7 Getting Started Developing Applications Guide</a></li>
-         <li><a href="jboss.org/jbossas">JBoss AS 7 project
+         <li><a href="http://jboss.org/jbossas">JBoss AS 7 project
             site</a></li>
       </ul>
-      <p>Discover more about JBoss and the POH5 architecture.  See why JBoss is best server for your advanced client
+      <p>Discover more about JBoss and the POH5 architecture. See why JBoss is best server for your advanced client
          applications!</p>
       <ul>
          <li><a href="http://jboss.org">Project Site</a></li>
