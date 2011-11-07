@@ -11,8 +11,10 @@
 
    <script type="text/javascript">
       $(document).ready(function() {
+         //Fetches the initial member table
          updateMemberTable();
 
+         //Register a event listener on the sumbit action
          $('#reg').submit(function(event) {
             event.preventDefault();
 
@@ -39,17 +41,19 @@
          <li class="feature">Pure HTML client</li>
          <li class="feature">JAX-RS GET & POST endpoints for all server interactions</li>
          <li class="feature">HTML5 elements used for page structure</li>
-         <li class="feature">HTML5 input type, form validation, and features</li>
+         <li class="feature">HTML5 input type, form validation, and other features</li>
          <li class="feature">CSS3 selectors used for styling</li>
          <li class="feature">Validation & error handling of JAX-RS calls</li>
+         <li class="feature">QUnit test suite to validate JavaScript</li>
          <li class="feature">jQuery used to assist</li>
+
       </ul>
 
       <article id="register_art">
          <h2>Member Registration</h2>
 
-         <p>Enforces client site validation with HTML5 based constraints that match the annotation-based constraints
-            defined on the model class.
+         <p>Enforces client side validation with HTML5 based constraints that match the annotation-based constraints
+            defined on the model class.  Also uses new HTML5 attributes such as placeholder, and autofocus.
          </p>
 
          <form name="reg" id="reg">

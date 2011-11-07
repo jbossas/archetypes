@@ -25,7 +25,7 @@ import com.mycompany.model.Member;
 @Path("/members")
 @RequestScoped
 @Stateful
-public class MemberResourceRESTService {
+public class MemberService {
    @Inject
    private Logger log;
 

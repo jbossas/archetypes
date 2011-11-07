@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 
-import com.mycompany.rest.MemberResourceRESTService;
+import com.mycompany.rest.MemberService;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
@@ -26,13 +26,13 @@ public class MemberRegistrationTest {
    @Deployment
    public static Archive<?> createTestArchive() {
       return ShrinkWrap.create(WebArchive.class, "test.war")
-            .addClasses(Member.class, MemberResourceRESTService.class, Resources.class)
+            .addClasses(Member.class, MemberService.class, Resources.class)
             .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
             .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
    }
 
    @Inject
-   MemberResourceRESTService memberRegistration;
+   MemberService memberRegistration;
 
    @Inject
    Logger log;

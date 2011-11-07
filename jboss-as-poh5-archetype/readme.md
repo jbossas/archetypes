@@ -1,15 +1,19 @@
-jboss-javaee6-webapp-src
+jboss-javaee6-poh5-webapp-src
 ========================
 
 What is it?
 -----------
 
-This is your project! It's a sample, deployable Maven 3 project to help you
+This is your project! It's a deployable Maven 3 project to help you
 get your foot in the door developing HTML5 based applications with Java EE 6 on JBoss AS 7. This
 project is setup to allow you to create a basic Java EE 6 application
 using HTML5, jQuery, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes
 a persistence unit and some sample persistence and transaction code to help 
-you get your feet wet with database access in enterprise Java. 
+you get your feet wet with database access in enterprise Java.
+
+This application is built using a technique called Plain Old HTML5 (POH5).  This user a pure HTML
+client that interacts with with the application server via restful end-points (JAX-RS).  This
+example also uses some of the latest HTML5 features and advanced JAX-RS.
 
 System requirements
 -------------------
@@ -17,7 +21,9 @@ System requirements
 All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven
 3.0 or better.
 
-The application this project produces is designed to be run on a JBoss AS 7. 
+The application this project produces is designed to be run on a JBoss AS 7.
+
+HTML5 capible br
  
 NOTE:
 This project retrieves some artifacts from the JBoss Community Maven repository.
