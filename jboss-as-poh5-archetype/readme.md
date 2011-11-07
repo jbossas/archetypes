@@ -5,15 +5,17 @@ What is it?
 -----------
 
 This is your project! It's a deployable Maven 3 project to help you
-get your foot in the door developing HTML5 based applications with Java EE 6 on JBoss AS 7. This
-project is setup to allow you to create a basic Java EE 6 application
+get your foot in the door developing HTML5 based applications with Java EE 6
+on JBoss AS 7. This project is setup to allow you to create a basic Java EE 6 application
 using HTML5, jQuery, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes
 a persistence unit and some sample persistence and transaction code to help 
 you get your feet wet with database access in enterprise Java.
 
-This application is built using a technique called Plain Old HTML5 (POH5).  This user a pure HTML
+This application is built using a technique called Plain Old HTML5 (POH5).  This uses a pure HTML
 client that interacts with with the application server via restful end-points (JAX-RS).  This
-example also uses some of the latest HTML5 features and advanced JAX-RS.
+example also uses some of the latest HTML5 features and advanced JAX-RS.  And since testing
+is just as important with POH5 as it is server side core this application also uses QUnit to show
+you how to unit test your JavaScript.
 
 System requirements
 -------------------
@@ -23,7 +25,9 @@ All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven
 
 The application this project produces is designed to be run on a JBoss AS 7.
 
-HTML5 capible br
+HTML5 compatible browser such as Chrome 14+, Safari 5+, Firefox 5+, and IE 9+.  Note
+that some behaviors will vary slightly (ex. validations) based on browser support,
+especially IE 9.
  
 NOTE:
 This project retrieves some artifacts from the JBoss Community Maven repository.
@@ -73,6 +77,17 @@ To run the test in JBoss AS 7, first start a JBoss AS 7 instance. Then, run the
 test goal with the following profile activated:
 
     mvn clean test -Parq-jbossas-remote
+
+Running the QUnit tests
+============================
+
+This application include a set of QUnit tests inorder to verify JavaScript that
+is core to this POH5 application.  Executing QUnit test cases is quite easy.
+Simply load the following HTML is a browser.
+
+    <app-root>/src/test/qunit/index.html
+
+For more information on QUnit tests see http://docs.jquery.com/QUnit
 
 Importing the project into an IDE
 =================================
