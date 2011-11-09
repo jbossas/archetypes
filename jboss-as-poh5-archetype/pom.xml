@@ -8,7 +8,7 @@
    <version>7.0.2-SNAPSHOT</version>
    <packaging>war</packaging>
 
-   <name>m-app</name>
+   <name>jboss-poh5</name>
    <!--<name>jboss-javaee6-poh5-webapp-src</name>-->
    <description>A starter Java EE 6 Plain Old HTML5 (POH5) webapp project for use on JBoss AS 7, generated from the jboss-javaee6-poh5-webapp archetype</description>
 
