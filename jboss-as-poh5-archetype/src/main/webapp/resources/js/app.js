@@ -39,7 +39,7 @@ the refresh the member table, or process JAX-RS response codes to update
 the validation errors.
  */
 function registerMember(formValues) {
-   //clear existing error msgs
+   //clear existing  msgs
    $('span.invalid').remove();
    $('span.success').remove();
 
