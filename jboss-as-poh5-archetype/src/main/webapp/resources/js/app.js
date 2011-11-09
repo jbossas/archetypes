@@ -40,11 +40,19 @@ the validation errors.
  */
 function registerMember(formValues) {
    //clear existing error msgs
-   $('span.invalid').text('');
+   $('span.invalid').remove();
+   $('span.success').remove();
 
    $.post('rest/members', formValues,
          function(data) {
             console.log("Member registered");
+
+            //clear input fields
+            $('#reg')[0].reset();
+
+            //mark success on the registration form
+            $('#formMsgs').append($('<span class="success">Member Registered</span>'));
+
             updateMemberTable();
          }).error(function(error) {
             var errStatus = error.status;
@@ -60,8 +68,7 @@ function registerMember(formValues) {
                });
             } else {
                console.log("error - unknown server issue");
-               $('<span class="invalid">Unknown server error</span>')
-                        .insertAfter($('#register'));
+               $('#formMsgs').append($('<span class="invalid">Unknown server error</span>'));
             }
          });
 }
