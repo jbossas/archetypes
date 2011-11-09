@@ -1,6 +1,10 @@
 /* Core styles for the page */
-
-
+body {
+   margin: 0;
+   padding: 0;
+   font-family: Verdana, sans-serif;
+   font-size: 0.9em;
+}
 
 .header_logo{
    float: left;
@@ -18,8 +22,10 @@
    float: right;
    margin-right: 8px;
 }
-
-
+p {
+   margin-left: 8px;
+   margin-right: 8px;
+}
 
 code {
    font-size: 1.1em;
@@ -36,6 +42,12 @@ a:hover {
 }
 
 /* Member registration styles */
+
+.ui-mobile fieldset{
+   padding-left: 5px;
+   padding-right: 5px;
+}
+
 span.invalid {
    padding-left: 3px;
    color: red;
@@ -50,7 +62,7 @@ span.success {
 #mem_tbl {
    background-color: #E6E7E8;
    clear: both;
-   width: 80%;
+   width: 100%;
 }
 
 #mem_tbl td {

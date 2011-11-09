@@ -4,7 +4,7 @@
    <title>Java EE 6 POH5 Starter Application</title>
 
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0;">
 
    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css"/>
    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
@@ -30,16 +30,19 @@
 
             registerMember(formValues);
          });
+
+         //TODO add click listen for cancel
       });
    </script>
 </head>
 <body>
 <div id="container">
-   <article id="intro" data-role="page">
+   <article id="intro-sec" data-role="page">
       <div data-role="header" data-theme="a" class="header">
          <img class="header_logo" src="resources/gfx/icon_medium.png"/>
+
          <h3>JBoss AS7 POH5 Example</h3>
-         <a href="#info" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
+         <a href="#info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
       </div>
       <!-- /header -->
 
@@ -52,90 +55,86 @@
 
       <ul id="features">
          <li class="feature">Pure HTML client</li>
-         <li class="feature">JAX-RS GET & POST endpoints for all server interactions</li>
-         <li class="feature">HTML5 elements used for page structure</li>
-         <li class="feature">HTML5 input type, form validation, and other features</li>
+         <li class="feature">JAX-RS GET & POST endpoints</li>
+         <li class="feature">HTML5 based page structure</li>
+         <li class="feature">HTML5 form element & validation</li>
          <li class="feature">CSS3 selectors used for styling</li>
-         <li class="feature">Validation & error handling of JAX-RS calls</li>
-         <li class="feature">QUnit test suite to validate JavaScript</li>
+         <li class="feature">JAX-RS validation handling</li>
+         <li class="feature">jQuery Mobile integration</li>
          <li class="feature">jQuery used to assist</li>
-
+         <li class="feature">QUnit test suite to validate JavaScript</li>
       </ul>
 
       <!-- footer -->
       <div class="footer" data-role="footer">
          <div class="footer_left">
-            <a href="#intro" data-role="button" data-icon="home">Home</a>
+            <a href="#intro-sec" data-role="button" data-icon="home">Home</a>
          </div>
 
          <div class="footer_right">
             <span class="footer_txt">Member:</span>
-            <a href="#register_art" data-role="button" data-icon="plus">Add</a>
-            <a href="#member_art" data-role="button" data-icon="grid">List</a>
+            <a href="#register-sec" data-role="button" data-icon="plus">Add</a>
+            <a href="#member-sec" data-role="button" data-icon="grid">List</a>
          </div>
       </div>
       <!-- /footer -->
 
    </article>
-   <article id="register_art" data-role="page">
+   <article id="register-sec" data-role="page">
       <div data-role="header" data-theme="a" class="header">
          <img class="header_logo" src="resources/gfx/icon_medium.png"/>
 
          <h3>Member Registration</h3>
-         <a href="#info" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
+         <a href="#info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
       </div>
       <!-- /header -->
-      <h2>Member Registration</h2>
-
-      <!--<p>Enforces client side validation with HTML5 based constraints that match the annotation-based constraints
-         defined on the model class. Also uses new HTML5 attributes such as placeholder, and autofocus.
-      </p>-->
 
       <form name="reg" id="reg" method="post" data-ajax="false">
          <fieldset>
-            <legend>Register a user:</legend>
-            <div>
+            <div data-role="fieldcontain">
                <label for="name">Name:</label>
                <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>
             </div>
-            <div>
+            <div data-role="fieldcontain">
                <label for="email">Email:</label>
                <input type="email" name="email" id="email" placeholder="Your Email" required/>
             </div>
-            <div>
+            <div data-role="fieldcontain">
                <label for="phoneNumber">Phone #:</label>
                <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{10,12}"
                       placeholder="Your Phone #"
                       required/>
             </div>
             <div id="formMsgs"></div>
-            <input type="submit" name="register" id="register" value="Register"/>
+            <div data-role="controlgroup" data-type="horizontal">
+               <input type="submit" name="register" id="register" value="Register"/>
+               <input type="button" name="cancel" id="cancel" value="Cancel"/>
+            </div>
          </fieldset>
       </form>
       <!-- footer -->
       <div class="footer" data-role="footer">
          <div class="footer_left">
-            <a href="#intro" data-role="button" data-icon="home">Home</a>
+            <a href="#intro-sec" data-role="button" data-icon="home">Home</a>
          </div>
 
          <div class="footer_right">
             <span class="footer_txt">Member:</span>
-            <a href="#register_art" data-role="button" data-icon="plus">Add</a>
-            <a href="#member_art" data-role="button" data-icon="grid">List</a>
+            <a href="#register-sec" data-role="button" data-icon="plus">Add</a>
+            <a href="#member-sec" data-role="button" data-icon="grid">List</a>
          </div>
       </div>
       <!-- /footer -->
    </article>
 
-   <article id="member_art" data-role="page">
+   <article id="member-sec" data-role="page">
       <div data-role="header" data-theme="a" class="header">
          <img class="header_logo" src="resources/gfx/icon_medium.png"/>
 
          <h3>Members</h3>
-         <a href="#info" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
+         <a href="#info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
       </div>
       <!-- /header -->
-      <h2>Current Members</h2>
 
       <table id="mem_tbl">
          <thead>
@@ -143,8 +142,8 @@
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
-            <th scope="col">Phone #</th>
-            <th scope="col">REST URLs</th>
+            <th scope="col">Phone</th>
+            <th scope="col">REST</th>
          </tr>
          </thead>
          <tfoot>
@@ -163,26 +162,26 @@
       <!-- footer -->
       <div class="footer" data-role="footer">
          <div class="footer_left">
-            <a href="#intro" data-role="button" data-icon="home">Home</a>
+            <a href="#intro-sec" data-role="button" data-icon="home">Home</a>
          </div>
 
          <div class="footer_right">
             <span class="footer_txt">Member:</span>
-            <a href="#register_art" data-role="button" data-icon="plus">Add</a>
-            <a href="#member_art" data-role="button" data-icon="grid">List</a>
+            <a href="#register-sec" data-role="button" data-icon="plus">Add</a>
+            <a href="#member-sec" data-role="button" data-icon="grid">List</a>
          </div>
       </div>
       <!-- /footer -->
    </article>
 
    <!-- Sidebar -->
-   <aside id="info" data-role="page">
+   <aside id="info-sec" data-role="page">
 
       <div data-role="header" data-theme="a" class="header">
          <img class="header_logo" src="resources/gfx/icon_medium.png"/>
 
          <h3>More Information</h3>
-         <a href="#info" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
+         <a href="#info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
       </div>
       <!-- /header -->
       <h3>Find out more</h3>
@@ -223,13 +222,13 @@
       <!-- footer -->
       <div class="footer" data-role="footer">
          <div class="footer_left">
-            <a href="#intro" data-role="button" data-icon="home">Home</a>
+            <a href="#intro-sec" data-role="button" data-icon="home">Home</a>
          </div>
 
          <div class="footer_right">
             <span class="footer_txt">Member:</span>
-            <a href="#register_art" data-role="button" data-icon="plus">Add</a>
-            <a href="#member_art" data-role="button" data-icon="grid">List</a>
+            <a href="#register-sec" data-role="button" data-icon="plus">Add</a>
+            <a href="#member-sec" data-role="button" data-icon="grid">List</a>
          </div>
       </div>
       <!-- /footer -->
