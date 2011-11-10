@@ -1,6 +1,6 @@
 package com.mycompany.test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import java.util.HashMap;
 import java.util.logging.Logger;
@@ -41,7 +41,7 @@ public class MemberRegistrationTest {
    public void testRegister() throws Exception {
       Response response = memberRegistration.createMember("Jane Doe", "jane@mailinator.com", "2125551234");
 
-      assertTrue(response.getStatus() == 200);
+      assertEquals(response.getStatus(), 200);
       log.info(" New member was persisted and returned status " + response.getStatus());
    }
 
@@ -49,9 +49,9 @@ public class MemberRegistrationTest {
    public void testInvalidRegister() throws Exception {
       Response response = memberRegistration.createMember("", "", "");
 
-      assertTrue(response.getStatus() == 400);
-      assertTrue(response.getEntity() != null);
-      assertTrue(((HashMap<String, String>)response.getEntity()).size() == 3);
+      assertEquals(response.getStatus(), 400);
+      assertEquals(response.getEntity(), null);
+      assertEquals(((HashMap<String, String>)response.getEntity()).size(), 3);
       log.info("Invalid member register attempt failed with return code " + response.getStatus());
    }
 
@@ -63,9 +63,9 @@ public class MemberRegistrationTest {
       //Register a different user with the same email
       Response response = memberRegistration.createMember("John Doe", "jane@mailinator.com", "2133551234");
 
-      assertTrue(response.getStatus() == 409);
-      assertTrue(response.getEntity() != null);
-      assertTrue(((HashMap<String, String>)response.getEntity()).size() == 1);
+      assertEquals(response.getStatus(), 409);
+      assertEquals(response.getEntity(), null);
+      assertEquals(((HashMap<String, String>)response.getEntity()).size(),1);
       log.info("Duplicate member register attempt failed with return code " + response.getStatus());
    }
    

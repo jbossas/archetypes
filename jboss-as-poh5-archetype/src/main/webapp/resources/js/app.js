@@ -3,6 +3,7 @@ Core JavaScript functionality for the application.  Preforms the required
 Restful calls, validates return values, and populates the member table.
  */
 
+/* Builds the updated table for the member list */
 function buildMemberRows(members) {
    var html = '';
    $(members).each(function() {
@@ -20,6 +21,7 @@ function buildMemberRows(members) {
    return html;
 }
 
+/* Uses JAX-RS GET to retrieve current member list */
 function updateMemberTable() {
    $.get('rest/members',
          function(data) {

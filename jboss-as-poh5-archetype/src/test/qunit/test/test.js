@@ -1,6 +1,7 @@
-<!--
+/*
 Unit tests that cover basic functionality of app.js.
--->
+ */
+
 module('Member Row Construction');
 
 test('Build 2 Member Rows', function() {
