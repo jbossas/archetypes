@@ -1,3 +1,6 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,26 +17,26 @@
    <script type="text/javascript" src="resources/js/app.js"></script>
 
    <script type="text/javascript">
-      $(document).ready(function() {
+      ${symbol_dollar}(document).ready(function() {
          //Fetches the initial member table
          updateMemberTable();
 
          //Register a event listener on the sumbit action
-         $('#reg').submit(function(event) {
+         ${symbol_dollar}('${symbol_pound}reg').submit(function(event) {
             event.preventDefault();
 
-            var formValues = $(this).serialize();
+            var formValues = ${symbol_dollar}(this).serialize();
 
             registerMember(formValues);
          });
 
-         $('#cancel').click(function(event) {
+         ${symbol_dollar}('${symbol_pound}cancel').click(function(event) {
             //clear input fields
-            $('#reg')[0].reset();
+            ${symbol_dollar}('${symbol_pound}reg')[0].reset();
 
             //clear existing msgs
-            $('span.invalid').remove();
-            $('span.success').remove();
+            ${symbol_dollar}('span.invalid').remove();
+            ${symbol_dollar}('span.success').remove();
          });
 
       });
@@ -50,7 +53,7 @@
       <img class="header_logo" src="resources/gfx/icon_medium.png"/>
 
       <h3>JBoss AS7 POH5 Example</h3>
-      <a href="#info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
+      <a href="${symbol_pound}info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
    </div>
    <!-- /Header -->
 
@@ -76,13 +79,13 @@
    <!-- Footer -->
    <div class="footer" data-role="footer" data-position="fixed">
       <div class="footer_left">
-         <a href="#intro-sec" data-role="button" data-icon="home">Home</a>
+         <a href="${symbol_pound}intro-sec" data-role="button" data-icon="home">Home</a>
       </div>
 
       <div class="footer_right">
          <span class="footer_txt">Member:</span>
-         <a href="#register-sec" data-role="button" data-icon="plus">Add</a>
-         <a href="#member-sec" data-role="button" data-icon="grid">List</a>
+         <a href="${symbol_pound}register-sec" data-role="button" data-icon="plus">Add</a>
+         <a href="${symbol_pound}member-sec" data-role="button" data-icon="grid">List</a>
       </div>
    </div>
    <!-- /Footer -->
@@ -97,7 +100,7 @@
       <img class="header_logo" src="resources/gfx/icon_medium.png"/>
 
       <h3>Member Registration</h3>
-      <a href="#info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
+      <a href="${symbol_pound}info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
    </div>
    <!-- /Header -->
 
@@ -112,9 +115,9 @@
             <input type="email" name="email" id="email" placeholder="Your Email" required/>
          </div>
          <div data-role="fieldcontain">
-            <label for="phoneNumber">Phone #:</label>
+            <label for="phoneNumber">Phone ${symbol_pound}:</label>
             <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{10,12}"
-                   placeholder="Your Phone #"
+                   placeholder="Your Phone ${symbol_pound}"
                    required/>
          </div>
          <div id="formMsgs"></div>
@@ -128,13 +131,13 @@
    <!-- Footer -->
    <div class="footer" data-role="footer">
       <div class="footer_left">
-         <a href="#intro-sec" data-role="button" data-icon="home">Home</a>
+         <a href="${symbol_pound}intro-sec" data-role="button" data-icon="home">Home</a>
       </div>
 
       <div class="footer_right">
          <span class="footer_txt">Member:</span>
-         <a href="#register-sec" data-role="button" data-icon="plus">Add</a>
-         <a href="#member-sec" data-role="button" data-icon="grid">List</a>
+         <a href="${symbol_pound}register-sec" data-role="button" data-icon="plus">Add</a>
+         <a href="${symbol_pound}member-sec" data-role="button" data-icon="grid">List</a>
       </div>
    </div>
    <!-- /Footer -->
@@ -149,7 +152,7 @@
       <img class="header_logo" src="resources/gfx/icon_medium.png"/>
 
       <h3>Members</h3>
-      <a href="#info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
+      <a href="${symbol_pound}info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
    </div>
    <!-- /Header -->
 
@@ -179,13 +182,13 @@
    <!-- Footer -->
    <div class="footer" data-role="footer" data-position="fixed">
       <div class="footer_left">
-         <a href="#intro-sec" data-role="button" data-icon="home">Home</a>
+         <a href="${symbol_pound}intro-sec" data-role="button" data-icon="home">Home</a>
       </div>
 
       <div class="footer_right">
          <span class="footer_txt">Member:</span>
-         <a href="#register-sec" data-role="button" data-icon="plus">Add</a>
-         <a href="#member-sec" data-role="button" data-icon="grid">List</a>
+         <a href="${symbol_pound}register-sec" data-role="button" data-icon="plus">Add</a>
+         <a href="${symbol_pound}member-sec" data-role="button" data-icon="grid">List</a>
       </div>
    </div>
    <!-- /Footer -->
@@ -200,7 +203,7 @@
       <img class="header_logo" src="resources/gfx/icon_medium.png"/>
 
       <h3>More Information</h3>
-      <a href="#info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
+      <a href="${symbol_pound}info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
    </div>
    <!-- /Header -->
 
@@ -242,13 +245,13 @@
    <!-- Footer -->
    <div class="footer" data-role="footer" data-position="fixed">
       <div class="footer_left">
-         <a href="#intro-sec" data-role="button" data-icon="home">Home</a>
+         <a href="${symbol_pound}intro-sec" data-role="button" data-icon="home">Home</a>
       </div>
 
       <div class="footer_right">
          <span class="footer_txt">Member:</span>
-         <a href="#register-sec" data-role="button" data-icon="plus">Add</a>
-         <a href="#member-sec" data-role="button" data-icon="grid">List</a>
+         <a href="${symbol_pound}register-sec" data-role="button" data-icon="plus">Add</a>
+         <a href="${symbol_pound}member-sec" data-role="button" data-icon="grid">List</a>
       </div>
    </div>
    <!-- /Footer -->

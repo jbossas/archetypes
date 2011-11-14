@@ -1,4 +1,7 @@
-package com.mycompany.util;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.util;
 
 import java.util.logging.Logger;
 
@@ -15,7 +18,7 @@ import javax.persistence.PersistenceContext;
  * </p>
  * 
  * <pre>
- * &#064;Inject
+ * &${symbol_pound}064;Inject
  * private EntityManager em;
  * </pre>
  */

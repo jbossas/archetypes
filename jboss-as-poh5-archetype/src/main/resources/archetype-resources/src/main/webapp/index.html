@@ -1,3 +1,6 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,15 +13,15 @@
    <script type="text/javascript" src="resources/js/app.js"></script>
 
    <script type="text/javascript">
-      $(document).ready(function() {
+      ${symbol_dollar}(document).ready(function() {
          //Fetches the initial member table
          updateMemberTable();
 
          //Register a event listener on the sumbit action
-         $('#reg').submit(function(event) {
+         ${symbol_dollar}('${symbol_pound}reg').submit(function(event) {
             event.preventDefault();
 
-            var formValues = $(this).serialize();
+            var formValues = ${symbol_dollar}(this).serialize();
 
             registerMember(formValues);
          });
@@ -68,9 +71,9 @@
                   <input type="email" name="email" id="email" placeholder="Your Email" required/>
                </div>
                <div>
-                  <label for="phoneNumber">Phone #:</label>
+                  <label for="phoneNumber">Phone ${symbol_pound}:</label>
                   <input type="tel" name="phoneNumber" id="phoneNumber" pattern="[0-9]{10,12}"
-                         placeholder="Your Phone #"
+                         placeholder="Your Phone ${symbol_pound}"
                          required/>
                </div>
                <input type="submit" name="register" id="register" value="Register"/>
@@ -91,15 +94,15 @@
                <th scope="col">Id</th>
                <th scope="col">Name</th>
                <th scope="col">Email</th>
-               <th scope="col">Phone #</th>
+               <th scope="col">Phone ${symbol_pound}</th>
                <th scope="col">REST URLs</th>
             </tr>
             </thead>
             <tfoot>
             <tr>
                <td colspan="5">
-                  REST URL for all members: <a href="/jboss-javaee6-poh5-webapp-src/rest/members" target="_blank">XML</a>,
-                  <a href="/jboss-javaee6-poh5-webapp-src/rest/members/json" target="_blank">JSON</a>
+                  REST URL for all members: <a href="/${artifactId}/rest/members" target="_blank">XML</a>,
+                  <a href="/${artifactId}/rest/members/json" target="_blank">JSON</a>
                </td>
             </tr>
             </tfoot>
