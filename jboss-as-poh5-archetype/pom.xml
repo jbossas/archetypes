@@ -14,9 +14,9 @@
    <version>7.0.2-SNAPSHOT</version>
    <packaging>maven-archetype</packaging>
 
-   <name>JBoss AS 7 / Java EE 6 POH5 Webapp</name>
+   <name>Java EE 6 POH5 Webapp</name>
 
-   <description>An archetype that generates a starter Java EE 6 Plaint Old HTML5 (POH5) webapp project for JBoss AS 7</description>
+   <description>An archetype that generates a starter Java EE 6 Plain Old HTML5 (POH5) webapp project for JBoss AS 7 / EAP 6</description>
 
    <url>http://jboss.org/jbossas</url>
 
