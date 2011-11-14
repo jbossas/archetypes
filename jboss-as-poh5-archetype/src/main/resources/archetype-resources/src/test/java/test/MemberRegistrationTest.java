@@ -7,7 +7,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Map;
-import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
