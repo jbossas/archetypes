@@ -6,6 +6,9 @@
     <requiredProperty key="name">
       <defaultValue>Java EE 6 POH5 webapp project</defaultValue>
     </requiredProperty>
+    <requiredProperty key="enterprise">
+      <defaultValue>false</defaultValue>
+    </requiredProperty>    
   </requiredProperties>
   <fileSets>
     <fileSet filtered="true" packaged="true" encoding="UTF-8">
