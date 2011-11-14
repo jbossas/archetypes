@@ -1,8 +1,10 @@
 package com.mycompany.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -21,6 +23,11 @@ import org.junit.runner.RunWith;
 import com.mycompany.model.Member;
 import com.mycompany.util.Resources;
 
+/**
+ * Uses Arquilian to test the JAX-RS processing class for member registration.
+ * 
+ * @author balunasj
+ */
 @RunWith(Arquillian.class)
 public class MemberRegistrationTest {
    @Deployment
@@ -41,7 +48,7 @@ public class MemberRegistrationTest {
    public void testRegister() throws Exception {
       Response response = memberRegistration.createMember("Jane Doe", "jane@mailinator.com", "2125551234");
 
-      assertEquals(response.getStatus(), 200);
+      assertEquals("Unexpected response status", 200, response.getStatus());
       log.info(" New member was persisted and returned status " + response.getStatus());
    }
 
@@ -49,9 +56,10 @@ public class MemberRegistrationTest {
    public void testInvalidRegister() throws Exception {
       Response response = memberRegistration.createMember("", "", "");
 
-      assertEquals(response.getStatus(), 400);
-      assertEquals(response.getEntity(), null);
-      assertEquals(((HashMap<String, String>)response.getEntity()).size(), 3);
+      assertEquals("Unexpected response status", 400, response.getStatus());
+      assertNotNull("response.getEntity() should not null",response.getEntity());
+      assertEquals("Unexpected response.getEntity(). It contains " + response.getEntity(), 
+                    3, ((Map<String, String>)response.getEntity()).size());
       log.info("Invalid member register attempt failed with return code " + response.getStatus());
    }
 
@@ -63,9 +71,10 @@ public class MemberRegistrationTest {
       //Register a different user with the same email
       Response response = memberRegistration.createMember("John Doe", "jane@mailinator.com", "2133551234");
 
-      assertEquals(response.getStatus(), 409);
-      assertEquals(response.getEntity(), null);
-      assertEquals(((HashMap<String, String>)response.getEntity()).size(),1);
+      assertEquals("Unexpected response status", 409, response.getStatus());
+      assertNotNull("response.getEntity() should not null",response.getEntity());
+      assertEquals("Unexpected response.getEntity(). It contains" + response.getEntity(), 
+                   1, ((Map<String, String>)response.getEntity()).size());
       log.info("Duplicate member register attempt failed with return code " + response.getStatus());
    }
    

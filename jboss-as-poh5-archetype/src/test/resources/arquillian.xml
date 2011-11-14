@@ -15,7 +15,7 @@
          <property name="executionType">REMOTE</property>
       </protocol>
       <configuration>
-         <property name="jbossHome">/Users/balunasj/Projects/aerogear/archetypes/jboss-as-7.0.2.Final</property>
+         <property name="jbossHome">${jboss.home}</property>
       </configuration>
    </container>
 

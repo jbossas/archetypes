@@ -20,7 +20,7 @@ import com.mycompany.model.Member;
 /**
  * JAX-RS Example
  * <p/>
- * This class produces a RESTful service to read the contents of the members table.
+ * This class produces a RESTful service to read/write the contents of the members table.
  */
 @Path("/members")
 @RequestScoped
@@ -119,7 +119,7 @@ public class MemberService {
     * <p>Validates the given Member variable and throws validation exceptions based on the type of error.
     * If the error is standard bean validation errors then it will throw a ConstraintValidationException
     * with the set of the constraints violated.</p>
-    * <p>If the error is caused because an existing member with same email is registered it throws a regular
+    * <p>If the error is caused because an existing member with the same email is registered it throws a regular
     * validation exception so that it can be interpreted separately.</p>
     * @param member Member to be validated
     * @throws ConstraintViolationException If Bean Validation errors exist
@@ -140,7 +140,7 @@ public class MemberService {
    }
 
    /**
-    * Creates a JAX-RS "Rad Request" response including a map of all violation fields, and their message.
+    * Creates a JAX-RS "Bad Request" response including a map of all violation fields, and their message.
     * This can then be used by clients to show violations.
     *
     * @param violations A set of violations that needs to be reported
