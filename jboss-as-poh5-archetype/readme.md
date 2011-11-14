@@ -1,13 +1,13 @@
-jboss-javaee6-poh5-webapp-src
+jboss-javaee6-html5-webapp
 ========================
 
 What is it?
 -----------
 
 This is your project! It's a deployable Maven 3 project to help you
-get your foot in the door developing HTML5 based applications with Java EE 6
-on JBoss AS 7. This project is setup to allow you to create a basic Java EE 6 application
-using HTML5, jQuery, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes
+get your foot in the door developing HTML5 based desktop/mobile web based applications with Java EE 6
+on JBoss AS 7 / EAP6. This project is setup to allow you to create a basic Java EE 6 application
+using HTML5, jQuery Mobile, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes
 a persistence unit and some sample persistence and transaction code to help 
 you get your feet wet with database access in enterprise Java.
 
@@ -17,17 +17,26 @@ example also uses some of the latest HTML5 features and advanced JAX-RS.  And si
 is just as important with POH5 as it is server side core this application also uses QUnit to show
 you how to unit test your JavaScript.
 
+What is a modern web application without mobile web support, so this application also integrates
+jQuery mobile and basic client site device detection to give you both a desktop and mobile 
+version of the interface.  Both support the same features, from form validation, member
+registration.  However the mobile version adds in layout, touch, and performance improvements
+needed to get you started with mobile web development on JBoss.  
+
 System requirements
 -------------------
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven
 3.0 or better.
 
-The application this project produces is designed to be run on a JBoss AS 7.
+The application this project produces is designed to be run on a JBoss AS 7 / EAP6.
 
-HTML5 compatible browser such as Chrome 14+, Safari 5+, Firefox 5+, and IE 9+.  Note
-that some behaviors will vary slightly (ex. validations) based on browser support,
+HTML5 compatible browser such as Chrome 14+, Safari 5+, Firefox 5+, and IE 9+ are
+required. and note that some behaviors will vary slightly (ex. validations) based on browser support,
 especially IE 9.
+
+Mobile web support is limited to all Android and iOS devices.  It should run on HP,
+and Black Berry devices as well.  Windows Phone, and others will be supported as jQuery Mobile announces support.
  
 NOTE:
 This project retrieves some artifacts from the JBoss Community Maven repository.
@@ -37,20 +46,23 @@ With the prerequisites out of the way, you're ready to build and deploy.
 Deploying the application
 -------------------------
  
-First you need to start JBoss AS 7. To do this, run
+First you need to start JBoss AS 7 / EAP6. To do this, run
   
     $JBOSS_HOME/bin/standalone.sh
   
 or if you are using windows
  
     $JBOSS_HOME/bin/standalone.bat
+    
+Note: Adding "-b 0.0.0.0" to the above commands will allow external clients (phones, tablets, 
+      desktops, etc...) connect through your local network. 
 
 To deploy the application, you first need to produce the archive to deploy using
 the following Maven goal:
 
     mvn package
 
-You can now deploy the artifact to JBoss AS by executing the following command:
+You can now deploy the artifact to JBoss AS 7 / EAP6 by executing the following command:
 
     mvn jboss-as:deploy
 
@@ -58,11 +70,11 @@ This will deploy `target/jboss-javaee6-webapp-src.war`.
  
 The application will be running at the following URL <http://localhost:8080/jboss-javaee6-webapp-src/>.
 
-To undeploy from JBoss AS, run this command:
+To undeploy from JBoss AS 7 / EAP6, run this command:
 
     mvn jboss-as:undeploy
 
-You can also start JBoss AS 7 and deploy the project using Eclipse. See the JBoss AS 7
+You can also start JBoss AS 7 / EAP6 and deploy the project using Eclipse. See the JBoss AS 7 / EAP6
 Getting Started Guide for Developers for more information.
  
 Running the Arquillian tests
@@ -71,9 +83,9 @@ Running the Arquillian tests
 By default, tests are configured to be skipped. The reason is that the sample
 test is an Arquillian test, which requires the use of a container. You can
 activate this test by selecting one of the container configuration provided 
-for JBoss AS 7 (remote).
+for JBoss AS 7 / EAP6 (remote).
 
-To run the test in JBoss AS 7, first start a JBoss AS 7 instance. Then, run the
+To run the test in JBoss AS 7 / EAP, first start a container instance. Then, run the
 test goal with the following profile activated:
 
     mvn clean test -Parq-jbossas-remote
@@ -81,8 +93,8 @@ test goal with the following profile activated:
 Running the QUnit tests
 ============================
 
-This application include a set of QUnit tests inorder to verify JavaScript that
-is core to this POH5 application.  Executing QUnit test cases is quite easy.
+This application include a set of QUnit tests in order to verify JavaScript that
+is core to this HTML5 application.  Executing QUnit test cases is quite easy.
 Simply load the following HTML is a browser.
 
     <app-root>/src/test/qunit/index.html
@@ -101,8 +113,8 @@ you need to import the project into your IDE. If you are using NetBeans 6.8 or
 IntelliJ IDEA 9, then all you have to do is open the project as an existing
 project. Both of these IDEs recognize Maven projects natively.
  
-Detailed instructions for using Eclipse with JBoss AS 7 are provided in the 
-JBoss AS 7 Getting Started Guide for Developers.
+Detailed instructions for using Eclipse with JBoss AS 7 / EAP6 are provided in the 
+ Getting Started Guide for Developers.
 
 Downloading the sources and Javadocs
 ====================================
