@@ -8,8 +8,7 @@
    <packaging>war</packaging>
 
    <name>${artifactId}</name>
-   <!--<name>${name}</name>-->
-   <description>A starter Java EE 6 Plain Old HTML5 (POH5) webapp project for use on JBoss AS 7, generated from the jboss-javaee6-poh5-webapp archetype</description>
+   <description>A Java EE 6 Plain Old HTML5 (POH5) webapp project for use on JBoss AS 7 / EAP6, generated from the jboss-javaee6-html5-webapp archetype</description>
 
    <properties>
       <!-- Explicitly declaring the source encoding eliminates the following 

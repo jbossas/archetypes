@@ -17,11 +17,11 @@ example also uses some of the latest HTML5 features and advanced JAX-RS.  And si
 is just as important with POH5 as it is server side core this application also uses QUnit to show
 you how to unit test your JavaScript.
 
-What is a modern web application without mobile web support, so this application also integrates
-jQuery mobile and basic client site device detection to give you both a desktop and mobile 
-version of the interface.  Both support the same features, from form validation, member
-registration.  However the mobile version adds in layout, touch, and performance improvements
-needed to get you started with mobile web development on JBoss.  
+What is a modern web application without mobile web support? So this application also integrates
+jQuery mobile and basic client side device detection to give you both a desktop and mobile 
+version of the interface.  Both support the same features, including form validation, member
+registration, etc...  However the mobile version adds in mobile layout, touch, and performance 
+improvements needed to get you started with mobile web development on JBoss.  
 
 System requirements
 -------------------
@@ -31,12 +31,13 @@ All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven
 
 The application this project produces is designed to be run on a JBoss AS 7 / EAP6.
 
-HTML5 compatible browser such as Chrome 14+, Safari 5+, Firefox 5+, and IE 9+ are
+An HTML5 compatible browser such as Chrome 14+, Safari 5+, Firefox 5+, and IE 9+ are
 required. and note that some behaviors will vary slightly (ex. validations) based on browser support,
 especially IE 9.
 
-Mobile web support is limited to all Android and iOS devices.  It should run on HP,
-and Black Berry devices as well.  Windows Phone, and others will be supported as jQuery Mobile announces support.
+Mobile web support is limited to Android and iOS devices.  It should run on HP,
+and Black Berry devices as well.  Windows Phone, and others will be supported as 
+jQuery Mobile announces support.
  
 NOTE:
 This project retrieves some artifacts from the JBoss Community Maven repository.
@@ -66,9 +67,9 @@ You can now deploy the artifact to JBoss AS 7 / EAP6 by executing the following 
 
     mvn jboss-as:deploy
 
-This will deploy `target/jboss-javaee6-webapp-src.war`.
+This will deploy `target/${artifactId}`.
  
-The application will be running at the following URL <http://localhost:8080/jboss-javaee6-webapp-src/>.
+The application will be running at the following URL <http://localhost:8080/${artifactId}/>.
 
 To undeploy from JBoss AS 7 / EAP6, run this command:
 
