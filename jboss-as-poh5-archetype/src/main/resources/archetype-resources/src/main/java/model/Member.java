@@ -1,4 +1,7 @@
-package com.mycompany.model;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.model;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-jboss-javaee6-html5-webapp
+${artifactId}
 ========================
 
 What is it?

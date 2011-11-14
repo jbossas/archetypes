@@ -1,16 +1,18 @@
-package com.mycompany.test;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.HashMap;
+import java.util.Map;
 import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 
-import com.mycompany.rest.MemberService;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
@@ -20,8 +22,9 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.mycompany.model.Member;
-import com.mycompany.util.Resources;
+import ${package}.rest.MemberService;
+import ${package}.model.Member;
+import ${package}.util.Resources;
 
 /**
  * Uses Arquilian to test the JAX-RS processing class for member registration.
@@ -77,5 +80,4 @@ public class MemberRegistrationTest {
                    1, ((Map<String, String>)response.getEntity()).size());
       log.info("Duplicate member register attempt failed with return code " + response.getStatus());
    }
-   
 }
