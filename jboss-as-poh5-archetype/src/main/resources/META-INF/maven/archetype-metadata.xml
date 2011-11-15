@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="jboss-javaee6-poh5-webapp-src"
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="jboss-javaee6-html5-mobile-archetype"
     xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <requiredProperties>
     <requiredProperty key="name">
-      <defaultValue>Java EE 6 HTML5 Mobile webapp project</defaultValue>
+      <defaultValue>Java EE 6 HTML5 Mobile Web Application</defaultValue>
     </requiredProperty>
     <requiredProperty key="enterprise">
       <defaultValue>false</defaultValue>
@@ -36,6 +36,7 @@
       <directory>src/main/resources</directory>
       <includes>
         <include>**/*.xml</include>
+        <include>**/*.sql</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="true" encoding="UTF-8">

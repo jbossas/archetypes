@@ -5,8 +5,8 @@ What is it?
 -----------
 
 This is your project! It's a deployable Maven 3 project to help you
-get your foot in the door developing HTML5 based desktop/mobile web based applications with Java EE 6
-on JBoss AS 7 / EAP6. This project is setup to allow you to create a basic Java EE 6 application
+get your foot in the door developing HTML5 based desktop/mobile web applications with Java EE 6
+on JBoss. This project is setup to allow you to create a basic Java EE 6 application
 using HTML5, jQuery Mobile, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes
 a persistence unit and some sample persistence and transaction code to help 
 you get your feet wet with database access in enterprise Java.
@@ -29,7 +29,7 @@ System requirements
 All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven
 3.0 or better.
 
-The application this project produces is designed to be run on a JBoss AS 7 / EAP6.
+The application this project produces is designed to be run on JBoss AS 7+ / EAP 6+.
 
 An HTML5 compatible browser such as Chrome 14+, Safari 5+, Firefox 5+, and IE 9+ are
 required. and note that some behaviors will vary slightly (ex. validations) based on browser support,
@@ -47,7 +47,7 @@ With the prerequisites out of the way, you're ready to build and deploy.
 Deploying the application
 -------------------------
  
-First you need to start JBoss AS 7 / EAP6. To do this, run
+First you need to start the JBoss container. To do this, run
   
     $JBOSS_HOME/bin/standalone.sh
   
@@ -63,7 +63,7 @@ the following Maven goal:
 
     mvn package
 
-You can now deploy the artifact to JBoss AS 7 / EAP6 by executing the following command:
+You can now deploy the artifact by executing the following command:
 
     mvn jboss-as:deploy
 
@@ -71,11 +71,11 @@ This will deploy `target/${artifactId}`.
  
 The application will be running at the following URL <http://localhost:8080/${artifactId}/>.
 
-To undeploy from JBoss AS 7 / EAP6, run this command:
+To undeploy run this command:
 
     mvn jboss-as:undeploy
 
-You can also start JBoss AS 7 / EAP6 and deploy the project using Eclipse. See the JBoss AS 7 / EAP6
+You can also start the JBoss container and deploy the project using JBoss Tools. See the
 Getting Started Guide for Developers for more information.
  
 Running the Arquillian tests
@@ -84,9 +84,9 @@ Running the Arquillian tests
 By default, tests are configured to be skipped. The reason is that the sample
 test is an Arquillian test, which requires the use of a container. You can
 activate this test by selecting one of the container configuration provided 
-for JBoss AS 7 / EAP6 (remote).
+for JBoss.
 
-To run the test in JBoss AS 7 / EAP, first start a container instance. Then, run the
+To run the test in JBoss, first start the container instance. Then, run the
 test goal with the following profile activated:
 
     mvn clean test -Parq-jbossas-remote
@@ -114,7 +114,7 @@ you need to import the project into your IDE. If you are using NetBeans 6.8 or
 IntelliJ IDEA 9, then all you have to do is open the project as an existing
 project. Both of these IDEs recognize Maven projects natively.
  
-Detailed instructions for using Eclipse with JBoss AS 7 / EAP6 are provided in the 
+Detailed instructions for using Eclipse / JBoss Tools with are provided in the 
  Getting Started Guide for Developers.
 
 Downloading the sources and Javadocs

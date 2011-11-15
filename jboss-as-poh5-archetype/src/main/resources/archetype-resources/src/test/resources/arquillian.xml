@@ -9,7 +9,7 @@
 <!--       <property name="deploymentExportPath">target/</property>  -->
 <!--    </engine> -->
 
-   <!-- Example configuration for a remote JBoss AS 7 instance -->
+   <!-- Example configuration for a remote JBoss instance -->
    <container qualifier="jboss" default="true">
       <protocol type="jmx-as7">
          <property name="executionType">REMOTE</property>

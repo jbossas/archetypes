@@ -8,7 +8,7 @@
    <packaging>war</packaging>
 
    <name>${artifactId}</name>
-   <description>A Java EE 6 Plain Old HTML5 (POH5) webapp project for use on JBoss AS 7 / EAP6, generated from the jboss-javaee6-html5-webapp archetype</description>
+   <description>A Java EE 6 HTML5 mobile web application for use with JBoss, generated from the jboss-javaee6-html5-mobile-archetype</description>
 
    <properties>
       <!-- Explicitly declaring the source encoding eliminates the following 
@@ -62,10 +62,10 @@
    <dependencies>
 
       <!-- First declare the APIs we depend on and need for compilation. 
-         All of them are provided by JBoss AS 7 -->
+         All of them are provided by JBoss -->
 
       <!-- Import the CDI API, we use provided scope as the API is included 
-         in JBoss AS 7 -->
+         in JBoss -->
       <dependency>
          <groupId>javax.enterprise</groupId>
          <artifactId>cdi-api</artifactId>
@@ -73,7 +73,7 @@
       </dependency>
 
       <!-- Import the Common Annotations API (JSR-250), we use provided scope 
-         as the API is included in JBoss AS 7 -->
+         as the API is included in JBoss -->
       <dependency>
          <groupId>org.jboss.spec.javax.annotation</groupId>
          <artifactId>jboss-annotations-api_1.1_spec</artifactId>
@@ -81,7 +81,7 @@
       </dependency>
 
       <!-- Import the JAX-RS API, we use provided scope as the API is included 
-         in JBoss AS 7 -->
+         in JBoss -->
       <dependency>
          <groupId>org.jboss.spec.javax.ws.rs</groupId>
          <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
@@ -89,7 +89,7 @@
       </dependency>
 
       <!-- Import the JPA API, we use provided scope as the API is included 
-         in JBoss AS 7 -->
+         in JBoss -->
       <dependency>
          <groupId>org.hibernate.javax.persistence</groupId>
          <artifactId>hibernate-jpa-2.0-api</artifactId>
@@ -97,7 +97,7 @@
       </dependency>
 
       <!-- Import the EJB API, we use provided scope as the API is included 
-         in JBoss AS 7 -->
+         in JBoss -->
       <dependency>
          <groupId>org.jboss.spec.javax.ejb</groupId>
          <artifactId>jboss-ejb-api_3.1_spec</artifactId>
@@ -106,7 +106,7 @@
 
       <!-- JSR-303 (Bean Validation) Implementation -->
       <!-- Provides portable constraints such as @Email -->
-      <!-- Hibernate Validator is shipped in JBoss AS 7 -->
+      <!-- Hibernate Validator is shipped in JBoss -->
       <dependency>
          <groupId>org.hibernate</groupId>
          <artifactId>hibernate-validator</artifactId>

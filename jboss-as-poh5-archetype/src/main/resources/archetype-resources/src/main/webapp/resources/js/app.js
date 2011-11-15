@@ -1,5 +1,5 @@
 /*
-Core JavaScript functionality for the application.  Preforms the required
+Core JavaScript functionality for the application.  Performs the required
 Restful calls, validates return values, and populates the member table.
  */
 
