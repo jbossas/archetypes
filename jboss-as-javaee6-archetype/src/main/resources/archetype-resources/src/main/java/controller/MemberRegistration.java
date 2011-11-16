@@ -1,4 +1,7 @@
-package com.mycompany.controller;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.controller;
 
 import java.util.logging.Logger;
 
@@ -11,7 +14,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 
-import com.mycompany.model.Member;
+import ${package}.model.Member;
 
 // The @Stateful annotation eliminates the need for manual transaction demarcation
 @Stateful
