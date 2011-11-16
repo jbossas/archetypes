@@ -1,4 +1,7 @@
-package com.mycompany.rest;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.rest;
 
 import java.util.List;
 
@@ -10,7 +13,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import com.mycompany.model.Member;
+import ${package}.model.Member;
 
 /**
  * JAX-RS Example
