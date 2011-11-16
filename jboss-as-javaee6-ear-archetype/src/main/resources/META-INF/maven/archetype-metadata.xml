@@ -15,7 +15,7 @@
 <archetype-descriptor name="multi-javaee6-archetype">
 
    <requiredProperties>
-      <requiredProperty key="useJBossEnterprise">
+      <requiredProperty key="enterprise">
         <defaultValue>false</defaultValue>
       </requiredProperty> 
    </requiredProperties>
