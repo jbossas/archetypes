@@ -10,6 +10,7 @@
    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
     -->
 
+   <!-- Pull in application specific css and JS -->
    <link type="text/css" rel="stylesheet" href="resources/css/screen.css"/>
    <script type="text/javascript" src="resources/js/app.js"></script>
 
@@ -31,6 +32,7 @@
 </head>
 <body>
 <div id="container">
+   <!-- New HTML5 section tag -->
    <section>
       <h1>Welcome to JBoss!</h1>
 
@@ -53,13 +55,15 @@
 	      <li class="feature">QUnit test suite to validate JavaScript</li>
       </ul>
 
+      <!-- New HTML5 article tag -->
       <article id="register_art">
          <h2>Member Registration</h2>
 
          <p>Enforces client side validation with HTML5 based constraints that match the annotation-based constraints
             defined on the model class.  Also uses new HTML5 attributes such as placeholder, and autofocus.
          </p>
-
+         
+         <!-- For now mapping bean validation constraints from server side model is a manual task -->
          <form name="reg" id="reg">
             <fieldset>
                <legend>Register a user:</legend>
@@ -82,11 +86,14 @@
          </form>
       </article>
 
+      <!-- New HTML5 article tag -->
       <article id="member_art">
          <h2>Current Members</h2>
 
          <p>This table is populated and constructed using restful GET calls to the server, and uses CSS3 based
-            selectors for styling.
+            selectors for styling.  When the page is requested jQuery is used to send the JAX-RS request 
+            for the current list of members.  The table is them populated dynamically using JavaScript.
+            See app.js for more details.
          </p>
 
          <table id="mem_tbl">
@@ -102,7 +109,11 @@
             <tfoot>
             <tr>
                <td colspan="5">
-                  REST URL for all members: <a href="rest/members" target="_blank">XML</a>,
+                  <!-- Sets the JAX-RS URLs to retrieve all members either as XML 
+                       or JSON data.
+                  -->
+                  REST URL for all members: 
+                  <a href="rest/members" target="_blank">XML</a>,
                   <a href="rest/members/json" target="_blank">JSON</a>
                </td>
             </tr>
@@ -113,7 +124,7 @@
       </article>
    </section>
 
-   <!-- Sidebar -->
+   <!-- New HTML5 aside tag -->
    <aside>
       <h3>Find out more</h3>
 
@@ -141,9 +152,9 @@
       </p>
    </aside>
 
-   <!-- Footer -->
+   <!-- New HTML5 footer tag -->
    <footer>
-      <img src="resources/gfx/logo.png" alt="Weld logo"/>
+      <img src="resources/gfx/logo.png" alt="HTML5"/>
 
       <p>
          This project was generated from a Maven archetype from

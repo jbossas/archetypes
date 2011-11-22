@@ -4,6 +4,8 @@
    <title>JBoss HTML5/Mobile Application</title>
 
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   
+   <!-- Set viewport scaling and zoom features -->
    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0;">
 
    <link type="text/css" rel="stylesheet" href="resources/css/jquery.mobile-1.0rc2.min.css"/>
@@ -15,7 +17,8 @@
    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
    <script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
     -->
-
+    
+   <!-- Pull in application specific css and JS -->
    <link type="text/css" rel="stylesheet" href="resources/css/m.screen.css"/>
    <script type="text/javascript" src="resources/js/app.js"></script>
 
@@ -33,7 +36,7 @@
             registerMember(formValues);
          });
 
-         //Register the c
+         //Register the cancel listener
          $('#cancel').click(function(event) {
             //clear input fields
             $('#reg')[0].reset();
@@ -49,7 +52,7 @@
 <body>
 <div id="container">
 
-<!-- Home Page -->
+<!-- Home Page - new HTML5 article tag -->
 <article id="intro-sec" data-role="page">
 
    <!-- Header -->
@@ -96,7 +99,7 @@
 </article>
 <!-- /Home Page -->
 
-<!-- Register Member Page -->
+<!-- Register Member Page  - new HTML5 article tag -->
 <article id="register-sec" data-role="page">
 
    <!-- Header -->
@@ -108,6 +111,7 @@
    </div>
    <!-- /Header -->
 
+   <!-- For now mapping bean validation constraints from server side model is a manual task -->
    <form name="reg" id="reg" method="post" data-ajax="false">
       <fieldset>
          <div data-role="fieldcontain">
@@ -148,7 +152,7 @@
 </article>
 <!-- /Register Member Page -->
 
-<!-- Member List Page -->
+<!-- Member List Page - new HTML5 article tag -->
 <article id="member-sec" data-role="page">
 
    <!-- Header -->
@@ -159,6 +163,12 @@
       <a href="#info-sec" data-role="button" data-icon="info" class="ui-btn-right" data-iconpos="notext"></a>
    </div>
    <!-- /Header -->
+   
+   <!-- This table is populated and constructed using restful GET calls to the server, and uses CSS3 based
+        selectors for styling.  When the page is requested jQuery is used to send the JAX-RS request 
+        for the current list of members.  The table is them populated dynamically using JavaScript.
+        See app.js for more details.
+   -->
 
    <table id="mem_tbl">
       <thead>
@@ -173,8 +183,11 @@
       <tfoot>
       <tr>
          <td colspan="5">
-            REST URL for all members: <a href="rest/members"
-                                         target="_blank">XML</a>,
+            <!-- Sets the JAX-RS URLs to retrieve all members either as XML 
+                 or JSON data.
+             -->
+            REST URL for all members: 
+            <a href="rest/members" target="_blank">XML</a>,
             <a href="rest/members/json" target="_blank">JSON</a>
          </td>
       </tr>
@@ -199,7 +212,7 @@
 </article>
 <!-- /Member List Page -->
 
-<!-- Info Page -->
+<!-- Info Page - new HTML5 aside tag -->
 <aside id="info-sec" data-role="page">
 
    <!-- Header -->
