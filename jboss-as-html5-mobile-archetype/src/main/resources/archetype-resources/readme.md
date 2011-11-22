@@ -95,7 +95,8 @@ test goal with the following profile activated:
 Running the QUnit tests
 ============================
 
-This application include a set of QUnit tests in order to verify JavaScript that
+QUnit is a JavaScript unit testing framework used and built by jQuery.This 
+application include a set of QUnit tests in order to verify JavaScript that
 is core to this HTML5 application.  Executing QUnit test cases is quite easy.
 Simply load the following HTML is a browser.
 
