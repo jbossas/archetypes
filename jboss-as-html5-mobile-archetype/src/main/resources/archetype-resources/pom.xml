@@ -19,24 +19,22 @@
       <!-- Timestamp format for the maven.build.timestamp property -->
       <!-- You can reference property in pom.xml or filtered resources (must 
          enable third-party plugin if using Maven < 2.1) -->
-      <maven.build.timestamp.format>yyyyMMdd'T'HHmmss</maven.build.timestamp.format>
-      <!-- Specify the JBoss AS directory to be the JBOSS_HOME environment 
-         variable -->
-      <jboss.home>${env.JBOSS_HOME}</jboss.home>
-      <!-- Define the version of JBoss' Java EE 6 APIs we want to import. 
-        Any dependencies from org.jboss.spec will have their version defined by this 
-        BOM -->
 #if ($enterprise == "true" || $enterprise == "y" || $enterprise == "yes" )
       <!-- Certified version of the JBoss EAP components we want to use -->
       <javaee6.web.spec.version>3.0.0.Beta1-redhat-1</javaee6.web.spec.version>
-      <!-- Alternatively, you can use version 2.0.0.Beta1 which is based on community built dependencies. 
-        You can actually use this stack with any version of JBoss AS that implements the Java EE 6 web profile
+      <!-- Alternatively, comment out the above line, and un-comment the line below to 
+        use version 2.0.0.Beta1 which is based on community built dependencies. 
+        You can actually use this stack with any version of JBoss AS that implements
+        the Java EE 6 web profile -->
+      <!-- 
       <javaee6.web.spec.version>2.0.0.Final</javaee6.web.spec.version> 
       -->
 #else
       <javaee6.web.spec.version>2.0.0.Final</javaee6.web.spec.version>
-      <!-- Alternatively, you can use version 3.0.0.Beta1-redhat-1 which is a release certified 
-      to work with JBoss EAP 6. It requires you have access to the JBoss EAP 6 maven repository.
+      <!-- Alternatively, comment out the above line, and un-comment the line below to 
+        use version 3.0.0.Beta1-redhat-1 which is a release certified 
+      to work with JBoss EAP 6. It requires you have access to the JBoss EAP 6 maven repository. -->
+      <!-- 
       <javaee6.web.spec.version>3.0.0.Beta1-redhat-1</javaee6.web.spec.version> 
       -->
 #end
@@ -155,12 +153,6 @@
       <!-- Maven will append the version to the finalName (which is the name 
          given to the generated war, and hence the context root) -->
       <finalName>${project.artifactId}</finalName>
-      <testResources>
-         <testResource>
-            <directory>src/test/resources/</directory>
-            <filtering>true</filtering>
-         </testResource>
-      </testResources>
       <plugins>
          <!-- Compiler plugin enforces Java 1.6 compatibility and activates 
             annotation processors -->
