@@ -1,4 +1,7 @@
-package com.mycompany.test;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.test;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -15,9 +18,9 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.mycompany.controller.MemberRegistration;
-import com.mycompany.model.Member;
-import com.mycompany.util.Resources;
+import ${package}.controller.MemberRegistration;
+import ${package}.model.Member;
+import ${package}.util.Resources;
 
 @RunWith(Arquillian.class)
 public class MemberRegistrationTest {
