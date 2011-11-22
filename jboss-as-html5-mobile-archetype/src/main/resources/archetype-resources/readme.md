@@ -13,14 +13,14 @@ you get your feet wet with database access in enterprise Java.
 
 This application is built using a technique called Plain Old HTML5 (POH5).  This uses a pure HTML
 client that interacts with with the application server via restful end-points (JAX-RS).  This
-example also uses some of the latest HTML5 features and advanced JAX-RS.  And since testing
+application also uses some of the latest HTML5 features and advanced JAX-RS. And since testing
 is just as important with POH5 as it is server side core this application also uses QUnit to show
 you how to unit test your JavaScript.
 
-What is a modern web application without mobile web support? So this application also integrates
+What is a modern web application without mobile web support? This application also integrates
 jQuery mobile and basic client side device detection to give you both a desktop and mobile 
-version of the interface.  Both support the same features, including form validation, member
-registration, etc...  However the mobile version adds in mobile layout, touch, and performance 
+version of the interface. Both support the same features, including form validation, member
+registration, etc. However the mobile version adds in mobile layout, touch, and performance 
 improvements needed to get you started with mobile web development on JBoss.  
 
 System requirements
@@ -29,9 +29,9 @@ System requirements
 All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven
 3.0 or better.
 
-The application this project produces is designed to be run on JBoss AS 7+ / EAP 6+.
+The application this project produces is designed to be run on JBoss AS 7+ or EAP 6+.
 
-An HTML5 compatible browser such as Chrome 14+, Safari 5+, Firefox 5+, and IE 9+ are
+An HTML5 compatible browser such as Chrome 14+, Safari 5+, Firefox 5+, or IE 9+ are
 required. and note that some behaviors will vary slightly (ex. validations) based on browser support,
 especially IE 9.
 
@@ -39,9 +39,6 @@ Mobile web support is limited to Android and iOS devices.  It should run on HP,
 and Black Berry devices as well.  Windows Phone, and others will be supported as 
 jQuery Mobile announces support.
  
-NOTE:
-This project retrieves some artifacts from the JBoss Community Maven repository.
-
 With the prerequisites out of the way, you're ready to build and deploy.
 
 Deploying the application
@@ -56,7 +53,11 @@ or if you are using windows
     $JBOSS_HOME/bin/standalone.bat
     
 Note: Adding "-b 0.0.0.0" to the above commands will allow external clients (phones, tablets, 
-      desktops, etc...) connect through your local network. 
+desktops, etc...) connect through your local network.
+      
+For example
+
+    $JBOSS_HOME/bin/standalone.sh -b 0.0.0.0 
 
 To deploy the application, you first need to produce the archive to deploy using
 the following Maven goal:
@@ -109,13 +110,13 @@ If you created the project using the Maven archetype wizard in your IDE
 (Eclipse, NetBeans or IntelliJ IDEA), then there is nothing to do. You should
 already have an IDE project.
 
+Detailed instructions for using Eclipse / JBoss Tools with are provided in the 
+Getting Started Guide for Developers.
+
 If you created the project from the commandline using archetype:generate, then
 you need to import the project into your IDE. If you are using NetBeans 6.8 or
 IntelliJ IDEA 9, then all you have to do is open the project as an existing
 project. Both of these IDEs recognize Maven projects natively.
- 
-Detailed instructions for using Eclipse / JBoss Tools with are provided in the 
- Getting Started Guide for Developers.
 
 Downloading the sources and Javadocs
 ====================================

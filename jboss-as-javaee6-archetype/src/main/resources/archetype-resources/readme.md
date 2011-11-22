@@ -20,9 +20,6 @@ All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven
 The application this project produces is designed to be run on a JBoss AS 7 or EAP 6. 
 The following instructions target JBoss AS 7, but they also apply to JBoss EAP 6.
  
-NOTE:
-This project retrieves some artifacts from the JBoss Community Maven repository.
-
 With the prerequisites out of the way, you're ready to build and deploy.
 
 Deploying the application
@@ -76,13 +73,13 @@ If you created the project using the Maven archetype wizard in your IDE
 (Eclipse, NetBeans or IntelliJ IDEA), then there is nothing to do. You should
 already have an IDE project.
 
+Detailed instructions for using Eclipse with JBoss AS 7 are provided in the 
+JBoss AS 7 Getting Started Guide for Developers.
+
 If you created the project from the commandline using archetype:generate, then
 you need to import the project into your IDE. If you are using NetBeans 6.8 or
 IntelliJ IDEA 9, then all you have to do is open the project as an existing
 project. Both of these IDEs recognize Maven projects natively.
- 
-Detailed instructions for using Eclipse with JBoss AS 7 are provided in the 
-JBoss AS 7 Getting Started Guide for Developers.
 
 Downloading the sources and Javadocs
 ====================================
