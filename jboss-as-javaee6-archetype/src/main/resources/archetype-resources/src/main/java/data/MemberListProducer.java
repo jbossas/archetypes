@@ -1,6 +1,9 @@
-package com.mycompany.data;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.data;
 
-import com.mycompany.model.Member;
+import ${package}.model.Member;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;

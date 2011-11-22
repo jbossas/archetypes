@@ -44,14 +44,16 @@
                   have any modules (EJB-JARs and WARs) use them -->
                <defaultLibBundleDir>lib</defaultLibBundleDir>
                <modules>
-                  <!-- Register our War as a web module, and set the context 
-                     root -->
+                  <!-- Default context root of the web app is /${rootArtifactId}-web. 
+                  If a custom context root is needed, uncomment the following snippet to
+                  register our War as a web module and set the contextRoot property -->
+                  <!--
                   <webModule>
                      <groupId>${groupId}</groupId>
                      <artifactId>${rootArtifactId}-web</artifactId>
-                     <!-- Define the context root for the webapp -->
                      <contextRoot>/${rootArtifactId}</contextRoot>
                   </webModule>
+                  -->
                </modules>
             </configuration>
          </plugin>
