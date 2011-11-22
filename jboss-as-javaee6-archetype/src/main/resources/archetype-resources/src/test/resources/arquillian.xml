@@ -14,6 +14,7 @@
       <protocol type="jmx-as7">
          <property name="executionType">REMOTE</property>
       </protocol>
+      <!-- If you want to use the JBOSS_HOME environment variable, just delete the jbossHome property -->
       <configuration>
          <property name="jbossHome">/path/to/jboss/as</property>
       </configuration>
