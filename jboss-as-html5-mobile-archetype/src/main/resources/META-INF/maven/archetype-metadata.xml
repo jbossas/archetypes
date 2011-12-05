@@ -68,6 +68,7 @@
       <directory></directory>
       <includes>
         <include>**/*.factorypath</include>
+        <include>.gitignore</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
