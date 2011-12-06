@@ -23,3 +23,5 @@ Release process for Archetypes
 7. Reset version numbers to snapshots
         
         ./release-utils.sh -u -o <release version> -n <new snapshot version>
+8. Commit this
+9. Promote the staged repo
