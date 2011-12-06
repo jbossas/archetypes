@@ -11,7 +11,7 @@
 
    <groupId>org.jboss.spec.archetypes</groupId>
    <artifactId>jboss-html5-mobile-archetype</artifactId>
-   <version>7.0.2-SNAPSHOT</version>
+   <version>7.0.2.CR2</version>
    <packaging>maven-archetype</packaging>
 
    <name>Java EE 6 HTML5 Mobile Web Application</name>
