@@ -10,13 +10,13 @@
    </parent>
 
    <groupId>org.jboss.spec.archetypes</groupId>
-   <artifactId>jboss-javaee6-html5-mobile-archetype</artifactId>
+   <artifactId>jboss-javaee6-webapp-archetype</artifactId>
    <version>7.0.2-SNAPSHOT</version>
    <packaging>maven-archetype</packaging>
 
-   <name>Java EE 6 HTML5 Mobile Web Application</name>
+   <name>Java EE 6 Webapp</name>
 
-   <description>An archetype that generates a Java EE 6 application using HTML5, and JAX-RS to support both desktop and mobile web browsers</description>
+   <description>An archetype that generates a starter Java EE 6 webapp project for JBoss AS 7 (by default) or EAP 6 (if the "enterprise" property is true)</description>
 
    <url>http://jboss.org/jbossas</url>
 
@@ -48,14 +48,8 @@
          <organizationUrl>http://redhat.com/jboss</organizationUrl>
          <url>http://in.relation.to/Bloggers/Pete</url>
       </developer>
-      <developer>
-         <name>Jay Balunas</name>
-         <email>jbalunas@jboss.org</email>
-         <organization>Red Hat, Inc.</organization>
-         <organizationUrl>http://redhat.com/jboss</organizationUrl>
-         <url>http://in.relation.to/Bloggers/Jay</url>
-      </developer>
    </developers>
+
 
    <build>
       <extensions>
