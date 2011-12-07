@@ -45,21 +45,21 @@ EOF
 
 clean() 
 {
-    echo "**** Cleaning $DIR/*-blank"
-    rm -rf $DIR/*-blank
+    echo "**** Cleaning $DIR/*-blank-archetype"
+    rm -rf $DIR/*-blank-archetype
 }
 
 blank()
 {
    ARCHETYPE_NAME=$1
+   ARCHETYPE_BLANK_NAME=${ARCHETYPE_NAME//archetype/blank-archetype}
    ARCHETYPE_DIR=${DIR}/${ARCHETYPE_NAME}
-   ARCHETYPE_TMP_DIR="${DIR}/${ARCHETYPE_NAME}-blank"
-   ARCHETYPE_TMP_NAME="${ARCHETYPE_NAME}-blank"
+   ARCHETYPE_TMP_DIR="${DIR}/${ARCHETYPE_BLANK_NAME}"
 
 cat << EOF
 
 **** Generating blank version of ${ARCHETYPE_NAME} into ${ARCHETYPE_TMP_DIR}
-**** Blank artifactId is ${ARCHETYPE_TMP_NAME}
+**** Blank artifactId is ${ARCHETYPE_BLANK_NAME}
 
 EOF
 
@@ -71,7 +71,7 @@ EOF
 
    mv src/main/resources/META-INF/maven/archetype-metadata-blank.xml src/main/resources/META-INF/maven/archetype-metadata.xml
 
-   perl -pi -e "s/${ARCHETYPE_NAME}/${ARCHETYPE_TMP_NAME}/g" `find . -name pom.xml`
+   perl -pi -e "s/${ARCHETYPE_NAME}/${ARCHETYPE_BLANK_NAME}/g" `find . -name pom.xml`
 
 }
 
