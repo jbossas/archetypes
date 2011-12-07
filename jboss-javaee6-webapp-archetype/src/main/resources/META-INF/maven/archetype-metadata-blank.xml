@@ -12,6 +12,24 @@
   </requiredProperties>
   <fileSets>
     <fileSet encoding="UTF-8">
+      <directory>src/main/java</directory>
+      <excludes>
+         <exclude>**/*</exclude>
+      </excludes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>src/test/java</directory>
+      <excludes>
+         <exclude>**/*</exclude>
+      </excludes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>src/test/resources</directory>
+      <excludes>
+         <exclude>**/*</exclude>
+      </excludes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
       <directory>src/main/webapp</directory>
       <includes>
         <include>**/*.xml</include>

@@ -30,6 +30,18 @@
   <modules>
     <module id="${rootArtifactId}-ejb" dir="__rootArtifactId__-ejb" name="${rootArtifactId}-ejb">
       <fileSets>
+        <fileSet encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <excludes>
+            <exclude>**/*</exclude>
+          </excludes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>src/test/java</directory>
+          <excludes>
+            <exclude>**/*</exclude>
+          </excludes>
+        </fileSet>
         <fileSet filtered="true"  encoding="UTF-8">
           <directory>src/main/resources</directory>
           <includes>
@@ -46,6 +58,30 @@
     </module>
     <module id="${rootArtifactId}-web" dir="__rootArtifactId__-web" name="${rootArtifactId}-web">
       <fileSets>
+        <fileSet encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <excludes>
+            <exclude>**/*</exclude>
+          </excludes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>src/test/java</directory>
+          <excludes>
+            <exclude>**/*</exclude>
+          </excludes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>src/main/resources</directory>
+          <excludes>
+            <exclude>**/*</exclude>
+          </excludes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>src/test/resources</directory>
+          <excludes>
+            <exclude>**/*</exclude>
+          </excludes>
+        </fileSet>
         <fileSet filtered="true" encoding="UTF-8">
           <directory>src/main/webapp</directory>
           <includes>
