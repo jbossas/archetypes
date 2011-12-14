@@ -88,6 +88,12 @@
             <include>**/*.xml</include>
           </includes>
         </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>src/main/webapp/resources</directory>
+          <excludes>
+            <exclude>**/*</exclude>
+          </excludes>
+        </fileSet>
       </fileSets>
     </module>
     <module id="${rootArtifactId}-ear" dir="__rootArtifactId__-ear" name="${rootArtifactId}-ear" />
