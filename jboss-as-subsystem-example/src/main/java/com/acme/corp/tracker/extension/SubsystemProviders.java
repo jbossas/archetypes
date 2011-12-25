@@ -1,5 +1,6 @@
 package com.acme.corp.tracker.extension;
 
+import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.ADD;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.ATTRIBUTES;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.CHILDREN;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.DEFAULT;
@@ -9,6 +10,7 @@ import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.MAX
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.MIN_OCCURS;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.MODEL_DESCRIPTION;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.NAMESPACE;
+import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.OPERATION_NAME;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.REQUIRED;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.TAIL_COMMENT_ALLOWED;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.TYPE;
@@ -59,6 +61,7 @@ class SubsystemProviders {
             //The locale is passed in so you can internationalize the strings used in the descriptions
 
             final ModelNode subsystem = new ModelNode();
+            subsystem.get(OPERATION_NAME).set(ADD);
             subsystem.get(DESCRIPTION).set("Adds the tracker subsystem");
 
             return subsystem;

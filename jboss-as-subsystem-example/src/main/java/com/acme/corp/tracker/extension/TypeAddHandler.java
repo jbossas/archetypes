@@ -1,7 +1,9 @@
 package com.acme.corp.tracker.extension;
 
+import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.ADD;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.DEFAULT;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.DESCRIPTION;
+import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.OPERATION_NAME;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.REQUEST_PROPERTIES;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.REQUIRED;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.TYPE;
@@ -36,6 +38,7 @@ class TypeAddHandler extends AbstractAddStepHandler implements DescriptionProvid
     @Override
     public ModelNode getModelDescription(Locale locale) {
         ModelNode node = new ModelNode();
+        node.get(OPERATION_NAME).set(ADD);
         node.get(DESCRIPTION).set("Adds a tracked deployment type");
         node.get(REQUEST_PROPERTIES, "tick", DESCRIPTION).set("How often to output information about a tracked deployment");
         node.get(REQUEST_PROPERTIES, "tick", TYPE).set(ModelType.LONG);

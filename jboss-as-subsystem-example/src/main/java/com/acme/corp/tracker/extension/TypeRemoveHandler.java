@@ -22,6 +22,8 @@
 package com.acme.corp.tracker.extension;
 
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.DESCRIPTION;
+import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.OPERATION_NAME;
+import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.REMOVE;
 
 import java.util.Locale;
 
@@ -48,6 +50,7 @@ class TypeRemoveHandler extends AbstractRemoveStepHandler implements Description
     @Override
     public ModelNode getModelDescription(Locale locale) {
         ModelNode node = new ModelNode();
+        node.get(OPERATION_NAME).set(REMOVE);
         node.get(DESCRIPTION).set("Removes a tracked deployment type");
         return node;
     }
