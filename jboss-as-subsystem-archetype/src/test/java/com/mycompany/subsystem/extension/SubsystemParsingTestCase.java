@@ -119,6 +119,21 @@ public class SubsystemParsingTestCase extends AbstractSubsystemTest {
 
         //Make sure the models from the two controllers are identical
         super.compare(modelA, modelB);
+    }
 
+    /**
+     * Tests that the subsystem can be removed
+     */
+    @Test
+    public void testSubsystemRemoval() throws Exception {
+        //Parse the subsystem xml and install into the first controller
+        String subsystemXml =
+                "<subsystem xmlns=\"" + SubsystemExtension.NAMESPACE + "\">" +
+                "</subsystem>";
+        KernelServices services = super.installInController(subsystemXml);
+        //Checks that the subsystem was removed from the model
+        super.assertRemoveSubsystemResources(services);
+
+        //TODO Chek that any services that were installed were removed here
     }
 }

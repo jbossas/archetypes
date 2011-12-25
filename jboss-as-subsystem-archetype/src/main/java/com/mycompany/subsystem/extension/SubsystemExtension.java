@@ -4,6 +4,7 @@ import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.ADD
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.DESCRIBE;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.OP;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.OP_ADDR;
+import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.REMOVE;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.SUBSYSTEM;
 
 import java.util.List;
@@ -59,6 +60,8 @@ public class SubsystemExtension implements Extension {
         final ManagementResourceRegistration registration = subsystem.registerSubsystemModel(SubsystemProviders.SUBSYSTEM);
         //We always need to add an 'add' operation
         registration.registerOperationHandler(ADD, SubsystemAdd.INSTANCE, SubsystemProviders.SUBSYSTEM_ADD, false);
+        //Every resource that is added, normally needs a remove operation
+        registration.registerOperationHandler(REMOVE, SubsystemRemove.INSTANCE, SubsystemProviders.SUBSYSTEM_REMOVE, false);
         //We always need to add a 'describe' operation
         registration.registerOperationHandler(DESCRIBE, SubsystemDescribeHandler.INSTANCE, SubsystemDescribeHandler.INSTANCE, false, OperationEntry.EntryType.PRIVATE);
 
