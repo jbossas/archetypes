@@ -30,6 +30,7 @@
         <include>**/*.js</include>
         <include>**/*.xml</include>
         <include>**/*.css</include>
+        <include>**/*.tmpl</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
