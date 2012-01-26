@@ -9,7 +9,7 @@
       <version>6-beta-2</version>
    </parent>
 
-   <groupId>org.jboss.spec.archetypes</groupId>
+   <groupId>org.jboss.aerogear.archetypes</groupId>
    <artifactId>jboss-html5-mobile-archetype</artifactId>
    <version>7.0.2-SNAPSHOT</version>
    <packaging>maven-archetype</packaging>
