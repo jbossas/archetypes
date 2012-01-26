@@ -6,7 +6,7 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 # DEFINE
 
-ARCHETYPES="jboss-javaee6-webapp-archetype jboss-javaee6-webapp-blank-archetype jboss-javaee6-webapp-ear-archetype  jboss-javaee6-webapp-ear-blank-archetype jboss-html5-mobile-archetype"
+ARCHETYPES="jboss-html5-mobile-archetype"
 
 SNAPSHOT_REPO_URL="https://repository.jboss.org/nexus/content/repositories/snapshots/"
 SNAPSHOT_REPO_ID="jboss-snapshots-repository"
