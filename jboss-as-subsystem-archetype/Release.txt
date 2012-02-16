@@ -17,3 +17,5 @@ To release this archetype for a new AS 7 version
 3) Deploy the archetype by:
 $ cd target/archetype
 $ mvn deploy
+
+3) Set ../jboss-as-subsystem-example/pom.xml's  project/properties/version.jboss.as to the target AS version.
