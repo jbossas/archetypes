@@ -6,12 +6,12 @@
     <parent>
         <groupId>org.jboss.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.0.Final</version>
+        <version>7.1.1.Final</version>
     </parent>
 
     <groupId>org.jboss.as.archetypes</groupId>
     <artifactId>jboss-as-subsystem</artifactId>
-    <version>7.1.0.Final</version>
+    <version>7.1.1.Final</version>
     <packaging>maven-archetype</packaging>
 
     <name>JBoss AS 7 Subsystem</name>
@@ -27,6 +27,12 @@
             <organization>JBoss, by Red Hat</organization>
             <organizationUrl>http://redhat.com/jboss</organizationUrl>
             <url>http://kabir-khan.blogspot.com/</url>
+        </developer>
+        <developer>
+            <name>Tomaz Cerar</name>
+            <email>tomaz.cerar@redhat.com</email>
+            <organization>JBoss, by Red Hat</organization>
+            <organizationUrl>http://redhat.com/jboss</organizationUrl>
         </developer>
     </developers>
 
@@ -50,7 +56,7 @@
             <extension>
                 <groupId>org.apache.maven.archetype</groupId>
                 <artifactId>archetype-packaging</artifactId>
-                <version>2.0-alpha-5</version>
+                <version>2.2</version>
             </extension>
         </extensions>
 
@@ -58,7 +64,7 @@
             <plugins>
                 <plugin>
                     <artifactId>maven-archetype-plugin</artifactId>
-                    <version>2.0-alpha-5</version>
+                    <version>2.2</version>
                     <extensions>true</extensions>
                 </plugin>
             </plugins>

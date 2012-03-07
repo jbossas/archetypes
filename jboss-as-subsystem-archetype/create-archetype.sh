@@ -37,6 +37,8 @@ cp -f archetype-metadata.xml $ARCHETYPE_DIR/src/main/resources/META-INF/maven/ar
 touch $ARCHETYPE_DIR/src/main/resources/META-INF/maven/archetype-metadata.xml
 cp archetype-test.properties $ARCHETYPE_DIR/src/test/resources/projects/basic/archetype.properties
 
+mv  $ARCHETYPE_RESOURCES_DIR/src/main/resources/com/mycompany/subsystem $ARCHETYPE_RESOURCES_DIR/src/main/resources/
+
 #rsync -az --exclude .svn eclipse-dot-files/ $ARCHETYPE_RESOURCES_DIR/
 # fix the archetype plugin being an idiot
 find $ARCHETYPE_RESOURCES_DIR -type f -exec sed -i -e 's;packageInPathFormat;package;g' {} \;
@@ -54,6 +56,6 @@ if [ ! -z $1 ] && [ "$1" = "generate" ]; then
     echo Generating project from archetype...
     cd target
     mvn archetype:generate -B -DarchetypeCatalog=local \
-        -DarchetypeArtifactId=jboss-javaee6-webapp -DarchetypeGroupId=org.jboss.spec.archetypes -DarchetypeVersion=7.0.1.Final \
+        -DarchetypeArtifactId=jboss-javaee6-webapp -DarchetypeGroupId=org.jboss.spec.archetypes -DarchetypeVersion=7.1.1.Final \
         -DartifactId=example-project -DgroupId=com.acme -Dpackage=com.acme.example -Dversion=1.0.0-SNAPSHOT -Dname="Java EE 6 subsystem project"
 fi

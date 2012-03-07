@@ -19,19 +19,11 @@ import org.jboss.msc.service.ServiceName;
  *
  * @author <a href="kabir.khan@jboss.com">Kabir Khan</a>
  */
-class TypeRemoveHandler extends AbstractRemoveStepHandler implements DescriptionProvider {
+class TypeRemove extends AbstractRemoveStepHandler{
 
-    public static final TypeRemoveHandler INSTANCE = new TypeRemoveHandler();
+    public static final TypeRemove INSTANCE = new TypeRemove();
 
-    private TypeRemoveHandler() {
-    }
-
-    @Override
-    public ModelNode getModelDescription(Locale locale) {
-        ModelNode node = new ModelNode();
-        node.get(OPERATION_NAME).set(REMOVE);
-        node.get(DESCRIPTION).set("Removes a tracked deployment type");
-        return node;
+    private TypeRemove() {
     }
 
     @Override
