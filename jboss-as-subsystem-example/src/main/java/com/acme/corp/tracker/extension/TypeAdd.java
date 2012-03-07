@@ -1,5 +1,6 @@
 package com.acme.corp.tracker.extension;
 
+import static com.acme.corp.tracker.extension.TypeDefinition.TICK;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.ADD;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.DEFAULT;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.DESCRIPTION;
@@ -28,34 +29,17 @@ import org.jboss.msc.service.ServiceName;
  *
  * @author <a href="kabir.khan@jboss.com">Kabir Khan</a>
  */
-class TypeAddHandler extends AbstractAddStepHandler implements DescriptionProvider {
+class TypeAdd extends AbstractAddStepHandler {
 
-    public static final TypeAddHandler INSTANCE = new TypeAddHandler();
+    public static final TypeAdd INSTANCE = new TypeAdd();
 
-    private TypeAddHandler() {
+    private TypeAdd() {
     }
 
-    @Override
-    public ModelNode getModelDescription(Locale locale) {
-        ModelNode node = new ModelNode();
-        node.get(OPERATION_NAME).set(ADD);
-        node.get(DESCRIPTION).set("Adds a tracked deployment type");
-        node.get(REQUEST_PROPERTIES, "tick", DESCRIPTION).set("How often to output information about a tracked deployment");
-        node.get(REQUEST_PROPERTIES, "tick", TYPE).set(ModelType.LONG);
-        node.get(REQUEST_PROPERTIES, "tick", REQUIRED).set(false);
-        node.get(REQUEST_PROPERTIES, "tick", DEFAULT).set(10000);
-        return node;
-    }
-
+   
     @Override
     protected void populateModel(ModelNode operation, ModelNode model) throws OperationFailedException {
-        //The default value is 10000 if it has not been specified
-        long tick = 10000;
-        //Read the value from the operation
-        if (operation.hasDefined("tick")) {
-            tick = operation.get("tick").asLong();
-        }
-        model.get("tick").set(tick);
+        TICK.validateAndSet(operation,model);
     }
 
     @Override
@@ -63,7 +47,8 @@ class TypeAddHandler extends AbstractAddStepHandler implements DescriptionProvid
             ServiceVerificationHandler verificationHandler, List<ServiceController<?>> newControllers)
             throws OperationFailedException {
         String suffix = PathAddress.pathAddress(operation.get(ModelDescriptionConstants.ADDRESS)).getLastElement().getValue();
-        TrackerService service = new TrackerService(suffix, model.get("tick").asLong());
+        long tick = TICK.resolveModelAttribute(context,model).asLong();
+        TrackerService service = new TrackerService(suffix, tick);
         ServiceName name = TrackerService.createServiceName(suffix);
         ServiceController<TrackerService> controller = context.getServiceTarget()
                 .addService(name, service)
