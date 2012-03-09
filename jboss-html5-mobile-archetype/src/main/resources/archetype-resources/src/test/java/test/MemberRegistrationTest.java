@@ -2,6 +2,22 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 package ${package}.test;
+/**
+ * JBoss, Home of Professional Open Source
+ * Copyright 2012, Red Hat, Inc., and individual contributors
+ * by the @authors tag. See the copyright.txt in the distribution for a
+ * full listing of individual contributors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -48,15 +64,16 @@ public class MemberRegistrationTest {
 
    @Test
    public void testRegister() throws Exception {
-      Response response = memberRegistration.createMember("Jane Doe", "jane@mailinator.com", "2125551234");
+      Response response = memberRegistration.createNewMember("Jane Doe", "jane@mailinator.com", "2125551234");
 
       assertEquals("Unexpected response status", 200, response.getStatus());
       log.info(" New member was persisted and returned status " + response.getStatus());
    }
 
+   @SuppressWarnings("unchecked")
    @Test
    public void testInvalidRegister() throws Exception {
-      Response response = memberRegistration.createMember("", "", "");
+      Response response = memberRegistration.createNewMember("", "", "");
 
       assertEquals("Unexpected response status", 400, response.getStatus());
       assertNotNull("response.getEntity() should not null",response.getEntity());
@@ -65,13 +82,14 @@ public class MemberRegistrationTest {
       log.info("Invalid member register attempt failed with return code " + response.getStatus());
    }
 
+   @SuppressWarnings("unchecked")
    @Test
    public void testDuplicateEmail() throws Exception {
       //Register an initial user
-      memberRegistration.createMember("Jane Doe", "jane@mailinator.com", "2125551234");
+      memberRegistration.createNewMember("Jane Doe", "jane@mailinator.com", "2125551234");
 
       //Register a different user with the same email
-      Response response = memberRegistration.createMember("John Doe", "jane@mailinator.com", "2133551234");
+      Response response = memberRegistration.createNewMember("John Doe", "jane@mailinator.com", "2133551234");
 
       assertEquals("Unexpected response status", 409, response.getStatus());
       assertNotNull("response.getEntity() should not null",response.getEntity());
