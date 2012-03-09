@@ -8,7 +8,10 @@
     </requiredProperty>
     <requiredProperty key="enterprise">
       <defaultValue>false</defaultValue>
-    </requiredProperty>    
+    </requiredProperty>
+    <requiredProperty key="tableSuffix">
+      <defaultValue>html5mobi</defaultValue>
+    </requiredProperty>
   </requiredProperties>
   <fileSets>
     <fileSet filtered="true" packaged="true" encoding="UTF-8">
