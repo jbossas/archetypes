@@ -1,7 +1,6 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.util;
 /**
  * JBoss, Home of Professional Open Source
  * Copyright 2012, Red Hat, Inc., and individual contributors
@@ -18,6 +17,7 @@ package ${package}.util;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package ${package}.util;
 
 import java.util.logging.Logger;
 
