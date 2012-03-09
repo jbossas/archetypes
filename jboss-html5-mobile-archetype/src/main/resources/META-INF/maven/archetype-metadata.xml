@@ -34,6 +34,7 @@
         <include>**/*.xml</include>
         <include>**/*.css</include>
         <include>**/*.tmpl</include>
+        <include>**/*.properties</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
@@ -71,7 +72,6 @@
     <fileSet encoding="UTF-8">
       <directory></directory>
       <includes>
-        <include>**/*.factorypath</include>
         <include>.gitignore</include>
       </includes>
     </fileSet>
