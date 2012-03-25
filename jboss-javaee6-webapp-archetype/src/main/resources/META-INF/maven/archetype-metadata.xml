@@ -21,6 +21,7 @@
       <directory>src/main/webapp</directory>
       <includes>
         <include>**/*.html</include>
+        <include>**/*.xml</include>
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
@@ -28,11 +29,10 @@
       <includes>
         <include>**/*.png</include>
         <include>**/*.xhtml</include>
-        <include>**/*.xml</include>
         <include>**/*.css</include>
       </includes>
     </fileSet>
-    <fileSet encoding="UTF-8">
+    <fileSet encoding="UTF-8" filtered="true">
       <directory>src/main/resources</directory>
       <includes>
         <include>**/*.sql</include>
@@ -45,7 +45,7 @@
         <include>**/*.java</include>
       </includes>
     </fileSet>
-    <fileSet encoding="UTF-8">
+    <fileSet encoding="UTF-8" filtered="true">
       <directory>src/test/resources</directory>
       <includes>
         <include>**/*.xml</include>
