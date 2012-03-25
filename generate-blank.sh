@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -o errexit
+
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ] ; do SOURCE="$(readlink "$SOURCE")"; done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
@@ -54,20 +56,20 @@ blank()
    ARCHETYPE_NAME=$1
    ARCHETYPE_BLANK_NAME=${ARCHETYPE_NAME//archetype/blank-archetype}
    ARCHETYPE_DIR=${DIR}/${ARCHETYPE_NAME}
-   ARCHETYPE_TMP_DIR="${DIR}/${ARCHETYPE_BLANK_NAME}"
+   ARCHETYPE_BLANK_DIR="${DIR}/${ARCHETYPE_BLANK_NAME}"
 
 cat << EOF
 
-**** Generating blank version of ${ARCHETYPE_NAME} into ${ARCHETYPE_TMP_DIR}
+**** Generating blank version of ${ARCHETYPE_NAME} into ${ARCHETYPE_BLANK_DIR}
 **** Blank artifactId is ${ARCHETYPE_BLANK_NAME}
 
 EOF
 
-   cd $TMPDIR
+   rm -rf ${ARCHETYPE_BLANK_DIR} 
 
-   cp -r ${ARCHETYPE_DIR} ${ARCHETYPE_TMP_DIR}
+   cp -r ${ARCHETYPE_DIR} ${ARCHETYPE_BLANK_DIR}
 
-   cd $ARCHETYPE_TMP_DIR
+   cd $ARCHETYPE_BLANK_DIR
 
    mv src/main/resources/META-INF/maven/archetype-metadata-blank.xml src/main/resources/META-INF/maven/archetype-metadata.xml
 
