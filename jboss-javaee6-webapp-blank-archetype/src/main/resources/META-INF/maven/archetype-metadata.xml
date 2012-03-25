@@ -23,13 +23,13 @@
          <exclude>**/*</exclude>
       </excludes>
     </fileSet>
-    <fileSet encoding="UTF-8">
+    <fileSet encoding="UTF-8" filtered="true">
       <directory>src/test/resources</directory>
       <excludes>
-         <exclude>**/*</exclude>
+         <include>**/*.xml</include>
       </excludes>
     </fileSet>
-    <fileSet encoding="UTF-8">
+    <fileSet encoding="UTF-8" filtered="true">
       <directory>src/main/webapp</directory>
       <includes>
         <include>**/*.xml</include>
@@ -41,7 +41,7 @@
          <exclude>**/*</exclude>
       </excludes>
     </fileSet>
-    <fileSet encoding="UTF-8">
+    <fileSet encoding="UTF-8" filtered="true">
       <directory>src/main/resources</directory>
       <includes>
         <include>**/*.xml</include>
