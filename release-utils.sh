@@ -83,7 +83,7 @@ release()
    for archetype in $ARCHETYPES
    do
       echo "\n**** Deploying $archetype to ${RELEASE_REPO_URL} \n"
-      mvn clean deploy -f ${archetype}/pom.xml -DaltDeploymentRepository=${RELEASE_REPO_ID}::default::${RELEASE_REPO_URL}
+      mvn clean deploy -f ${archetype}/pom.xml -DaltDeploymentRepository=${RELEASE_REPO_ID}::default::${RELEASE_REPO_URL} nexus:staging-close nexus:staging-release -DnexusURL=https://repository.jboss.org/nexus/index.html -DnexusAuthId=jboss-releases-repository -Prelease -Dautomatic=true -DtargetRepositoryId=releases
    done
 
 }
