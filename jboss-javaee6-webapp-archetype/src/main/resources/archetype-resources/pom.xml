@@ -22,17 +22,17 @@
             to import. -->
 #if ($enterprise == "true" || $enterprise == "y" || $enterprise == "yes" )
         <!-- Certified version of the JBoss EAP components we want to use -->
-        <jboss.bom.version>1.0.0.M5-redhat-1</jboss.bom.version>
+        <jboss.bom.version>1.0.0.M6-redhat-1</jboss.bom.version>
         <!-- Alternatively, comment out the above line, and un-comment the 
             line below to use version 1.0.0M5 which is based on community built dependencies. -->
-        <!-- <jboss.bom.version>1.0.0.M5</jboss.bom.version> -->
+        <!-- <jboss.bom.version>1.0.0.M6</jboss.bom.version> -->
 #else
-        <jboss.bom.version>1.0.0.M5</jboss.bom.version>
+        <jboss.bom.version>1.0.0.M6</jboss.bom.version>
         <!-- Alternatively, comment out the above line, and un-comment the 
-            line below to use version 1.0.0.M5-redhat-1 which is a release certified 
+            line below to use version 1.0.0.M6-redhat-1 which is a release certified 
             to work with JBoss EAP 6. It requires you have access to the JBoss EAP 6 
             maven repository. -->
-        <!-- <jboss.bom.version>1.0.0.M5-redhat-1</jboss.bom.version>> -->
+        <!-- <jboss.bom.version>1.0.0.M6-redhat-1</jboss.bom.version>> -->
 #end
     </properties>
 

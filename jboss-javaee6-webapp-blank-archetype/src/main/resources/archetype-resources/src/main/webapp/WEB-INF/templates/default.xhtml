@@ -10,7 +10,11 @@
 </h:head>
 <h:body>
    <div id="container">
+      <div class="dualbrand">
+         <img src="resources/gfx/dualbrand_logo.png" />
+      </div>
       <div id="content">
+<<<<<<< HEAD
          <div id="sidebar">
             <h3>Find out more</h3>
             <p>Learn about JBoss AS 7.</p>
@@ -68,12 +72,27 @@
                it back to the community!
             </p>
          </div>
+=======
+>>>>>>> ed7c19b... Update blank archetype
          <ui:insert name="content">
                     [Template content will be inserted here]
-                </ui:insert>
+         </ui:insert>
+      </div>
+      <div id="aside">
+         <p>Learn more about JBoss Enterprise Application Platform 6.</p>
+         <ul>
+            <li><a
+               href="http://red.ht/jbeap-6-docs">Documentation</a></li>
+            <li><a href="http://red.ht/jbeap-6">Product Information</a></li>
+         </ul>
+         <p>Learn more about JBoss AS 7.</p>
+         <ul>
+            <li><a
+               href="https://docs.jboss.org/author/display/AS7/Getting+Started+Developing+Applications+Guide">Getting Started Developing Applications Guide</a></li>
+            <li><a href="http://jboss.org/jbossas">Community Project Information</a></li>
+         </ul>            
       </div>
       <div id="footer">
-         <h:graphicImage value="/resources/gfx/logo.png" alt="Weld logo" />
          <p>
             This project was generated from a Maven archetype from
             JBoss.<br />

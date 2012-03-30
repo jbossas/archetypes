@@ -1,35 +1,35 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
 package ${package}.controller;
 
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.Stateful;
 import javax.enterprise.event.Event;
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 
 import ${package}.model.Member;
+import ${package}.service.MemberRegistration;
 
-// The @Stateful annotation eliminates the need for manual transaction demarcation
-@Stateful
 // The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an
 // EL name
 // Read more about the @Model stereotype in this FAQ:
 // http://sfwk.org/Documentation/WhatIsThePurposeOfTheModelAnnotation
 @Model
-public class MemberRegistration {
+public class MemberController {
 
    @Inject
-   private Logger log;
+   private FacesContext facesContext;
 
    @Inject
-   private EntityManager em;
-
-   @Inject
-   private Event<Member> memberEventSrc;
+   private MemberRegistration memberRegistration;
 
    private Member newMember;
 
@@ -40,9 +40,8 @@ public class MemberRegistration {
    }
 
    public void register() throws Exception {
-      log.info("Registering " + newMember.getName());
-      em.persist(newMember);
-      memberEventSrc.fire(newMember);
+      memberRegistration.register(newMember);
+      facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful"));
       initNewMember();
    }
 
