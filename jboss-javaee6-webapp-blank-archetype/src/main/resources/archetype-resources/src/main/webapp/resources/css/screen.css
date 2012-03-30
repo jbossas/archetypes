@@ -67,15 +67,6 @@ h1 {
   color:#243446;
   font-size: 2.25em;
 }
-<<<<<<< HEAD
-
-.messages {
-    list-style-type: none;
-}
-
-.invalid {
-    color: red;
-=======
 h2 {
   font-size: 1em;
 }
@@ -192,13 +183,4 @@ input {
 .simpletablestyle td a:hover {
   color:#3883ce;
   text-decoration:none; 
->>>>>>> ed7c19b... Update blank archetype
-}
-
-.warn {
-    color: orange;
-}
-
-.valid {
-    color: green;
 }
