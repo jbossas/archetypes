@@ -15,7 +15,7 @@ you get your feet wet with database access in enterprise Java.
 This application is built using a technique called Plain Old HTML5 (POH5).  This uses a pure HTML
 client that interacts with with the application server via restful end-points (JAX-RS).  This
 application also uses some of the latest HTML5 features and advanced JAX-RS. And since testing
-is just as important with POH5 as it is server side, this application also uses QUnit to show
+is just as important with POH5 as it is server side, this application uses QUnit to show
 you how to unit test your JavaScript.
 
 What is a modern web application without mobile web support? This application also integrates
@@ -71,16 +71,15 @@ You can now deploy the artifact by executing the following command:
 
     mvn jboss-as:deploy
 
-This will deploy `target/${artifactId}`.
- 
-The client application will be running at the following URL <http://localhost:8080/${artifactId}/>.
+The client application will be running at the following URL <http://localhost:8080/jboss-as-kitchensink-html5-mobile/>.
 
 To undeploy run this command:
 
     mvn jboss-as:undeploy
 
 You can also start the JBoss container and deploy the project using JBoss Tools. See the
-<a href="https://docs.jboss.org/author/display/AS71/Getting+Started+Developing+Applications+Guide" title="Getting Started Developing Applications Guide">Getting Started Developing Applications Guide</a> for more information.
+<a href="https://docs.jboss.org/author/display/AS71/Getting+Started+Developing+Applications+Guide" title="Getting Started Developing Applications Guide">Getting Started Developing Applications Guide</a> 
+for more information.
 
 ### Deploying to OpenShift
 
@@ -102,9 +101,18 @@ references to minification and comment or uncomment the appropriate lines.
 
 Finally, wro4j runs in the compile phase so any standard build command like package,
 install, etc. will trigger it. The plugin is in a profile with an id of "minify" so
-you will want to specify that profile in your maven build. For example:
+you will want to specify that profile in your maven build.
 
-    mvn clean package jboss-as:deploy -Pminify
+NOTE: You must either specify the default profile for no tests or the arquillian test
+profile to run tests when minifying to avoid test errors. For example:
+
+    #No Tests
+    mvn clean package jboss-as:deploy -Pminify,default
+
+OR
+
+    #With Tests
+    mvn clean package jboss-as:deploy -Pminify,arq-jbossas-remote
  
 Running the Arquillian tests
 ============================
@@ -122,7 +130,7 @@ test goal with the following profile activated:
 Running the QUnit tests
 ============================
 
-QUnit is a JavaScript unit testing framework used and built by jQuery. This
+QUnit is a JavaScript unit testing framework used and built by jQuery. This 
 application includes a set of QUnit tests in order to verify JavaScript that
 is core to this HTML5 application. Executing QUnit test cases is quite easy. First,
 make sure the server is running and the project has been deployed as some of the
@@ -166,3 +174,4 @@ Copyright headers
 -----------------
 
 To update the copyright headers, just run `mvn license:format -Dyear=<current year>`
+

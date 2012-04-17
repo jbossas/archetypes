@@ -1,6 +1,3 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 /**
  * JBoss, Home of Professional Open Source
  * Copyright 2012, Red Hat, Inc., and individual contributors
@@ -37,7 +34,9 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ${package}.data.MemberRepository;
 import ${package}.rest.MemberService;
+import ${package}.service.MemberRegistration;
 import ${package}.model.Member;
 import ${package}.util.Resources;
 
@@ -51,8 +50,9 @@ public class MemberRegistrationTest {
    @Deployment
    public static Archive<?> createTestArchive() {
       return ShrinkWrap.create(WebArchive.class, "test.war")
-            .addClasses(Member.class, MemberService.class, Resources.class)
-            .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
+            .addClasses(Member.class, MemberService.class, MemberRepository.class,
+                    MemberRegistration.class, Resources.class)
+            .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")      
             .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
    }
 
@@ -64,7 +64,8 @@ public class MemberRegistrationTest {
 
    @Test
    public void testRegister() throws Exception {
-      Response response = memberRegistration.createNewMember("Jane Doe", "jane@mailinator.com", "2125551234");
+      Member member = createMemberInstance("Jane Doe", "jane@mailinator.com", "2125551234");
+      Response response = memberRegistration.createMember(member);
 
       assertEquals("Unexpected response status", 200, response.getStatus());
       log.info(" New member was persisted and returned status " + response.getStatus());
@@ -73,7 +74,8 @@ public class MemberRegistrationTest {
    @SuppressWarnings("unchecked")
    @Test
    public void testInvalidRegister() throws Exception {
-      Response response = memberRegistration.createNewMember("", "", "");
+      Member member = createMemberInstance("","","");
+      Response response = memberRegistration.createMember(member);
 
       assertEquals("Unexpected response status", 400, response.getStatus());
       assertNotNull("response.getEntity() should not null",response.getEntity());
@@ -86,15 +88,25 @@ public class MemberRegistrationTest {
    @Test
    public void testDuplicateEmail() throws Exception {
       //Register an initial user
-      memberRegistration.createNewMember("Jane Doe", "jane@mailinator.com", "2125551234");
+      Member member = createMemberInstance("Jane Doe", "jane@mailinator.com", "2125551234");
+      memberRegistration.createMember(member);
 
       //Register a different user with the same email
-      Response response = memberRegistration.createNewMember("John Doe", "jane@mailinator.com", "2133551234");
+      Member anotherMember = createMemberInstance("John Doe", "jane@mailinator.com", "2133551234");
+      Response response = memberRegistration.createMember(anotherMember);
 
       assertEquals("Unexpected response status", 409, response.getStatus());
       assertNotNull("response.getEntity() should not null",response.getEntity());
       assertEquals("Unexpected response.getEntity(). It contains" + response.getEntity(), 
                    1, ((Map<String, String>)response.getEntity()).size());
       log.info("Duplicate member register attempt failed with return code " + response.getStatus());
+   }
+    
+   private Member createMemberInstance(String name, String email, String phone) {
+      Member member = new Member();
+      member.setEmail(email);
+      member.setName(name);
+      member.setPhoneNumber(phone);
+      return member;
    }
 }

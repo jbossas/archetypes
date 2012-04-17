@@ -50,7 +50,7 @@
         <!-- Versions not covered in jboss-javaee-web-6.0 BOM  -->
         <version.org.hibernate-jpamodelgen>1.1.1.Final</version.org.hibernate-jpamodelgen>
         <version.org.jboss.arquillian>1.0.0.CR7</version.org.jboss.arquillian>
-        <version.org.jboss.as.arquillian.container>7.1.0.Final</version.org.jboss.as.arquillian.container>
+        <version.org.jboss.as.arquillian.container>7.1.1.Final</version.org.jboss.as.arquillian.container>
         <version.junit>4.10</version.junit>
     </properties>
 
@@ -193,7 +193,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.1.1</version>
+                <version>2.2</version>
                 <configuration>
                     <!-- Java EE 6 doesn't require web.xml, Maven needs to catch up! -->
                     <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -239,7 +239,7 @@
                 <plugins>
                     <plugin>
                         <artifactId>maven-war-plugin</artifactId>
-                        <version>2.1.1</version>
+                        <version>2.2</version>
                         <configuration>
                             <outputDirectory>deployments</outputDirectory>
                             <warName>ROOT</warName>
@@ -273,9 +273,7 @@
                                                 <artifactId>
                                                     wro4j-maven-plugin
                                                 </artifactId>
-                                                <versionRange>
-                                                    [1.4.4,)
-                                                </versionRange>
+                                                <version>1.4.4</version>
                                                 <goals>
                                                     <goal>run</goal>
                                                 </goals>
@@ -304,7 +302,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <targetGroups>app.min,m.screen.min,screen.min</targetGroups>
+                            <targetGroups>app.min,m.screen.min,d.screen.min</targetGroups>
                             <cssDestinationFolder>${project.build.directory}/${project.build.finalName}/css/</cssDestinationFolder>
                             <jsDestinationFolder>${project.build.directory}/${project.build.finalName}/js/</jsDestinationFolder>
                             <wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory</wroManagerFactory>
@@ -314,36 +312,6 @@
             </build>
         </profile>
         <profile>
-            <!-- We add the JBoss repository as we need the JBoss AS connectors for Arquillian -->
-            <repositories>
-                <!-- The JBoss Community public repository is a composite repository of several major repositories -->
-                <!-- see http://community.jboss.org/wiki/MavenGettingStarted-Users -->
-                <repository>
-                    <id>jboss-public-repository</id>
-                    <name>JBoss Repository</name>
-                    <url>http://repository.jboss.org/nexus/content/groups/public</url>
-                    <!-- These optional flags are designed to speed up your builds by reducing remote server calls -->
-                    <releases>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>jboss-public-repository</id>
-                    <name>JBoss Repository</name>
-                    <url>http://repository.jboss.org/nexus/content/groups/public</url>
-                    <releases>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </pluginRepository>
-            </pluginRepositories>
-
             <!-- An optional Arquillian testing profile that executes tests in your JBoss AS instance -->
             <!-- This profile will start a new JBoss AS instance, and execute the test, shutting it down when done -->
             <!-- Run with: mvn clean test -Parq-jbossas-managed -->
@@ -352,42 +320,13 @@
                 <dependency>
                     <groupId>org.jboss.as</groupId>
                     <artifactId>jboss-as-arquillian-container-managed</artifactId>
+                    <version>${version.org.jboss.as.arquillian.container}</version>
                     <scope>test</scope>
                 </dependency>
             </dependencies>
         </profile>
 
         <profile>
-            <!-- We add the JBoss repository as we need the JBoss AS connectors for Arquillian -->
-            <repositories>
-                <!-- The JBoss Community public repository is a composite repository of several major repositories -->
-                <!-- see http://community.jboss.org/wiki/MavenGettingStarted-Users -->
-                <repository>
-                    <id>jboss-public-repository</id>
-                    <name>JBoss Repository</name>
-                    <url>http://repository.jboss.org/nexus/content/groups/public</url>
-                    <!-- These optional flags are designed to speed up your builds by reducing remote server calls -->
-                    <releases>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>jboss-public-repository</id>
-                    <name>JBoss Repository</name>
-                    <url>http://repository.jboss.org/nexus/content/groups/public</url>
-                    <releases>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </pluginRepository>
-            </pluginRepositories>
-
             <!-- An optional Arquillian testing profile that executes tests in a remote JBoss AS instance -->
             <!-- Run with: mvn clean test -Parq-jbossas-remote -->
             <id>arq-jbossas-remote</id>

@@ -1,3 +1,6 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
 /**
  * JBoss, Home of Professional Open Source
  * Copyright 2012, Red Hat, Inc., and individual contributors
@@ -14,60 +17,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* Core styles for the page */
-body {
-    margin: 0;
-    padding: 0;
-    font-size: 0.8em;
-    color: #363636;
-}
+package ${package}.service;
 
-code {
-    font-size: 1.1em;
-}
+import ${package}.model.Member;
 
-a {
-    text-decoration: none;
-}
+import javax.ejb.Stateless;
+import javax.enterprise.event.Event;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import java.util.logging.Logger;
 
-a:hover {
-    color: #369;
-    text-decoration: underline;
-}
+// The @Stateless annotation eliminates the need for manual transaction demarcation
+@Stateless
+public class MemberRegistration {
 
-/* Member registration styles */
-span.invalid {
-    padding-left: 3px;
-    color: red;
-}
+    @Inject
+    private Logger log;
 
-span.success {
-   padding-left: 3px;
-   color: green;
-}
+    @Inject
+    private EntityManager em;
 
-/* Member table styles */
-#mem_tbl {
-    clear: both;
-}
+    @Inject
+    private Event<Member> memberEventSrc;
 
-#mem_tbl thead {
-    font-weight: bold;
-    color: #FFFFFF;
-    background-color: black;
-    text-align: left;
-}
-
-#mem_tbl tfoot {
-    height: 20px;
-    font-weight: bold;
-}
-
-/* Using new CSS3 selectors for styling*/
-#members tr:nth-child(odd) {
-    background: #f4f3f3;
-}
-
-#members tr:nth-child(even) {
-    background: #ffffff;
+    public void register(Member member) throws Exception {
+        log.info("Registering " + member.getName());
+        em.persist(member);
+        memberEventSrc.fire(member);
+    }
 }
