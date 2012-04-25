@@ -28,7 +28,7 @@ test('Build 2 Member Rows', function() {
 
     var html = buildMemberRows(members);
 
-    ok($(html).length == 2, 'Number of rows built: ' + length);
+    ok(${symbol_dollar}(html).length == 2, 'Number of rows built: ' + length);
 });
 
 test('Build 0 member Rows', function() {
@@ -38,7 +38,7 @@ test('Build 0 member Rows', function() {
 
     var html = buildMemberRows(members);
 
-    ok($(html).length == 0, 'Created no rows for empty members');
+    ok(${symbol_dollar}(html).length == 0, 'Created no rows for empty members');
 });
 
 module('Member Restful Calls');
@@ -47,7 +47,7 @@ asyncTest('Request current member list', function() {
     expect(1);
 
     ${symbol_dollar}.ajax({
-        url: "http://localhost:8080/jboss-as-kitchensink-html5-mobile/rest/members",
+        url: "http://localhost:8080/${artifactId}/rest/members",
         dataType: "jsonp",
         jsonp: "jsonpcallback",
         success: function(data) {
