@@ -17,7 +17,7 @@
 
    <name>Java EE 6 Webapp</name>
 
-   <description>An archetype that generates a starter Java EE 6 webapp project for JBoss AS 7 (by default) or EAP 6 (if the "enterprise" property is true)</description>
+   <description>An archetype that generates a starter Java EE 6 webapp project for JBoss AS 7.1 (by default) or EAP 6 (if the "enterprise" property is true)</description>
 
    <url>http://jboss.org/jbossas</url>
 
