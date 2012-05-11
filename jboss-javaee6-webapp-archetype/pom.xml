@@ -53,6 +53,13 @@
 
 
    <build>
+     <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+      </testResource>
+     </testResources>
+   
       <extensions>
          <extension>
             <groupId>org.apache.maven.archetype</groupId>
@@ -72,4 +79,19 @@
       </pluginManagement>
    </build>
 
+   <properties>
+     <enterprise.available>false</enterprise.available>
+   </properties>
+   
+   
+   <profiles>
+     <!-- Build with -Penterprise to test against an EAP repository -->
+     <profile>
+       <id>enterprise</id>
+       <properties>
+         <enterprise.available>true</enterprise.available>
+       </properties>
+     </profile>
+   </profiles>
+   
 </project>
