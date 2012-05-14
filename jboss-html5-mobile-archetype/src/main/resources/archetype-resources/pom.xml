@@ -24,7 +24,7 @@
         versions of the JBoss EAP components -->
 #if ($enterprise == "true" || $enterprise == "y" || $enterprise == "yes" )
       <!-- Certified version of the JBoss EAP components we want to use -->
-        <javaee6.web.spec.version>3.0.0.Beta1-redhat-1</javaee6.web.spec.version>
+        <javaee6.web.spec.version>3.0.0.Final-redhat-1</javaee6.web.spec.version>
         <version.org.hibernate.validator>4.2.0.Final-redhat-1</version.org.hibernate.validator>
       <!-- Alternatively, comment out the above line, and un-comment the line below to
         use version 2.0.0.Final which is based on community built dependencies.
@@ -39,10 +39,10 @@
       <javaee6.web.spec.version>2.0.0.Final</javaee6.web.spec.version>
       <version.org.hibernate.validator>4.2.0.Final</version.org.hibernate.validator>
       <!-- Alternatively, comment out the above line, and un-comment the line below to
-        use version 3.0.0.Beta1-redhat-1 which is release certified
+        use version 3.0.0.Final-redhat-1 which is release certified
       to work with JBoss EAP 6. It requires you have access to the JBoss EAP 6 maven repository. -->
       <!--
-      <javaee6.web.spec.version>3.0.0.Beta1-redhat-1</javaee6.web.spec.version>
+      <javaee6.web.spec.version>3.0.0.Final-redhat-1</javaee6.web.spec.version>
       -->
 #end
         <wro4j.version>1.4.4</wro4j.version>
