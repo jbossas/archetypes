@@ -62,6 +62,7 @@
       <directory></directory>
       <includes>
         <include>readme.md</include>
+		<include>README.md</include>
       </includes>
     </fileSet>
   </fileSets>
