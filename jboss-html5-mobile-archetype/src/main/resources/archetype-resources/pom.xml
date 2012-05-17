@@ -36,7 +36,7 @@
       <!-- If the enterprise property is set to anything else, use the versions based
         on community built dependencies -->
 #else
-      <javaee6.web.spec.version>2.0.0.Final</javaee6.web.spec.version>
+      <javaee6.web.spec.version>3.0.0.Final</javaee6.web.spec.version>
       <version.org.hibernate.validator>4.2.0.Final</version.org.hibernate.validator>
       <!-- Alternatively, comment out the above line, and un-comment the line below to
         use version 3.0.0.Final-redhat-1 which is release certified
