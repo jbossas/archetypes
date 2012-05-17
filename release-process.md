@@ -47,6 +47,9 @@ For example:
 Release process for Archetypes
 ==============================
 
+Warning: Announce at aerogear-internal that the release process will begin
+
+
 1. Regenerate the blanks by running
 
         ./generate-blank.sh -ca
@@ -60,16 +63,21 @@ Release process for Archetypes
         ./release-utils.sh -u -o <old snapshot version> -n <release version>
 
 4. Commit the version update
-5. Tag
-    
-        git tag -a <release version> -m "Release <release version"
-6. Stage the release
+5. Stage the release
         
         ./release-utils.sh -r
-7. Communicate with the team
 
-8. Reset version numbers to snapshots
+6. Communicate with the team
+
+7. Wait for the feedback from tests
+
+8. Tag
+    
+        git tag -a <release version> -m "Release <release version"
+
+
+9. Reset version numbers to snapshots
         
         ./release-utils.sh -u -o <release version> -n <new snapshot version>
-9. Commit this
-10. Promote the staged repo
+10. Commit this
+11. Promote the staged repo
