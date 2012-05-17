@@ -47,7 +47,7 @@ For example:
 Release process for Archetypes
 ==============================
 
-Warning: Announce at aerogear-internal that the release process will begin
+Warning: Announce at aerogear-dev that the release process will begin
 
 
 1. Regenerate the blanks by running
