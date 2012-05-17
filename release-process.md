@@ -27,23 +27,6 @@ For example:
 		set( $symbol_escape = '\' )
 
 
-## Cordova
-
-1. Download kitchensink-cordova repository
-2. Run diff -ur oldfolder newfolder > patch.diff and patch -p**N** < patch.diff. Where **N** is the number of path prefixes starting from **-p0**. 
- 
-For example:
-
-		diff -ur /path/to/kitchensink-cordova/shared/www/ /path/to/as-quickstarts/kitchensink-html5-mobile/src/main/webapp/ > patch.diff
-
-		cd /path/to/kitchensink-cordova/
-
-		patch -p0 < ../patch.diff
-		
-3. Be careful before commit changes, because cordova has minor, but important details from the quickstart.
-
-
-
 Release process for Archetypes
 ==============================
 
