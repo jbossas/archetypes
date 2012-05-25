@@ -49,6 +49,9 @@ notify()
 
 release()
 {
+   echo "Rebuilding blank archetypes"
+   $DIR/generate-blank.sh -a
+   git commit -a -m"Update blank archetypes"
    echo "Releasing JBoss Archetypes version $RELEASEVERSION"
    $DIR/release-utils.sh -u -o $SNAPSHOTVERSION -n $RELEASEVERSION
    git commit -a -m "Prepare for $RELEASEVERSION release"
