@@ -12,6 +12,12 @@
     <requiredProperty key="tableSuffix">
       <defaultValue>html5mobi</defaultValue>
     </requiredProperty>
+    <requiredProperty key="javaee6_web_spec_enterprise_version">
+      <defaultValue>3.0.0.Final-redhat-1</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="org_hibernate_validator_enterprise_version">
+      <defaultValue>4.2.0.Final-redhat-1</defaultValue>
+    </requiredProperty>    
   </requiredProperties>
   <fileSets>
     <fileSet filtered="true" packaged="true" encoding="UTF-8">
