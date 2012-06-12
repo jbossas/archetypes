@@ -45,7 +45,7 @@
       <javaee6.web.spec.version>3.0.0.Final-redhat-1</javaee6.web.spec.version>
       -->
 #end
-        <wro4j.version>1.4.4</wro4j.version>
+        <wro4j.version>1.4.6</wro4j.version>
         
         <!-- Versions not covered in jboss-javaee-web-6.0 BOM  -->
         <version.org.hibernate-jpamodelgen>1.1.1.Final</version.org.hibernate-jpamodelgen>
@@ -257,37 +257,6 @@
             </activation>
 
             <build>
-                <pluginManagement>
-                    <plugins>
-                        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-                        <plugin>
-                            <groupId>org.eclipse.m2e</groupId>
-                            <artifactId>lifecycle-mapping</artifactId>
-                            <version>1.0.0</version>
-                            <configuration>
-                                <lifecycleMappingMetadata>
-                                    <pluginExecutions>
-                                        <pluginExecution>
-                                            <pluginExecutionFilter>
-                                                <groupId>ro.isdc.wro4j</groupId>
-                                                <artifactId>
-                                                    wro4j-maven-plugin
-                                                </artifactId>
-                                                <version>1.4.4</version>
-                                                <goals>
-                                                    <goal>run</goal>
-                                                </goals>
-                                            </pluginExecutionFilter>
-                                            <action>
-                                                <ignore></ignore>
-                                            </action>
-                                        </pluginExecution>
-                                    </pluginExecutions>
-                                </lifecycleMappingMetadata>
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
                 <plugins>
                     <plugin>
                         <groupId>ro.isdc.wro4j</groupId>
