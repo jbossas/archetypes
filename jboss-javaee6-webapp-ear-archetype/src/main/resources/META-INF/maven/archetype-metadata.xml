@@ -12,6 +12,9 @@
         <requiredProperty key="enterprise">
             <defaultValue>false</defaultValue>
         </requiredProperty>
+        <requiredProperty key="jboss-bom-enterprise-version">
+            <defaultValue>1.0.0.M12-redhat-1</defaultValue>
+        </requiredProperty>        
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" packaged="false">
