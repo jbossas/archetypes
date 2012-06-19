@@ -72,6 +72,12 @@
                         <include>**/*.xml</include>
                     </includes>
                 </fileSet>
+                <fileSet encoding="UTF-8">
+                  <directory></directory>
+                  <includes>
+                    <include>**/*.factorypath</include>
+                  </includes>
+                </fileSet>
             </fileSets>
         </module>
         <module id="${rootArtifactId}-web" dir="__rootArtifactId__-web"
