@@ -12,6 +12,9 @@
         <requiredProperty key="enterprise">
             <defaultValue>false</defaultValue>
         </requiredProperty>
+        <requiredProperty key="jboss-bom-enterprise-version">
+            <defaultValue>1.0.0.M12-redhat-1</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="false" packaged="false">
@@ -50,10 +53,10 @@
                     </includes>
                 </fileSet>
                 <fileSet encoding="UTF-8">
-                  <directory></directory>
-                  <includes>
-                    <include>**/*.factorypath</include>
-                  </includes>
+                    <directory></directory>
+                    <includes>
+                        <include>**/*.factorypath</include>
+                    </includes>
                 </fileSet>
             </fileSets>
         </module>
