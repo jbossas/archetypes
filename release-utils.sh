@@ -41,7 +41,7 @@ This script aids with releases. Remember to generate new blank archetypes before
 
 OPTIONS:
    -u      Updates version numbers in all POMs, used with -o and -n
-   -l      Install all archetypes locally: $HUMAN_READABLE_ARCHETYPES
+   -l      Install all archetypes locally: $HUMAN_READABLE_ARCHETYPES.
    -o      Old version number to update from
    -n      New version number to update to
    -s      Deploy a snapshot of the archetypes
@@ -63,7 +63,11 @@ install()
    for archetype in $ARCHETYPES
    do
       echo "\n**** Installing $archetype\n"
-      mvn clean install -f ${archetype}/pom.xml
+      cmd="mvn clean install -f ${archetype}/pom.xml"
+      if [ -n $DEST ]; then
+        cmd="$cmd -Dmaven.repo.local=$DEST"
+      fi
+      $cmd
    done
 
 }
@@ -91,8 +95,9 @@ release()
 OLDVERSION="1.0.0-SNAPSHOT"
 NEWVERSION="1.0.0-SNAPSHOT"
 CMD="usage"
+DEST=""
 
-while getopts “srluo:n:” OPTION
+while getopts “srl:uo:n:” OPTION
 
 do
      case $OPTION in
@@ -117,6 +122,7 @@ do
              ;;
          l)
              CMD="install"
+             eval DEST=$OPTARG
              ;;
          [?])
              usage
