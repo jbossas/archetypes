@@ -22,43 +22,53 @@
   <fileSets>
     <fileSet filtered="true" packaged="true" encoding="UTF-8">
       <directory>src/main/java</directory>
-      <excludes>
-        <exclude>**/*</exclude>
-      </excludes>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="false" encoding="UTF-8">
+      <directory>src/main/webapp</directory>
+      <includes>
+        <include>**/*.html</include>
+      </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
       <directory>src/main/webapp</directory>
-       <includes>
-        <include>**/libs/*.js</include>
-        <include>**/css/*.min.css</include>
-        <include>**/css/images/*.png</include>
-        <include>**/WEB-INF/*.*</include>
-       </includes>
+      <includes>
+        <include>**/*.png</include>
+        <include>**/*.js</include>
+        <include>**/*.xml</include>
+        <include>**/*.css</include>
+        <include>**/*.tmpl</include>
+        <include>**/*.properties</include>
+      </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
       <directory>src/main/resources</directory>
       <includes>
         <include>**/*.xml</include>
+        <include>**/*.sql</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" packaged="true" encoding="UTF-8">
       <directory>src/test/java</directory>
-      <excludes>
-        <exclude>**/*</exclude>
-      </excludes>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
       <directory>src/test/qunit</directory>
-      <excludes>
-        <exclude>**/*.html</exclude>
-        <exclude>**/test/*.*</exclude>
-      </excludes>
+      <includes>
+        <include>**/*.html</include>
+        <include>**/*.js</include>
+        <include>**/*.css</include>
+      </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
       <directory>src/test/resources</directory>
-      <excludes>
+      <includes>
         <include>**/*.xml</include>
-      </excludes>
+      </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
       <directory></directory>
