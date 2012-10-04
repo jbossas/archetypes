@@ -6,7 +6,7 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 # DEFINE
 
-ARCHETYPES="jboss-html5-mobile-archetype"
+ARCHETYPES="jboss-html5-mobile-archetype jboss-html5-mobile-blank-archetype"
 
 SNAPSHOT_REPO_URL="https://repository.jboss.org/nexus/content/repositories/snapshots/"
 SNAPSHOT_REPO_ID="jboss-snapshots-repository"

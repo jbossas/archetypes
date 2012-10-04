@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>org.jboss</groupId>
+      <artifactId>jboss-parent</artifactId>
+      <version>6-beta-2</version>
+   </parent>
+
+   <groupId>org.jboss.aerogear.archetypes</groupId>
+   <artifactId>jboss-html5-mobile-blank-archetype</artifactId>
+   <version>1.0.0.M6-SNAPSHOT</version>
+   <packaging>maven-archetype</packaging>
+
+   <name>Java EE 6 HTML5 Mobile Web Application</name>
+
+   <description>An archetype that generates a Java EE 6 application using HTML5, and JAX-RS to support both desktop and mobile web browsers</description>
+
+   <url>http://jboss.org/jbossas</url>
+
+   <developers>
+      <developer>
+         <name>Steven Boscarine</name>
+         <email>stevenboscarine@gmail.com</email>
+      </developer>
+      <developer>
+         <id>fbricon</id>
+         <name>Fred Bricon</name>
+         <email>fbricon@gmail.com</email>
+         <organization>Red Hat, Inc.</organization>
+         <organizationUrl>http://redhat.com/jboss</organizationUrl>
+         <url>http://community.jboss.org/people/fbricon</url>
+         <timezone>+1</timezone>
+      </developer>
+      <developer>
+         <name>Dan Allen</name>
+         <email>dan.j.allen@gmail.com</email>
+         <organization>JBoss, by Red Hat</organization>
+         <organizationUrl>http://redhat.com/jboss</organizationUrl>
+         <url>http://community.jboss.org/people/dan.j.allen</url>
+      </developer>
+      <developer>
+         <name>Pete Muir</name>
+         <email>pete.muir@jboss.org</email>
+         <organization>Red Hat, Inc.</organization>
+         <organizationUrl>http://redhat.com/jboss</organizationUrl>
+         <url>http://in.relation.to/Bloggers/Pete</url>
+      </developer>
+      <developer>
+         <name>Jay Balunas</name>
+         <email>jbalunas@jboss.org</email>
+         <organization>Red Hat, Inc.</organization>
+         <organizationUrl>http://redhat.com/jboss</organizationUrl>
+         <url>http://in.relation.to/Bloggers/Jay</url>
+      </developer>
+   </developers>
+
+   <build>
+      <extensions>
+         <extension>
+            <groupId>org.apache.maven.archetype</groupId>
+            <artifactId>archetype-packaging</artifactId>
+            <version>2.1</version>
+         </extension>
+      </extensions>
+
+      <pluginManagement>
+         <plugins>
+            <plugin>
+               <artifactId>maven-archetype-plugin</artifactId>
+               <version>2.1</version>
+               <extensions>true</extensions>
+            </plugin>
+         </plugins>
+      </pluginManagement>
+   </build>
+
+</project>
