@@ -304,7 +304,6 @@
                 <dependency>
                     <groupId>org.jboss.as</groupId>
                     <artifactId>jboss-as-arquillian-container-managed</artifactId>
-                    <version>${version.org.jboss.as.arquillian.container}</version>
                     <scope>test</scope>
                 </dependency>
             </dependencies>
@@ -318,7 +317,6 @@
                 <dependency>
                     <groupId>org.jboss.as</groupId>
                     <artifactId>jboss-as-arquillian-container-remote</artifactId>
-                    <version>${version.org.jboss.as.arquillian.container}</version>
                     <scope>test</scope>
                 </dependency>
             </dependencies>
