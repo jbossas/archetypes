@@ -18,7 +18,7 @@ DIR=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 EAP_SUBJECT="\${RELEASEVERSION} of JBoss AS Archetypes released, please add to EAP maven repo build"
 # EAP team email To ?
 EAP_EMAIL_TO="pgier@redhat.com kpwiko@redhat.com"
-
+EAP_EMAIL_FROM="\"JDF Publish Script\" <benevides@redhat.com>"
 
 
 # SCRIPT
@@ -37,13 +37,16 @@ OPTIONS:
 EOF
 }
 
-notify()
+notifyEmail()
 {
    echo "***** Performing JBoss AS Archetypes release notifications"
    echo "*** Notifying JBoss EAP team"
+   subject=`eval echo $EAP_SUBJECT`
+   echo "Email from: " $EAP_EMAIL_FROM
+   echo "Email to: " $EAP_EMAIL_TO
+   echo "Subject: " $subject
    # send email using /bin/mail
-   subject = eval $EAP_SUBJECT
-   echo "See \$subject :-)" | /usr/bin/env mail -s "$subject" "$EAP_EMAIL_TO"
+   echo "See \$subject :-)" | /usr/bin/env mail -r "$EAP_EMAIL_FROM" -s "$subject" "$EAP_EMAIL_TO"
 
 }
 
@@ -60,6 +63,7 @@ release()
    $DIR/release-utils.sh -u -o $RELEASEVERSION -n $NEWSNAPSHOTVERSION
    git commit -a -m "Prepare for development of $NEWSNAPSHOTVERSION"
    echo "***** JBoss Archetypes released"
+   notifyEmail
 }
 
 SNAPSHOTVERSION="UNDEFINED"
