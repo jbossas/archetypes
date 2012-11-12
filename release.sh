@@ -14,11 +14,11 @@ DIR=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 
 # DEFINE
 
-# notification team email subject
-NOTIFICATION_SUBJECT="\${RELEASEVERSION} of JBoss AS Archetypes released"
+# EAP team email subject
+EAP_SUBJECT="\${RELEASEVERSION} of JBoss AS Archetypes released, please merge with https://github.com/jboss-eap/archetypes, tag and add to EAP maven repo build"
 # EAP team email To ?
-NOTIFICATION_EMAIL_TO="pgier@redhat.com kpwiko@redhat.com"
-NOTIFICATION_EMAIL_FROM="\"JDF Publish Script\" <benevides@redhat.com>"
+EAP_EMAIL_TO="pgier@redhat.com kpwiko@redhat.com"
+EMAIL_FROM="\"JDF Publish Script\" <benevides@redhat.com>"
 
 
 # SCRIPT
@@ -41,12 +41,12 @@ notifyEmail()
 {
    echo "***** Performing JBoss AS Archetypes release notifications"
    echo "*** Notifying JBoss team"
-   subject=`eval echo $NOTIFICATION_SUBJECT`
-   echo "Email from: " $NOTIFICATION_EMAIL_FROM
-   echo "Email to: " $NOTIFICATION_EMAIL_TO
+   subject=`eval echo $EAP_SUBJECT`
+   echo "Email from: " $EMAIL_FROM
+   echo "Email to: " $EAP_EMAIL_TO
    echo "Subject: " $subject
    # send email using /bin/mail
-   echo "See \$subject :-)" | /usr/bin/env mail -r "$NOTIFICATION_EMAIL_FROM" -s "$subject" "$NOTIFICATION_EMAIL_TO"
+   echo "See \$subject :-)" | /usr/bin/env mail -r "$EMAIL_FROM" -s "$subject" "$EAP_EMAIL_TO"
 
 }
 
