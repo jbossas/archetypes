@@ -63,7 +63,7 @@ release()
    $DIR/release-utils.sh -u -o $RELEASEVERSION -n $NEWSNAPSHOTVERSION
    git commit -a -m "Prepare for development of $NEWSNAPSHOTVERSION"
    echo "***** JBoss Archetypes released"
-   read -p "Do you want to send release notifcations to $NOTIFICATION_EMAIL_TO[y/N]?" yn
+   read -p "Do you want to send release notifcations to $EAP_EMAIL_TO[y/N]? " yn
    case $yn in
        [Yy]* ) notifyEmail;;
        * ) exit;
