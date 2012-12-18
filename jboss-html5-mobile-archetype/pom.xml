@@ -11,7 +11,7 @@
 
    <groupId>org.jboss.aerogear.archetypes</groupId>
    <artifactId>jboss-html5-mobile-archetype</artifactId>
-   <version>1.0.0.M7</version>
+   <version>1.0.0.CR1-SNAPSHOT</version>
    <packaging>maven-archetype</packaging>
 
    <name>Java EE 6 HTML5 Mobile Web Application</name>
