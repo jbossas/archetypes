@@ -6,7 +6,9 @@ Archetype is a Maven project templating toolkit
 Basic Steps
 -----------
 
-To contribute with Archetypes, clone your own fork instead of cloning the main Archetypes repository, commit your work on topic branches and make pull requests. In detail:
+To contribute Archetypes, fork the main Archetypes repository, clone your fork, commit your work on topic branches and make pull requests.
+
+Here are the steps:
 
 1. [Fork](https://github.com/jboss-jdf/jboss-as-archetype/fork_select) the project.
 
