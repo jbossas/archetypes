@@ -34,4 +34,11 @@ To release, simply run:
       
       ./release.sh -s <old snapshot version> -r <release version>
 
-  This will  update the version number, commit and tag and publish the Archetypes to the JBoss Maven repository, and prompt to close and promote the Maven Nexus staging repository. Then it will reset the version number back to the snapshot version number. The artifacts will be replicated to Maven central within 24 hours.
+  This will  update the version number, commit and tag and publish the Archetypes to the JBoss Maven staging repository. Then it will reset the version number back to the snapshot version number. 
+
+  Go to <https://repository.jboss.org/nexus/index.html#stagingRepositories> and release the staging repository. The artifacts will be replicated to Maven central within 24 hours.
+
+  Push commits and tags. Run:
+
+      git push upstream master --tags
+
