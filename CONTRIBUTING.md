@@ -12,7 +12,7 @@ If you don't have the Git client (`git`), get it from: <http://git-scm.com/>
 
 Here are the steps in detail:
 
-1. [Fork](https://github.com/jboss-jdf/jboss-as-quickstart/fork_select) the project. This creates a the project in your own Git.
+1. [Fork](https://github.com/jboss-jdf/jboss-as-archetype/fork_select) the project. This creates a the project in your own Git.
 
 2. Clone your fork. This creates a directory in your local file system.
 
