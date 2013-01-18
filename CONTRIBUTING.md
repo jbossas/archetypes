@@ -6,7 +6,7 @@ Archetype is a Maven project templating toolkit
 Basic Steps
 -----------
 
-To contribute to the quickstarts, fork the quickstart repository to your own Git, clone your fork, commit your work on topic branches, and make pull requests. 
+To contribute to the Archetypes, fork the Archetype repository to your own Git, clone your fork, commit your work on topic branches, and make pull requests. 
 
 If you don't have the Git client (`git`), get it from: <http://git-scm.com/>
 
