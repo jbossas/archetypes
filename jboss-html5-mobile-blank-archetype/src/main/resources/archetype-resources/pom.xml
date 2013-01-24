@@ -37,7 +37,7 @@
 #else
 <!-- Define the version of the JBoss BOMs we want to import. The
             JBoss BOMs specify tested stacks. -->
-      <jboss.bom.version>1.0.3.Final</jboss.bom.version>
+      <jboss.bom.version>1.0.4.CR7</jboss.bom.version>
 
       <!-- Alternatively, comment out the above line, and un-comment the line below to
         use version ${javaee6.web.spec.enterprise.version} which is release certified
@@ -46,6 +46,8 @@
        <jboss.bom.version>${jboss-bom-enterprise-version}</jboss.bom.version>
       -->
 #end
+        <!-- JBoss dependency versions -->
+        <version.org.jboss.as>7.3.Final</version.org.jboss.as>
         <wro4j.version>1.4.6</wro4j.version>
 
     </properties>
@@ -204,7 +206,7 @@
             <plugin>
                 <groupId>org.jboss.as.plugins</groupId>
                 <artifactId>jboss-as-maven-plugin</artifactId>
-                <version>7.3.Final</version>
+                <version>${version.org.jboss.as}</version>
             </plugin>
         </plugins>
     </build>

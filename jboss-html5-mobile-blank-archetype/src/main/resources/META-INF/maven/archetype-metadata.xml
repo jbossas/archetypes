@@ -13,7 +13,7 @@
       <defaultValue>html5mobi</defaultValue>
     </requiredProperty>
     <requiredProperty key="jboss-bom-enterprise-version">
-      <defaultValue>1.0.0.M12-redhat-1</defaultValue>
+      <defaultValue>1.0.2.Final-redhat-1</defaultValue>
     </requiredProperty>
   </requiredProperties>
   <fileSets>
