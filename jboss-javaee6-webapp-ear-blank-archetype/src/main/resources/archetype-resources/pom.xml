@@ -24,6 +24,10 @@ $symbol_escape = '\' )
         <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 
             resources, i.e. build is platform dependent! -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
+         <!-- JBoss dependency versions -->
+        <jboss.as.plugin.version>7.3.Final</jboss.as.plugin.version>
+        
         <!-- Define the version of JBoss' Java EE 6 APIs and Tools we want 
             to import. -->
 #if ($enterprise == "true" || $enterprise == "y" || $enterprise == "yes" )
@@ -40,6 +44,16 @@ $symbol_escape = '\' )
             maven repository. -->
         <!-- <jboss.bom.version>${jboss-bom-enterprise-version}</jboss.bom.version>> -->
 #end
+        <!-- other plugin versions -->
+        <compiler.plugin.version>2.3.2</compiler.plugin.version>
+        <surefire.plugin.version>2.4.3</surefire.plugin.version>
+        <war.plugin.version>2.1.1</war.plugin.version>
+        <ear.plugin.version>2.6</ear.plugin.version>
+        <ejb.plugin.version>2.3</ejb.plugin.version>
+
+        <!-- maven-compiler-plugin -->
+        <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.source>1.6</maven.compiler.source>
     </properties>
 
     <dependencyManagement>
@@ -97,10 +111,10 @@ $symbol_escape = '\' )
                     activates annotation processors -->
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.3.2</version>
+                    <version>${compiler.plugin.version}</version>
                     <configuration>
-                        <source>1.6</source>
-                        <target>1.6</target>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
                     </configuration>
                 </plugin>
                 <!-- The JBoss AS plugin deploys your ear to a local JBoss 
@@ -111,7 +125,7 @@ $symbol_escape = '\' )
                 <plugin>
                     <groupId>org.jboss.as.plugins</groupId>
                     <artifactId>jboss-as-maven-plugin</artifactId>
-                    <version>7.3.Final</version>
+                    <version>${jboss.bom.version}</version>
                     <inherited>true</inherited>
                     <configuration>
                         <skip>true</skip>
