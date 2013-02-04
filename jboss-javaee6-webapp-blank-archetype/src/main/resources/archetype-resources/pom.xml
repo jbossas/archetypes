@@ -28,10 +28,10 @@
         <!-- Certified version of the JBoss EAP components we want to use -->
         <jboss.bom.version>${jboss-bom-enterprise-version}</jboss.bom.version>
         <!-- Alternatively, comment out the above line, and un-comment the 
-            line below to use version 1.0.2.Final which is based on community built dependencies. -->
-        <!-- <jboss.bom.version>1.0.2.Final</jboss.bom.version> -->
+            line below to use version 1.0.4.Final which is based on community built dependencies. -->
+        <!-- <jboss.bom.version>1.0.4.Final</jboss.bom.version> -->
 #else
-        <jboss.bom.version>1.0.2.Final</jboss.bom.version>
+        <jboss.bom.version>1.0.4.Final</jboss.bom.version>
         <!-- Alternatively, comment out the above line, and un-comment the 
             line below to use version ${jboss-bom-enterprise-version} which is a release certified 
             to work with JBoss EAP 6. It requires you have access to the JBoss EAP 6 
