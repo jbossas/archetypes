@@ -20,35 +20,45 @@
 
       <!-- You can reference property in pom.xml or filtered resources (must
          enable third-party plugin if using Maven < 2.1) -->
+
       <!-- If the enterprise property is set to true, 'yes' or 'y', use the certified
         versions of the JBoss EAP components -->
 #if ($enterprise == "true" || $enterprise == "y" || $enterprise == "yes" )
       <!-- Certified version of the JBoss EAP components we want to use -->
-        <jboss.bom.version>${jboss-bom-enterprise-version}</jboss.bom.version>
-      <!-- Alternatively, comment out the above line, and un-comment the line below to
-        use version 1.0.1.Final which is based on community built dependencies.
+      <version.org.jboss.bom>${jboss-bom-enterprise-version}</version.org.jboss.bom>
+     <!-- Alternatively, comment out the above line, and un-comment the line below to
+        use version 1.0.4.Final which is based on community built dependencies.
         You can actually use this stack with any version of JBoss AS that implements
         the Java EE 6 web profile -->
       <!--
-      <jboss.bom.version>1.0.1.Final</jboss.bom.version>
+      <version.org.jboss.bom>1.0.4.Final</version.org.jboss.bom>
       -->
-      <!-- If the enterprise property is set to anything else, use the versions based
-        on community built dependencies -->
 #else
-<!-- Define the version of the JBoss BOMs we want to import. The
+        <!-- Define the version of the JBoss BOMs we want to import. The
             JBoss BOMs specify tested stacks. -->
-      <jboss.bom.version>1.0.4.CR7</jboss.bom.version>
-
-      <!-- Alternatively, comment out the above line, and un-comment the line below to
-        use version ${javaee6.web.spec.enterprise.version} which is release certified
-      to work with JBoss EAP 6. It requires you have access to the JBoss EAP 6 maven repository. -->
-      <!--
-       <jboss.bom.version>${jboss-bom-enterprise-version}</jboss.bom.version>
-      -->
+        <version.org.jboss.bom>1.0.4.Final</version.org.jboss.bom>
+        <!-- Alternatively, comment out the above line, and un-comment the
+            line below to use version 1.0.4.Final-redhat-1 which is a release certified
+            to work with JBoss EAP 6. It requires you have access to the JBoss EAP 6
+            maven repository. -->
+        <!-- <version.jboss.bom>1.0.4.Final-redhat-1</version.jboss.bom> -->
 #end
         <!-- JBoss dependency versions -->
         <version.org.jboss.as>7.3.Final</version.org.jboss.as>
-        <wro4j.version>1.4.6</wro4j.version>
+
+        <!-- Other dependency versions -->
+        <version.junit>4.10</version.junit>
+        <version.ro.isdc.wro4j>1.4.4</version.ro.isdc.wro4j>
+
+        <!-- other plugin versions -->
+        <version.compiler.plugin>2.3.1</version.compiler.plugin>
+        <version.license.plugin>1.9.0</version.license.plugin>
+        <version.surefire.plugin>2.4.3</version.surefire.plugin>
+        <version.war.plugin>2.2</version.war.plugin>
+
+        <!-- maven-compiler-plugin -->
+        <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.source>1.6</maven.compiler.source>
 
     </properties>
 
@@ -73,14 +83,14 @@
             <dependency>
                 <groupId>org.jboss.bom</groupId>
                 <artifactId>jboss-javaee-6.0-with-tools</artifactId>
-                <version>${jboss.bom.version}</version>
+                <version>${version.org.jboss.bom}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.jboss.bom</groupId>
                 <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
-                <version>${jboss.bom.version}</version>
+                <version>${version.org.jboss.bom}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -187,15 +197,15 @@
             <!-- Compiler plugin enforces Java 1.6 compatibility and activates annotation processors -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>${version.compiler.plugin}</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.source}</target>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.2</version>
+                <version>${version.war.plugin}</version>
                 <configuration>
                     <!-- Java EE 6 doesn't require web.xml, Maven needs to catch up! -->
                     <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -223,7 +233,7 @@
                 <plugins>
                     <plugin>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.4.3</version>
+                        <version>${version.surefire.plugin}</version>
                         <configuration>
                             <skip>true</skip>
                         </configuration>
@@ -241,7 +251,7 @@
                 <plugins>
                     <plugin>
                         <artifactId>maven-war-plugin</artifactId>
-                        <version>2.2</version>
+                        <version>${version.war.plugin}</version>
                         <configuration>
                             <outputDirectory>deployments</outputDirectory>
                             <warName>ROOT</warName>
@@ -263,7 +273,7 @@
                     <plugin>
                         <groupId>ro.isdc.wro4j</groupId>
                         <artifactId>wro4j-maven-plugin</artifactId>
-                        <version>${wro4j.version}</version>
+                        <version>${version.ro.isdc.wro4j}</version>
                         <executions>
                             <execution>
                                 <phase>compile</phase>
@@ -281,7 +291,7 @@
                     </plugin>
                     <plugin>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.4.3</version>
+                        <version>${version.surefire.plugin}</version>
                         <configuration>
                             <skip>true</skip>
                         </configuration>
