@@ -1,4 +1,4 @@
-${artifactId}: Example AeroGear Application Using Multiple HTML5, Mobile & JAX-RS Technologies
+${artifactId}: Example HTML5 Application Using Multiple HTML5, Mobile & JAX-RS Technologies
 ==============================================================================================
 Author: Jay Balunas
 

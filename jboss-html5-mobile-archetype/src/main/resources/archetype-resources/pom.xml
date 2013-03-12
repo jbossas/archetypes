@@ -8,7 +8,7 @@
     <packaging>war</packaging>
 
    <name>${artifactId}</name>
-    <description>An AeroGear and Java EE 6 HTML5 mobile web application for use with JBoss.</description>
+    <description>A HTML5 and Java EE 6 HTML5 mobile web application for use with JBoss.</description>
     <url>http://jboss.org/aerogear</url>
 
     <properties>
