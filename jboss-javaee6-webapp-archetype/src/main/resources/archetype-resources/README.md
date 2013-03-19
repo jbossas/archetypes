@@ -1,5 +1,11 @@
-${artifactId}
+${artifactId}: Assortment of technologies including Arquillian
 ========================
+Author: Pete Muir
+Level: Intermediate
+Technologies: CDI, JSF, JPA, EJB, JPA, JAX-RS, BV
+Summary: An example that incorporates multiple technologies
+Target Product: EAP
+Source: <https://github.com/jboss-jdf/jboss-as-quickstart/>
 
 What is it?
 -----------
@@ -8,6 +14,7 @@ This is your project! It is a sample, deployable Maven 3 project to help you get
 
 This project is setup to allow you to create a compliant Java EE 6 application using JSF 2.0, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java. 
 
+There is a tutorial for this quickstart in the [Getting Started Developing Applications Guide](http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/guide/KitchensinkQuickstart/).
 
 System requirements
 -------------------
@@ -16,14 +23,14 @@ All you need to build this project is Java 6.0 (Java SDK 1.6) or better, Maven 3
 
 The application this project produces is designed to be run on JBoss Enterprise Application Platform 6 or JBoss AS 7.1. 
 
-
+ 
 Configure Maven
 ---------------
 
-If you have not yet done so, you must [Configure Maven](../README.html/#mavenconfiguration) before testing the quickstarts.
+If you have not yet done so, you must [Configure Maven](../README.md#mavenconfiguration) before testing the quickstarts.
 
 
-Start JBoss Enterprise Application Platform 6 or JBoss AS 7.1
+Start JBoss Enterprise Application Platform 6 or JBoss AS 7.1 with the Web Profile
 -------------------------
 
 1. Open a command line and navigate to the root of the JBoss server directory.
@@ -32,11 +39,11 @@ Start JBoss Enterprise Application Platform 6 or JBoss AS 7.1
         For Linux:   JBOSS_HOME/bin/standalone.sh
         For Windows: JBOSS_HOME\bin\standalone.bat
 
-
+ 
 Build and Deploy the Quickstart
 -------------------------
 
-_NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. See [Build and Deploy the Quickstarts](../README.html/#buildanddeploy) for complete instructions and additional options._
+_NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. See [Build and Deploy the Quickstarts](../README.md#buildanddeploy) for complete instructions and additional options._
 
 1. Make sure you have started the JBoss Server as described above.
 2. Open a command line and navigate to the root directory of this quickstart.
@@ -45,11 +52,11 @@ _NOTE: The following build command assumes you have configured your Maven user s
         mvn clean package jboss-as:deploy
 
 4. This will deploy `target/${artifactId}.war` to the running instance of the server.
-
+ 
 
 Access the application 
 ---------------------
- 
+
 The application will be running at the following URL: <http://localhost:8080/${artifactId}/>.
 
 
@@ -63,12 +70,12 @@ Undeploy the Archive
         mvn jboss-as:undeploy
 
 
-Run the Arquillian tests
-----------------------------
+Run the Arquillian Tests 
+-------------------------
 
 This quickstart provides Arquillian tests. By default, these tests are configured to be skipped as Arquillian tests require the use of a container. 
 
-_NOTE: The following commands assume you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. See [Run the Arquillian Tests](../README.html/#arquilliantests) for complete instructions and additional options._
+_NOTE: The following commands assume you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. See [Run the Arquillian Tests](../README.md#arquilliantests) for complete instructions and additional options._
 
 1. Make sure you have started the JBoss Server as described above.
 2. Open a command line and navigate to the root directory of this quickstart.
@@ -79,7 +86,7 @@ _NOTE: The following commands assume you have configured your Maven user setting
 
 Run the Quickstart in JBoss Developer Studio or Eclipse
 -------------------------------------
-You can also start the server and deploy the quickstarts from Eclipse using JBoss tools. For more information, see [Use JBoss Developer Studio or Eclipse to Run the Quickstarts](../README.html/#useeclipse) 
+You can also start the server and deploy the quickstarts from Eclipse using JBoss tools. For more information, see [Use JBoss Developer Studio or Eclipse to Run the Quickstarts](../README.md#useeclipse) 
 
 
 Debug the Application
