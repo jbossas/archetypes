@@ -14,7 +14,7 @@
         </requiredProperty>
         <requiredProperty key="jboss-bom-enterprise-version">
             <defaultValue>1.0.2.Final-redhat-1</defaultValue>
-        </requiredProperty>        
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" packaged="false">
@@ -31,11 +31,9 @@
         </fileSet>
     </fileSets>
     <modules>
-        <module id="${rootArtifactId}-ejb" dir="__rootArtifactId__-ejb"
-            name="${rootArtifactId}-ejb">
+        <module id="${rootArtifactId}-ejb" dir="__rootArtifactId__-ejb" name="${rootArtifactId}-ejb">
             <fileSets>
-                <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/main/java</directory>
                     <includes>
                         <include>**/*.java</include>
@@ -53,8 +51,7 @@
                         <include>**/*.sql</include>
                     </includes>
                 </fileSet>
-                <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/test/java</directory>
                     <includes>
                         <include>**/*.java</include>
@@ -73,18 +70,16 @@
                     </includes>
                 </fileSet>
                 <fileSet encoding="UTF-8">
-                  <directory></directory>
-                  <includes>
-                    <include>**/*.factorypath</include>
-                  </includes>
+                    <directory></directory>
+                    <includes>
+                        <include>**/*.factorypath</include>
+                    </includes>
                 </fileSet>
             </fileSets>
         </module>
-        <module id="${rootArtifactId}-web" dir="__rootArtifactId__-web"
-            name="${rootArtifactId}-web">
+        <module id="${rootArtifactId}-web" dir="__rootArtifactId__-web" name="${rootArtifactId}-web">
             <fileSets>
-                <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/main/java</directory>
                     <includes>
                         <include>**/*.java</include>
@@ -113,8 +108,7 @@
                 </fileSet>
             </fileSets>
         </module>
-        <module id="${rootArtifactId}-ear" dir="__rootArtifactId__-ear"
-            name="${rootArtifactId}-ear">
+        <module id="${rootArtifactId}-ear" dir="__rootArtifactId__-ear" name="${rootArtifactId}-ear">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8">
                     <directory>src/main/application</directory>
