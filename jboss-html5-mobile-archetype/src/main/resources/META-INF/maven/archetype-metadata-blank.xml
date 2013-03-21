@@ -14,7 +14,7 @@
     </requiredProperty>
     <requiredProperty key="jboss-bom-enterprise-version">
       <defaultValue>1.0.2.Final-redhat-1</defaultValue>
-    </requiredProperty>
+    </requiredProperty> 
   </requiredProperties>
   <fileSets>
     <fileSet filtered="true" packaged="true" encoding="UTF-8">
