@@ -12,7 +12,7 @@
 
    <groupId>org.jboss.spec.archetypes</groupId>
    <artifactId>jboss-javaee6-webapp-blank-archetype</artifactId>
-   <version>7.1.3-SNAPSHOT</version>
+   <version>7.1.3.CR2</version>
    <packaging>maven-archetype</packaging>
 
    <name>Java EE 6 Webapp</name>
