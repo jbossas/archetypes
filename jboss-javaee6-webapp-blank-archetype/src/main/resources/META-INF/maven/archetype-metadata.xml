@@ -26,7 +26,7 @@
       <defaultValue>false</defaultValue>
     </requiredProperty>
     <requiredProperty key="jboss-bom-enterprise-version">
-      <defaultValue>1.0.4.Final-redhat-3</defaultValue>
+      <defaultValue>1.0.2.Final-redhat-1</defaultValue>
     </requiredProperty>
   </requiredProperties>
   <fileSets>
