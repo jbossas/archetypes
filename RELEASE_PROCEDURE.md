@@ -30,7 +30,11 @@ Publishing builds to Maven
 Release
 -------
 
-To release, simply run:  
+Test all archetypes running:
+
+      mvn test
+
+Then, to release the tested archetypes, simply run:  
       
       ./release.sh -s <old snapshot version> -r <release version>
 
