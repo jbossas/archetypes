@@ -6,7 +6,7 @@
 
     <groupId>org.jboss.spec.archetypes</groupId>
     <artifactId>archetypes-test</artifactId>
-    <version>7.1.3.CR4</version>
+    <version>7.1.3-SNAPSHOT</version>
 
     <name>Archetypes test</name>
 
