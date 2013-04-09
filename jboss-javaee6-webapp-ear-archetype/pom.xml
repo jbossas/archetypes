@@ -89,6 +89,35 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                    <groupId>org.jboss.maven.plugins</groupId>
+                    <artifactId>maven-qstools-plugin</artifactId>
+                    <version>1.0.0.CR3</version>
+                    <configuration>
+                        <projectGitRepo>git://github.com/jboss-jdf/jboss-as-quickstart.git</projectGitRepo>
+                        <projectPath>kitchensink-ear</projectPath>
+                        <rootPackage>org.jboss.as.quickstarts.kitchensink_ear</rootPackage>
+                        <multiModuleProject>true</multiModuleProject>
+                        <branch>jdf-2.1.1.Final</branch>
+                        <extraReplaceValues>
+                            <extraReplaceValue>jboss-as-kitchensink-ear</extraReplaceValue>
+                            <extraReplaceValue>kitchensink-ear-quickstart</extraReplaceValue>
+                            <extraReplaceValue>kitchensink-quickstart</extraReplaceValue>
+                            <extraReplaceValue>KitchensinkEarQuickstart</extraReplaceValue>
+                            <extraReplaceValue>JBoss AS Quickstarts: Kitchensink EAR</extraReplaceValue>
+                        </extraReplaceValues>
+                    </configuration>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>archetypeSync</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
     <properties>

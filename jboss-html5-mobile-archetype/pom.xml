@@ -76,6 +76,32 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.jboss.maven.plugins</groupId>
+                <artifactId>maven-qstools-plugin</artifactId>
+                <version>1.0.0.CR3</version>
+                <configuration>
+                    <projectGitRepo>git://github.com/jboss-jdf/jboss-as-quickstart.git</projectGitRepo>
+                    <projectPath>kitchensink-html5-mobile</projectPath>
+                    <rootPackage>org.jboss.as.quickstarts.html5_mobile</rootPackage>
+                    <branch>628fe0122ca9e81812b52d0cfc723d0e12078562</branch>
+                    <extraReplaceValues>
+                        <extraReplaceValue>jboss-as-kitchensink-html5-mobile</extraReplaceValue>
+                        <extraReplaceValue>JBoss AS Quickstarts: HTML5/Mobile</extraReplaceValue>
+                        <extraReplaceValue>html5mobi</extraReplaceValue>
+                    </extraReplaceValues>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>archetypeSync</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

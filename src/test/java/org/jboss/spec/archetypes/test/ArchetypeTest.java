@@ -76,7 +76,7 @@ public class ArchetypeTest {
         Verifier installer = new Verifier(baseDir.getAbsolutePath());
         installer.setLogFileName("install.log");
         installer.executeGoal("install");
-        
+
         // Remove install.log from inside archetype
         new File(baseDir, "install.log").delete();
     }
@@ -106,7 +106,7 @@ public class ArchetypeTest {
         properties.put("archetypeArtifactId", model.getArtifactId());
         properties.put("archetypeVersion", model.getVersion());
         properties.put("groupId", "org.jboss.as.quickstarts");
-        String artifactId = System.currentTimeMillis() + "-" + model.toString().replaceAll("[^a-zA-Z_0-9]", "") + (eap ? "-enterprise" : "");
+        String artifactId = System.currentTimeMillis() + "-" + model.toString().replaceAll("[^a-zA-Z_0-9]", "") + (eap ? "-eap" : "");
         properties.put("artifactId", artifactId);
         properties.put("version", "0.0.1-SNAPSHOT");
         Verifier verifier = new org.apache.maven.it.Verifier(outputDir);

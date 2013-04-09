@@ -9,9 +9,6 @@
     <requiredProperty key="enterprise">
       <defaultValue>false</defaultValue>
     </requiredProperty>
-    <requiredProperty key="tableSuffix">
-      <defaultValue>html5mobi</defaultValue>
-    </requiredProperty>
     <requiredProperty key="jboss-bom-enterprise-version">
       <defaultValue>1.0.2.Final-redhat-1</defaultValue>
     </requiredProperty> 
