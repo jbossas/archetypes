@@ -1,4 +1,4 @@
-/**
+/*
  * JBoss, Home of Professional Open Source
  * Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
  * contributors by the @authors tag. See the copyright.txt in the
@@ -14,9 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 package ${package}.util;
 
 import java.util.logging.Logger;
@@ -36,7 +33,7 @@ import javax.persistence.PersistenceContext;
  * </p>
  * 
  * <pre>
- * &${symbol_pound}064;Inject
+ * &#064;Inject
  * private EntityManager em;
  * </pre>
  */

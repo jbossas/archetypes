@@ -1,8 +1,8 @@
 --
 -- JBoss, Home of Professional Open Source
--- Copyright Red Hat, Inc., and individual contributors
--- by the @authors tag. See the copyright.txt in the distribution for a
--- full listing of individual contributors.
+-- Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+-- contributors by the @authors tag. See the copyright.txt in the
+-- distribution for a full listing of individual contributors.
 --
 -- Licensed under the Apache License, Version 2.0 (the "License");
 -- you may not use this file except in compliance with the License.
@@ -16,4 +16,4 @@
 --
 
 -- You can use this file to load seed data into the database using SQL statements
-insert into Member_${tableSuffix} (id, name, email, phone_number) values (0, 'John Smith', 'john.smith@mailinator.com', '2125551212')
+insert into Member_${artifactId} (id, name, email, phone_number) values (0, 'John Smith', 'john.smith@mailinator.com', '2125551212')

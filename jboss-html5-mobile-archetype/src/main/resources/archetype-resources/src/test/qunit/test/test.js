@@ -1,9 +1,8 @@
-#set( $symbol_dollar = '$' )
 /*
  * JBoss, Home of Professional Open Source
- * Copyright Red Hat, Inc., and individual contributors
- * by the @authors tag. See the copyright.txt in the distribution for a
- * full listing of individual contributors.
+ * Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+ * contributors by the @authors tag. See the copyright.txt in the
+ * distribution for a full listing of individual contributors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +27,7 @@ test('Build 2 Member Rows', function() {
 
     var html = buildMemberRows(members);
 
-    ok(${symbol_dollar}(html).length == 2, 'Number of rows built: ' + length);
+    ok($(html).length == 2, 'Number of rows built: ' + length);
 });
 
 test('Build 0 member Rows', function() {
@@ -38,24 +37,10 @@ test('Build 0 member Rows', function() {
 
     var html = buildMemberRows(members);
 
-    ok(${symbol_dollar}(html).length == 0, 'Created no rows for empty members');
+    ok($(html).length == 0, 'Created no rows for empty members');
 });
 
 module('Member Restful Calls');
-
-asyncTest('Request current member list', function() {
-    expect(1);
-
-    ${symbol_dollar}.ajax({
-        url: "http://localhost:8080/${artifactId}/rest/members",
-        dataType: "jsonp",
-        jsonp: "jsonpcallback",
-        success: function(data) {
-            ok(${symbol_dollar}(data).length, "Initial member returned");
-            start();
-        }
-    });
-});
 
 test('Register a new member', function() {
     ok(1==1,"TODO");

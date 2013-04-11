@@ -1,4 +1,4 @@
-${artifactId}: JAX-RS Services Documentation
+${artifactId}: JAX-RS Services Documentation 
 =======================================================
 Author: Jay Balunas, Marius Bogoevici
 

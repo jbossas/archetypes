@@ -1,4 +1,4 @@
-/**
+/*
  * JBoss, Home of Professional Open Source
  * Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
  * contributors by the @authors tag. See the copyright.txt in the
@@ -46,8 +46,8 @@ import ${package}.service.MemberRegistration;
 
 /**
  * JAX-RS Example
- * 
- * This class produces a RESTful service to read the contents of the members table.
+ * <p/>
+ * This class produces a RESTful service to read/write the contents of the members table.
  */
 @Path("/members")
 @RequestScoped
@@ -181,5 +181,4 @@ public class MemberResourceRESTService {
         }
         return member != null;
     }
-
 }

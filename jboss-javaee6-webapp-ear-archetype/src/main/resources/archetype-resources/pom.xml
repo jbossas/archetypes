@@ -1,7 +1,3 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set(
-$symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     JBoss, Home of Professional Open Source
@@ -20,14 +16,15 @@ $symbol_escape = '\' )
     limitations under the License.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <name>${artifactId} application</name>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <name>${rootArtifactId}</name>
     <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}</groupId>
-    <artifactId>${artifactId}</artifactId>
+    <artifactId>${rootArtifactId}</artifactId>
     <version>${version}</version>
     <packaging>pom</packaging>
 
+    <url>http://jboss.org/jbossas</url>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -35,7 +32,6 @@ $symbol_escape = '\' )
             <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
         </license>
     </licenses>
-
     <modules>
         <module>${rootArtifactId}-ejb</module>
         <module>${rootArtifactId}-web</module>
@@ -48,25 +44,27 @@ $symbol_escape = '\' )
         <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 
             resources, i.e. build is platform dependent! -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        
+
         <!-- JBoss dependency versions -->
-        <version.jboss.maven.plugin>7.3.Final</version.jboss.maven.plugin>
         
-        <!-- Define the version of JBoss' Java EE 6 APIs and Tools we want to import. -->
-        #if ($enterprise == "true" || $enterprise == "y" || $enterprise == "yes" )
+        <version.jboss.maven.plugin>7.3.Final</version.jboss.maven.plugin>
+
+        <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
+#if ($enterprise == "true" || $enterprise == "y" || $enterprise == "yes" )
         <!-- Certified version of the JBoss EAP components we want to use -->
         <version.jboss.bom>${jboss-bom-enterprise-version}</version.jboss.bom>
-        <!-- Alternatively, comment out the above line, and un-comment the 
+        <!-- Alternatively, comment out the above line, and un-comment the
             line below to use version 1.0.4.Final which is based on community built dependencies. -->
         <!-- <version.jboss.bom>1.0.4.Final</version.jboss.bom> -->
-        #else
+#else
         <version.jboss.bom>1.0.4.Final</version.jboss.bom>
-        <!-- Alternatively, comment out the above line, and un-comment the 
-            line below to use version ${jboss-bom-enterprise-version} which is a release certified 
-            to work with JBoss EAP 6. It requires you have access to the JBoss EAP 6 
+        <!-- Alternatively, comment out the above line, and un-comment the line
+            below to use version ${jboss-bom-enterprise-version} which is a release certified to
+            work with JBoss EAP 6. It requires you have access to the JBoss EAP 6
             maven repository. -->
         <!-- <version.jboss.bom>${jboss-bom-enterprise-version}</version.jboss.bom>> -->
-        #end
+#end
+
         <version.jboss.as>7.2.0.Final</version.jboss.as>
         <!-- Alternatively, comment out the above line, and un-comment the 
             line below to use version 7.2.0.Final-redhat-1 which is a release certified 
@@ -75,11 +73,11 @@ $symbol_escape = '\' )
         <!-- <version.jboss.as>7.2.0.Final-redhat-1</version.jboss.as> -->
 
         <!-- other plugin versions -->
-        <version.compiler.plugin>2.3.2</version.compiler.plugin>
-        <version.surefire.plugin>2.4.3</version.surefire.plugin>
-        <version.war.plugin>2.1.1</version.war.plugin>
+        <version.compiler.plugin>2.3.1</version.compiler.plugin>
         <version.ear.plugin>2.6</version.ear.plugin>
         <version.ejb.plugin>2.3</version.ejb.plugin>
+        <version.surefire.plugin>2.4.3</version.surefire.plugin>
+        <version.war.plugin>2.1.1</version.war.plugin>
 
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.6</maven.compiler.target>
@@ -94,16 +92,16 @@ $symbol_escape = '\' )
             <dependency>
                 <groupId>${groupId}</groupId>
                 <artifactId>${rootArtifactId}-ejb</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
                 <type>ejb</type>
             </dependency>
-
+            
             <!-- Define the version of the WAR so that we don't need to repeat 
                 ourselves in every module -->
             <dependency>
                 <groupId>${groupId}</groupId>
                 <artifactId>${rootArtifactId}-web</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
                 <type>war</type>
                 <scope>compile</scope>
             </dependency>
@@ -123,6 +121,7 @@ $symbol_escape = '\' )
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <dependency>
                 <groupId>org.jboss.bom</groupId>
                 <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
