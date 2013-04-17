@@ -35,7 +35,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @XmlRootElement
-@Table(name = "Member_${artifactId}", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "Member_${tableSuffix}", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Member implements Serializable {
     /** Default value included to remove warning. Remove or modify at will. **/
     private static final long serialVersionUID = 1L;

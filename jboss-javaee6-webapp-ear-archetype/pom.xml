@@ -91,23 +91,23 @@
         </pluginManagement>
         <plugins>
             <plugin>
-                    <groupId>org.jboss.maven.plugins</groupId>
-                    <artifactId>maven-qstools-plugin</artifactId>
-                    <version>1.0.0.CR4</version>
-                    <configuration>
-                        <projectGitRepo>git://github.com/jboss-jdf/jboss-as-quickstart.git</projectGitRepo>
-                        <projectPath>kitchensink-ear</projectPath>
-                        <rootPackage>org.jboss.as.quickstarts.kitchensink_ear</rootPackage>
-                        <multiModuleProject>true</multiModuleProject>
-                        <branch>jdf-2.1.1.Final</branch>
-                        <extraReplaceValues>
-                            <extraReplaceValue>jboss-as-kitchensink-ear</extraReplaceValue>
-                            <extraReplaceValue>kitchensink-ear-quickstart</extraReplaceValue>
-                            <extraReplaceValue>kitchensink-quickstart</extraReplaceValue>
-                            <extraReplaceValue>KitchensinkEarQuickstart</extraReplaceValue>
-                            <extraReplaceValue>JBoss AS Quickstarts: Kitchensink EAR</extraReplaceValue>
-                        </extraReplaceValues>
-                    </configuration>
+                <groupId>org.jboss.maven.plugins</groupId>
+                <artifactId>maven-qstools-plugin</artifactId>
+                <version>1.0.0.CR5</version>
+                <configuration>
+                    <projectGitRepo>git://github.com/jboss-jdf/jboss-as-quickstart.git</projectGitRepo>
+                    <projectPath>kitchensink-ear</projectPath>
+                    <rootPackage>org.jboss.as.quickstarts.kitchensink_ear</rootPackage>
+                    <multiModuleProject>true</multiModuleProject>
+                    <branch>jdf-2.1.1.Final</branch>
+                    <archetypeExpressionReplaceValues>
+                        <archetypeExpressionReplaceValue>jboss-as-kitchensink-ear</archetypeExpressionReplaceValue>
+                        <archetypeExpressionReplaceValue>kitchensink-ear-quickstart</archetypeExpressionReplaceValue>
+                        <archetypeExpressionReplaceValue>kitchensink-quickstart</archetypeExpressionReplaceValue>
+                        <archetypeExpressionReplaceValue>KitchensinkEarQuickstart</archetypeExpressionReplaceValue>
+                        <archetypeExpressionReplaceValue>JBoss AS Quickstarts: Kitchensink EAR</archetypeExpressionReplaceValue>
+                    </archetypeExpressionReplaceValues>
+                </configuration>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>

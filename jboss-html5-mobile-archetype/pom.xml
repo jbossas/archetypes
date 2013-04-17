@@ -80,17 +80,19 @@
             <plugin>
                 <groupId>org.jboss.maven.plugins</groupId>
                 <artifactId>maven-qstools-plugin</artifactId>
-                <version>1.0.0.CR4</version>
+                <version>1.0.0.CR5</version>
                 <configuration>
                     <projectGitRepo>git://github.com/jboss-jdf/jboss-as-quickstart.git</projectGitRepo>
                     <projectPath>kitchensink-html5-mobile</projectPath>
                     <rootPackage>org.jboss.as.quickstarts.html5_mobile</rootPackage>
-                    <branch>eae307be92081ac1b42266cd7cc7738d6b7fa373</branch>
-                    <extraReplaceValues>
-                        <extraReplaceValue>jboss-as-kitchensink-html5-mobile</extraReplaceValue>
-                        <extraReplaceValue>JBoss AS Quickstarts: HTML5/Mobile</extraReplaceValue>
-                        <extraReplaceValue>html5mobi</extraReplaceValue>
-                    </extraReplaceValues>
+                    <branch>609078cd7a4a76c0dda73576e22aee704667c98e</branch>
+                    <replaceValueWithExpression>
+                        <html5mobi>tableSuffix</html5mobi>
+                    </replaceValueWithExpression>
+                    <archetypeExpressionReplaceValues>
+                        <archetypeExpressionReplaceValue>jboss-as-kitchensink-html5-mobile</archetypeExpressionReplaceValue>
+                        <archetypeExpressionReplaceValue>JBoss AS Quickstarts: HTML5/Mobile</archetypeExpressionReplaceValue>
+                    </archetypeExpressionReplaceValues>
                 </configuration>
                 <executions>
                     <execution>
