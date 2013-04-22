@@ -51,6 +51,8 @@ notify_email()
 
 release()
 {
+   echo "Cleaning Archetypes"
+   $DIR/release-utils.sh -c
    echo "Rebuilding blank archetypes"
    $DIR/generate-blank.sh -a
    git commit -a -m"Update blank archetypes"
@@ -59,6 +61,8 @@ release()
    git commit -a -m "Prepare for $RELEASEVERSION release"
    git tag -a $RELEASEVERSION -m "Tag $RELEASEVERSION"
    $DIR/release-utils.sh -r
+   echo "Cleaning Archetypes"
+   $DIR/release-utils.sh -c
    $DIR/release-utils.sh -u -o $RELEASEVERSION -n $NEWSNAPSHOTVERSION
    git commit -a -m "Prepare for development of $NEWSNAPSHOTVERSION"
    echo "***** JBoss Archetypes released"

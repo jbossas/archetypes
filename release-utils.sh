@@ -41,6 +41,7 @@ This script aids with releases. Remember to generate new blank archetypes before
 
 OPTIONS:
    -u      Updates version numbers in all POMs, used with -o and -n
+   -c      Clean Archetypes target Dir
    -l      Install all archetypes locally: $HUMAN_READABLE_ARCHETYPES.
    -o      Old version number to update from
    -n      New version number to update to
@@ -49,6 +50,19 @@ OPTIONS:
    -h      Shows this message
 
 EOF
+}
+
+clean()
+{
+  for archetype in $ARCHETYPES
+  do
+     FILE=${archetype}/pom.xml
+     if [ -f $FILE ]; then
+        echo "\n**** Cleaning $archetype\n"
+        cmd="mvn clean  -f ${archetype}/pom.xml"
+     fi
+     $cmd
+  done
 }
 
 update()
@@ -69,7 +83,6 @@ install()
       fi
       $cmd
    done
-
 }
 
 snapshot()
@@ -97,12 +110,15 @@ NEWVERSION="1.0.0-SNAPSHOT"
 CMD="usage"
 DEST=""
 
-while getopts “srl:uo:n:” OPTION
+while getopts “csrl:uo:n:” OPTION
 
 do
      case $OPTION in
          u)
              CMD="update"
+             ;;
+         c)
+             CMD="clean"
              ;;
          h)
              usage
