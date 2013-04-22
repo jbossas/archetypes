@@ -85,7 +85,7 @@
                     <projectGitRepo>git://github.com/jboss-jdf/jboss-as-quickstart.git</projectGitRepo>
                     <projectPath>kitchensink-html5-mobile</projectPath>
                     <rootPackage>org.jboss.as.quickstarts.html5_mobile</rootPackage>
-                    <branch>609078cd7a4a76c0dda73576e22aee704667c98e</branch>
+                    <branch>89f646ca8369144d5a8add475aafb2ea88c92a29</branch>
                     <replaceValueWithExpression>
                         <html5mobi>tableSuffix</html5mobi>
                     </replaceValueWithExpression>
