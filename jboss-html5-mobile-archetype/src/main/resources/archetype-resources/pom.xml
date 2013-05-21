@@ -49,10 +49,10 @@
         <!-- Certified version of the JBoss EAP components we want to use -->
         <version.jboss.bom>${jboss-bom-enterprise-version}</version.jboss.bom>
         <!-- Alternatively, comment out the above line, and un-comment the
-            line below to use version 1.0.4.Final which is based on community built dependencies. -->
-        <!-- <version.jboss.bom>1.0.4.Final</version.jboss.bom> -->
+            line below to use version 1.0.6.Final which is based on community built dependencies. -->
+        <!-- <version.jboss.bom>1.0.6.Final</version.jboss.bom> -->
 #else
-        <version.jboss.bom>1.0.4.Final</version.jboss.bom>
+        <version.jboss.bom>1.0.6.Final</version.jboss.bom>
         <!-- Alternatively, comment out the above line, and un-comment the line
             below to use version ${jboss-bom-enterprise-version} which is a release certified to
             work with JBoss EAP 6. It requires you have access to the JBoss EAP 6
@@ -67,7 +67,7 @@
 
         <!-- other plugin versions -->
         <version.compiler.plugin>2.3.1</version.compiler.plugin>
-        <version.surefire.plugin>2.4.3</version.surefire.plugin>
+        <version.surefire.plugin>2.10</version.surefire.plugin>
         <version.war.plugin>2.2</version.war.plugin>
 
         <!-- maven-compiler-plugin -->
